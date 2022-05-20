@@ -1,0 +1,26 @@
+{
+  "name": "projetointegradorgrupo10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrbigmon/projetoIntegradorGrupo10.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jrbigmon/projetoIntegradorGrupo10/issues"
+  },
+  "homepage": "https://github.com/jrbigmon/projetoIntegradorGrupo10#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
