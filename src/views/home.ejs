@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<%- include('./partials/head') %> 
+<%- include('./partials/head') %>
+<link rel="stylesheet" href="/css/home.css">
 
 <body>
-   <%- include('./partials/header') %>
 
-   <h1>Hello World</h1> 
+   <main class="home">
+      <a href="/login">
+         <section class="cliente">
+            <img src="" alt="">
+            <p>SOU CLIENTE</p>
+         </section>
+      </a>
 
-   <%- include('./partials/footer') %>
+      <a href="/login">
+         <section class="prestador">
+            <img src="" alt="">
+            <p>SOU PRESTADOR</p>
+         </section>
+      </a>
+   </main>
+
 </body>
 
 </html>
