@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head') %>
+<link rel="stylesheet" href="/css/cardProf.css">
+<link rel="stylesheet" href="/css/global.css">
+</head>
+
+<header>
+    <%- include('./partials/header') %>
+</header>
+
+<main>
+    <section class="titulos">
+        <h1>Perfil do cliente</h1>
+        <h2>Informações sobre</h2>
+    </section>
+
+    <section class="formulario">
+        <form action="/cadastro-perfil" method="post">
+
+            <label for="Foto">Foto:</label>
+            <input type="file" name="foto" placeholder="Insira a sua foto" width="50px" height="50px" border-radius="50px">
+            <br>
+            <label for="nome">Nome:</label>
+            <input type="text" name="nome" placeholder="Insira o seu nome">
+            <br>
+            <label for="cep">CEP:</label>
+            <input type="number" name="cep" placeholder="Insira o seu CEP">
+            <br>
+            <label for="cpf">CPF:</label>
+            <input type="number" name="cpf" placeholder="Insira o seu CPF">
+            <br>
+            <label for="idade">Idade:</label>
+            <input type="number" name="idade" placeholder="Insira a sua idade">
+            <br>
+            <label for="endereco">Endereço:</label>
+            <input type="text" name="endereco" placeholder="Insira o seu endereço">
+            <br>
+            <button type="submit">Finalizar cadastro</button>
+        </form>
+    </section>
+    <section class="ultimos-servicos">
+
+    </section>
+</main>
+<footer>
+    <%- include('./partials/footer') %>
+</footer>
+
+<body>
+
+</body>
+
+</html>
