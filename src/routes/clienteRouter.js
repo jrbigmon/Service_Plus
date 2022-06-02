@@ -1,11 +1,9 @@
 const express = require('express');
-const router = express.router();
+const router = express.Router();
 
 const clienteController = require ('../controllers/clienteController')
 
 router.get('/perfilcliente', clienteController.index);
-router.post ('/perfilcliente', (req, res) => res.send (''));
-router.put ('/perfilcliente/:id', (req, res) => res.send (''));
-router.delete ('/perfilcliente/:id', (req, res) => res.send (''));
+router.get('/perfilcliente/cadastrar', clienteController.showCadastrar)
 
 module.exports = router;
