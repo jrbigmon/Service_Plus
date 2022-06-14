@@ -63,11 +63,12 @@ body {
     margin-left: 10px;
 }
 
-.ultimos-servicos {
+.carrossel {
     width: 80%;
+    display: flex;
 }
 
-.ultimos-servicos h1 {
+.carrossel h1 {
     margin-top: 20px;
     margin-left: 20px;
     font-size: 15px;
@@ -75,11 +76,10 @@ body {
 }
 
 .cards {
-    display: flex;
-    flex-direction: row;
     width: 150px;
-    height: 150px;
+    height: 130px;
     margin-left: 20px;
-    background-color: lightgray;
+    border: solid 1px #7E9BE7;
+    background-color: transparent;
     border-radius: 20px;
 }
