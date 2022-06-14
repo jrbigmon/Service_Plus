@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.titulos h1 {
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: 400px;
+
+}
+
+.titulos h2 {
+    margin-left: 20px;
+    font-size: 15px;
+}
+
+.formulario {
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 80%;
+    border: 1px solid gray;
+    border-radius: 25px;
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    background-color: lightgray;
+}
+
+.titulo {
+    padding-left: 10px;
+}
+
+.avatar {
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+}
+
+.campo-preenchimento {
+    margin-left: 10px;
+    width: 90%;
+}
+
+.forumlario input {
+    padding-left: 10px;
+}
+
+.formulario button {
+    font-size: 13px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.ultimos-servicos {
+    width: 80%;
+}
+
+.ultimos-servicos h1 {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 15px;
+    font-weight: 400px; 
+}
+
+.cards {
+    display: flex;
+    flex-direction: row;
+    width: 150px;
+    height: 150px;
+    margin-left: 20px;
+    background-color: lightgray;
+    border-radius: 20px;
+}
