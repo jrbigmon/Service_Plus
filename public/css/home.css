@@ -1,5 +1,40 @@
+.main-home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-home h1{
+    text-align: center;
+}
 .home {
+    margin: auto;
+    width: 100%;
+    height: 80vh;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
 
+.home a{
+    text-decoration: none;
+}
+
+.home section {
+    height: 332px;
+    width: 173px;
+    color: black;
+    box-shadow: 0 0 1em grey;
+}
+
+.home section div{
+    height: 236px;
+    width: 173px;
+    background-color: grey;
+}
+
+.home section p{
+    text-align: center;
+    padding-top: 5vh;
 }

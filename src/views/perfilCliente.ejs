@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head') %>
+
+<link rel="stylesheet" href="/css/perfilCliente.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+<%- include('./partials/header') %>
+
+<body>
+    <main>
+
+        <section class="titulos">
+            <h1>Seu perfil</h1>
+        </section>
+
+        <section>
+
+            <form class="formulario">
+                <div class="avatar"></div>
+                <label class="titulo" for="nome"></label>
+                <br>
+                <input class="campo-preenchimento" type="nome" class="form-control" id="nome"
+                    placeholder="Nome completo">
+                <br>
+                <label class="titulo" for="cpf"></label>
+                <br>
+                <input class="campo-preenchimento" type="cpf" class="form-control" id="cpf"
+                    placeholder="seu CPF example: 000.000.000-00">
+                <br>
+                <label class="titulo" for="telefone"></label>
+                <br>
+                <input class="campo-preenchimento" type="telefone" class="form-control" id="telefone"
+                    placeholder="Seu telefone example: (000) 00000-0000">
+                <br>
+                <label class="titulo" for="endereco"></label>
+                <br>
+                <input class="campo-preenchimento" type="endereco" class="form-control" id="cep"
+                    placeholder="Seu endereço example: Rua: n.º Bairro:">
+                <br>
+                <label class="titulo" for="cep"></label>
+                <br>
+                <input class="campo-preenchimento" type="cep" class="form-control" id="cep" placeholder="Seu CEP">
+                <br>
+                <label class="titulo" for="senha"></label>
+                <br>
+                <input class="campo-preenchimento" type="password" class="form-control" id="senha" placeholder="Senha">
+                <br>
+                <button type="submit" class="btn btn-primary">Finalizar cadastro!</button>
+
+            </form>
+        </section>
+
+        <section class="ultimos-servicos">
+            <h1>
+                Últimos serviços solicitados
+            </h1>
+            <div class="cards">
+            </div>
+        </section>
+        </section>
+    </main>
+    <footer>
+        <%- include('./partials/footer') %>
+    </footer>
+
+</body>
+
+</html>
