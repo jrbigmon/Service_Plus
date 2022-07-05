@@ -1,0 +1,12 @@
+.title{
+    font-size: 2rem;
+    text-align: center;
+    margin: 2rem 0rem 2rem 0rem;
+}
+
+.cards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
