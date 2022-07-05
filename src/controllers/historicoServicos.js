@@ -1,3 +1,0 @@
-const historicoServicos = {
-    index: 
-}

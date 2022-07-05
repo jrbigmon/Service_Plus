@@ -1,4 +1,6 @@
 const profissionalController = {
-    show: (req, res) => { res.render('./client/listaDeProf', {title:'Lista de Profissionais'})}
+    history: (req, res) => {
+        res.render('./profissional/historicoServicos', {title: 'histórico de serviços'});
+    }
 }
 module.exports = profissionalController;

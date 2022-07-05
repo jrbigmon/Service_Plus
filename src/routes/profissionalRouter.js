@@ -2,6 +2,6 @@ const profissionalController = require('../controllers/profissionalController');
 const express = require('express');
 const router = express.Router();
 
-router.get('/profissionais', profissionalController.show);
+router.get('/perfil/profissional/historico', profissionalController.history);
 
 module.exports = router;
