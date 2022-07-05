@@ -5,18 +5,18 @@
 
 <body>
 
-   <%- include('../partials/header')%> 
+   <%- include('../partials/header')%>
 
    <main class="main-home">
-
-      <h1> FACILITY + </h1>
-
       <section class="home">
 
          <a href="/login">
             <section class="cliente">
                <div> <img src="" alt=""> </div>
                <p>SOU CLIENTE</p>
+               <button>
+                  Buscar um prestador
+               </button>
             </section>
          </a>
 
@@ -24,13 +24,16 @@
             <section class="prestador">
                <div> <img src="" alt=""> </div>
                <p>SOU PRESTADOR</p>
+               <button>
+                  Cadastrar serviço
+               </button>
             </section>
          </a>
 
       </section>
 
    </main>
-   
+   <%- include('../partials/footer')%>
 </body>
 
 </html>
