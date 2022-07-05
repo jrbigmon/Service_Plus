@@ -3,7 +3,8 @@ const router = express.Router();
 
 const clienteController = require ('../controllers/clienteController')
 
-router.get('/perfilcliente', clienteController.index);
-router.get('/perfilcliente/cadastrar', clienteController.showCadastrar)
+router.get('/perfil/cliente', clienteController.index);
+router.get('/perfil/cliente/cadastrar', clienteController.showCadastrar);
+router.get('/perfil/cliente/buscar', clienteController.showBuscar);
 
 module.exports = router;

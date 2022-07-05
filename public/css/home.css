@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 10px;
 }
-
 .main-home h1{
     text-align: center;
 }
@@ -25,13 +25,13 @@
     height: 332px;
     width: 173px;
     color: black;
-    box-shadow: 0 0 1em grey;
+    box-shadow: 0 0 1px  grey;
 }
 
 .home section div{
     height: 236px;
     width: 173px;
-    background-color: grey;
+    background-color: #C4C4C4;
 }
 
 .home section p{
