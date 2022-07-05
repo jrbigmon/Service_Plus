@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 const port = 3000;
 
 const homeRouter = require('./src/routes/homeRouter')
@@ -9,7 +10,7 @@ const clienteRouter = require ('./src/routes/clienteRouter');
 app.set('view engine', 'ejs')
 app.set ('views', 'src/views')
 
-app.use(express.static('public')) 
+app.use(express.static(path.resolve(__dirname, 'public'))); 
 
 app.use(homeRouter)
 app.use(profissionalRouter)
