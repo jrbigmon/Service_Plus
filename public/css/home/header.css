@@ -1,22 +1,33 @@
-.header-container{
-    background-color: grey;
-    height: 3rem;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+.header-container {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #001E6C;
+    height: 5rem;
     width: 100%;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;    
+    justify-content: space-between;
 }
-.logo-container{
+
+.logo-container {
     margin: 1rem;
     padding: 1px;
 }
-.menu-burger{
-    margin: 0.7rem;
+
+.logo-container h1 {
+    font-size: 1.3rem;
+    color: #FFA500;
 }
-.menu-burger a{
+
+.menu-burger {
+    margin: 1rem;
+}
+
+.menu-burger a {
     text-decoration: none;
-    color: #000000;
+    color: #FFA500;
 }

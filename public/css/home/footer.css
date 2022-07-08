@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+.footer-container {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #001E6C;
+    height: 8rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo-container {
+    font-size: 0.9rem;
+    color: #FFA500;
+}
+
+.logo-container h2 {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: white;
+}
+
+.lista-opções {
+}
+
+.lista-opções ul li {
+    list-style: none;
+}
+
+.lista-opções ul li a {
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #FFA500;
+}
+
+.icones {
+}
+
+.bi-instagram {
+    color: #FFA500;
+}
+
+.bi-facebook {
+    color: #FFA500;
+    margin-top: 0.7rem;
+}
+
+.bi-whatsapp {
+    color: #FFA500;
+    margin-top: 0.7rem;
+}
+
+.input-contato {
+}
+
+.input-contato h5 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #FFA500;
+}
+
+.input-contato input {
+    border: 2px solid #FCD900;
+    border-radius: 10px;
+}
+
+.input::placeholder {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: gray;
+}
