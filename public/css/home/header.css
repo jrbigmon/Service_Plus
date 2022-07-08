@@ -3,7 +3,7 @@
 .header-container {
     font-family: 'Montserrat', sans-serif;
     background-color: #001E6C;
-    height: 3rem;
+    height: 5rem;
     width: 100%;
     padding: 0;
     margin: 0;
@@ -16,11 +16,15 @@
 .logo-container {
     margin: 1rem;
     padding: 1px;
+}
+
+.logo-container h1 {
+    font-size: 1.3rem;
     color: #FFA500;
 }
 
 .menu-burger {
-    margin: 0.8rem;
+    margin: 1rem;
 }
 
 .menu-burger a {
