@@ -1,59 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
-* {
-    box-sizing: border-box;
+body {
+    background-color: #EAF6F6;
 }
 
-.title1 {
+.main-home {
+    font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 15px;
-
-    position: absolute;
-    width: 93px;
-    height: 44px;
-    left: 150px;
-    top: 170px;
+    margin: 10px;
 }
 
-body {
-    font-family: 'Nunito', sans-serif;
-    padding: 0;
-    margin: 0;
-    color: #575757;
+.login {
+    margin: auto;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
-h1 {
-    color: black;
-    text-align: center;
-     
+.login h1 {
+    
 }
 
-.form1 {
-    position: absolute;
-    width: 350px;
-    height: 124px;
-    left:100px;
-    top: 265px;
-
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    width: 50vh;
+    box-shadow: 0 0 7px #035397;
+    border-radius: 35px;
+    background-color: white;
 }
 
-.botao1 {
-    height: 35px;
-    width: 100px;
-    left: 270px;
-    top: 525px;
-    border-radius: 20px;
-    padding: 10px;
+.formulario h1 {
+    font-weight: 600;
+    color: #E8630A;
+    margin-bottom: 2rem;
 }
-.botao2 {
-    height: 35px;
-    width: 80px;
-    left: 270px;
-    top: 525px;
-    border-radius: 20px;
-    padding: 10px;  
+
+.formulario input {
+    border: 0.1rem solid #035397;
+    border-radius: 1rem;
+}
+
+.input::placeholder {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: gray;
+}
+
+.formulario a {
+    text-decoration: none;
+    color: #FCD900;
+    font-weight: 600;
+    margin-top: 1rem;
+}
+
+.formulario button {
+    width: 30vh;
 }
