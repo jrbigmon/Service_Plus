@@ -52,14 +52,13 @@
                        Sou Profissional
                     </label>
                 </div>
-                <select name="area_id" class="form-select col-md-12" aria-label="Disabled select example" id="gridCheck">
-                    <option selected>Selecione a Área de serviço</option>
+                <select name="area_id" class="form-select form-select-lg mb-2" aria-label=".form-select-lg example" id="gridCheck">
                     <% areas.forEach(area => { %>
                         <option value="<%= area.id %>"><%= area.nome %></option>
                     <% }) %> 
                   </select>
             </div>
-            <div class="col-md-12 mt-5 text-center">
+            <div class="col-md-12 mt-2 text-center">
                 <button type="submit" class="btn btn-primary col-md-6">Salvar</button>
             </div>
         </form>

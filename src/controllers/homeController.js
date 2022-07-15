@@ -75,7 +75,7 @@ const homeController = {
             profissional
         } = req.body;
 
-        if (profissional) {
+        if (profissional && area_id) {
             await Profissional.create({
                 nome,
                 sobrenome,
