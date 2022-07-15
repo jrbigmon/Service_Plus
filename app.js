@@ -7,6 +7,9 @@ const homeRouter = require('./src/routes/homeRouter');
 const profissionalRouter = require('./src/routes/profissionalRouter');
 const clienteRouter = require ('./src/routes/clienteRouter');
 
+app.use(express.json()); 
+app.use(express.urlencoded({ extended: false }));
+
 app.set('view engine', 'ejs');
 app.set ('views', 'src/views');
 

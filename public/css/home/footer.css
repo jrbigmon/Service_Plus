@@ -66,12 +66,25 @@
 }
 
 .input-contato input {
-    border: 2px solid #FCD900;
-    border-radius: 10px;
+    width: 20vh;
+    border: 0.1rem solid #FCD900;
+    border-radius: 5rem;
 }
 
 .input::placeholder {
     font-size: 0.9rem;
     font-weight: 800;
     color: gray;
+}
+
+@media (max-width: 1440px) {
+    .footer-container {
+        font-size: 100%
+    }
+}
+
+@media (max-width: 425px) {
+    .footer-container {
+        font-size: 10%
+    }
 }

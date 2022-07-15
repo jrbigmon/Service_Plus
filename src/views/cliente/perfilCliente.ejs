@@ -19,13 +19,19 @@
                 <div>
                     <label for="nome"></label>
                         <br>
-                        <input type="text" name="nome" placeholder="Nome completo">
+                        <input type="text" name="nome" value="<%= cliente.nome  %> ">
+                    </label>
+                </div>
+                <div>
+                    <label for="sobrenome"></label>
+                        <br>
+                        <input type="text" name="sobrenome" value="<%= cliente.sobrenome  %> ">
                     </label>
                 </div>
                 <div>
                     <label for="cpf"></label>
                         <br>
-                        <input type="number" name="cpf" placeholder="CPF">
+                        <input type="number" name="cpf" value="<%= cliente.cpf %> ">
                 </div>
                 <div>
                     <label for="email"></label>
