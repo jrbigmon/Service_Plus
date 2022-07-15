@@ -9,18 +9,18 @@
     <main class="main-home">
         <section class="login">
 
-            <form class="formulario">
+            <form action="/login" method="POST" class="formulario">
                 <h1>LOGIN</h1>
                 <div>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    <input name='email' type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
                         placeholder="Seu email">
                 </div>
                 <br>
                 <div>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                    <input name="senha" type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
                 </div>
                 <br>
-                <button type="button" class="btn btn-info">Entrar</button>
+                <button  type="submit" class="btn btn-info">Entrar</button>
                 <a href="#">Cadastre-se</a>
             </form>
 
