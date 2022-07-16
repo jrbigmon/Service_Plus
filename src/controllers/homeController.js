@@ -1,4 +1,5 @@
 const {Cliente, Area, Profissional} = require('../database/models');
+const { validationResult } = require('express-validator');
 
 const homeController = {
     index: (req, res) => {
@@ -62,52 +63,62 @@ const homeController = {
     },
 
     cadastroProcess: async (req, res) => {
-        const {
-            nome,
-            sobrenome,
-            data_nascimento,
-            cep,
-            telefone,
-            email,
-            senha,
-            cpf,
-            area_id,
-            profissional
-        } = req.body;
+        const areas = await Area.findAll();
+        const errors = validationResult(req);
+        console.log(errors)
+        if(errors.isEmpty()) {
+                const {
+                    nome,
+                    sobrenome,
+                    data_nascimento,
+                    cep,
+                    telefone,
+                    email,
+                    senha,
+                    cpf,
+                area_id,
+                profissional
+            } = req.body;
+            
+            if (profissional && area_id) {
+                await Profissional.create({
+                    nome,
+                    sobrenome,
+                    data_nascimento,
+                    cep,
+                    telefone,
+                    email,
+                    senha,
+                    cpf,
+                    area_id
+                })
+            } else {
+                await Cliente.create({
+                    nome,
+                    sobrenome,
+                    data_nascimento,
+                    cep,
+                    telefone,
+                    email,
+                    senha,
+                    cpf
+                })
+            }
+        
+            return res.redirect('/login')
 
-        if (profissional && area_id) {
-            await Profissional.create({
-                nome,
-                sobrenome,
-                data_nascimento,
-                cep,
-                telefone,
-                email,
-                senha,
-                cpf,
-                area_id
-            })
-        } else {
-            await Cliente.create({
-                nome,
-                sobrenome,
-                data_nascimento,
-                cep,
-                telefone,
-                email,
-                senha,
-                cpf
-            })
+        } else{
+
+            return res.render('./home/cadastro', {title:'cadastro', errors: errors.mapped(), areas, old: req.body})
+
         }
-
-        return res.redirect('/login')
     },
-
+    
     sobre: (req, res) => {
         res.render('./home/sobre', {
             title: 'sobre'
         })
     },
-
+    
 }
 module.exports = homeController;
