@@ -8,17 +8,23 @@
 
     <main class="m-5">
         <h1 class="text-center">Cadastre-se</h1>
+
+        <% if (typeof errors !== 'undefined'){ %>
+            <% for(error in errors){ %>
+                <li> <%= `${errors[error].msg}` %> </li>
+            <% } %> 
+        <% } %> 
         <form class="row g-3" action="/cadastro" method="POST">
             <div class="col-md-12">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" id="email" placeholder="exemplo@email.com">
+                <input type="email" name="email" class="form-control" id="email" placeholder="exemplo@email.com" value="<%= locals.old && old.email %>">
             </div>
             <div class="col-md-6">
                 <label for="senha" class="form-label">Senha</label>
                 <input type="password" name="senha" class="form-control" id="senha" placeholder="**********">
             </div>
             <div class="col-md-6">
-                <label for="confirmSenha" class="form-label">Confirme a senha</label>
+                <label for="confirmeSenha" class="form-label">Confirme a senha</label>
                 <input type="password" name="confirmSenha" class="form-control" id="confirmSenha" placeholder="**********">
             </div>
             <div class="col-md-6">
