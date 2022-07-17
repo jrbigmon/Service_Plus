@@ -1,5 +1,6 @@
 const {Cliente, Area, Profissional} = require('../database/models');
 const { validationResult } = require('express-validator');
+const bcrypt = require('bcryptjs');
 
 const homeController = {
     index: (req, res) => {
@@ -19,38 +20,33 @@ const homeController = {
     loginProcess: async (req, res) => {
         const {usuario} = req.query;
         const { email, senha } = req.body;
+
         if(usuario == 'cliente'){
-            const cliente = await Cliente.findOne({
-                where: {
-                    email,
-                    senha
-                }
-            })
-            if (cliente) {
+            const cliente = await Cliente.findOne({ where: {email} });
+            const valid = bcrypt.compareSync(senha, cliente.senha);
+            if (valid) {
                 delete cliente.senha;
                 return res.render('./cliente/perfilCliente', {
                     title: 'Perfil',
                     cliente
                 })
-            } else {
-                return res.redirect('/login/?usuario=cliente');
             }
-        } else if(usuario == 'profissional'){
-            const profissional = await Profissional.findOne({
-                where: {
-                    email,
-                    senha
-                }
-            })
-            if (profissional) {
+
+            return res.redirect('/login/?usuario=cliente');
+        }; 
+
+        if(usuario == 'profissional'){
+            const profissional = await Profissional.findOne({ where: {email} });
+            const valid = bcrypt.compareSync(senha, profissional.senha);
+            if (valid) {
                 delete profissional.senha;
                 return res.render('./profissional/perfilProfissional', {
                     title: 'Perfil',
                     profissional
                 })
-            } else {
-                return res.redirect('/login/?usuario=profissional');
             }
+
+            return res.redirect('/login/?usuario=profissional');
         }
     },
 
@@ -64,18 +60,18 @@ const homeController = {
 
     cadastroProcess: async (req, res) => {
         const areas = await Area.findAll();
-        const errors = validationResult(req);
-        console.log(errors)
+        const errors = validationResult(req); 
+        
         if(errors.isEmpty()) {
-                const {
-                    nome,
-                    sobrenome,
-                    data_nascimento,
-                    cep,
-                    telefone,
-                    email,
-                    senha,
-                    cpf,
+            const {
+                nome,
+                sobrenome,
+                data_nascimento,
+                cep,
+                telefone,
+                email,
+                senha,
+                cpf,
                 area_id,
                 profissional
             } = req.body;
@@ -88,7 +84,7 @@ const homeController = {
                     cep,
                     telefone,
                     email,
-                    senha,
+                    senha: bcrypt.hashSync(senha, 10),
                     cpf,
                     area_id
                 })
@@ -100,18 +96,16 @@ const homeController = {
                     cep,
                     telefone,
                     email,
-                    senha,
+                    senha: bcrypt.hashSync(senha, 10),
                     cpf
                 })
             }
         
-            return res.redirect('/login')
-
-        } else{
-
-            return res.render('./home/cadastro', {title:'cadastro', errors: errors.mapped(), areas, old: req.body})
-
+            return res.redirect('/')
         }
+
+        return res.render('./home/cadastro', {title:'cadastro', errors: errors.mapped(), areas, old: req.body})
+
     },
     
     sobre: (req, res) => {
