@@ -25,31 +25,31 @@
             </div>
             <div class="col-md-6">
                 <label for="confirmeSenha" class="form-label">Confirme a senha</label>
-                <input type="password" name="confirmSenha" class="form-control" id="confirmSenha" placeholder="**********">
+                <input type="password" name="confirmeSenha" class="form-control" id="confirmeSenha" placeholder="**********">
             </div>
             <div class="col-md-6">
                 <label for="nome" class="form-label">Nome</label>
-                <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome">
+                <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome" value="<%= locals.old && old.nome %>">
             </div>
             <div class="col-md-6">
                 <label for="sobrenome" class="form-label">Sobrenome</label>
-                <input type="text" name="sobrenome" class="form-control" id="sobrenome" placeholder="Sobrenome">
+                <input type="text" name="sobrenome" class="form-control" id="sobrenome" placeholder="Sobrenome" value="<%= locals.old && old.sobrenome %>">
             </div>
             <div class="col-md-6">
                 <label for="cpf" class="form-label">CPF</label>
-                <input type="text" name="cpf" class="form-control" id="cpf" placeholder="Não utilizar separadores!">
+                <input type="text" name="cpf" class="form-control" id="cpf" placeholder="Não utilizar separadores!" value="<%= locals.old && old.cpf %>">
             </div>
             <div class="col-md-6">
                 <label for="dataNascimento" class="form-label">Data de Nascimento</label>
-                <input type="date" name="data_nascimento" class="form-control" id="dataNascimento">
+                <input type="date" name="data_nascimento" class="form-control" id="dataNascimento" value="<%= locals.old && old.data_nascimento %>">
             </div>
             <div class="col-md-6">
                 <label for="cep" class="form-label">CEP</label>
-                <input type="text" name="cep" class="form-control" id="cep" placeholder="12345678">
+                <input type="text" name="cep" class="form-control" id="cep" placeholder="12345678" value="<%= locals.old && old.cep %>">
             </div>
             <div class="col-md-6 mb-2">
                 <label for="telefone" class="form-label">Telefone</label>
-                <input type="tel" name="telefone" class="form-control" id="telefone" placeholder="(DDD)912345678">
+                <input type="tel" name="telefone" class="form-control" id="telefone" placeholder="(DDD)912345678" value="<%= locals.old && old.telefone %>">
             </div>
             <div class="col-md-12">
                 <div class="form-check">
