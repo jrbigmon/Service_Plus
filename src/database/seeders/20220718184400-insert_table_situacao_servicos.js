@@ -5,15 +5,15 @@ module.exports = {
     const estado = [
       {
         id: 1,
-        nome: 'Orçamentar'
+        estado: 'Orçamentar'
       },
       {
         id: 2,
-        nome: 'Executar'
+        estado: 'Executar'
       },
       {
         id: 3,
-        nome: 'Finalizado'
+        estado: 'Finalizado'
       }
     ];
     
