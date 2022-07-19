@@ -9,7 +9,7 @@
     <main class="main-home">
         <section class="login">
 
-            <form action="/login" method="POST" class="formulario">
+            <form action="/login/?usuario=<%= usuario %> " method="POST" class="formulario">
                 <h1>LOGIN</h1>
                 <div>
                     <input name='email' type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -21,7 +21,7 @@
                 </div>
                 <br>
                 <button  type="submit" class="btn btn-info">Entrar</button>
-                <a href="#">Cadastre-se</a>
+                <a href="/cadastro">Cadastre-se</a>
             </form>
 
         </section>
