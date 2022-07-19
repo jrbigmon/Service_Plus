@@ -27,7 +27,7 @@ const homeController = {
             if (valid) {
                 delete cliente.senha;
                 return res.render('./cliente/perfilCliente', {
-                    title: 'Perfil',
+                    title: cliente.nome,
                     cliente
                 })
             }
@@ -41,7 +41,7 @@ const homeController = {
             if (valid) {
                 delete profissional.senha;
                 return res.render('./profissional/perfilProfissional', {
-                    title: 'Perfil',
+                    title: profissional.nome,
                     profissional
                 })
             }

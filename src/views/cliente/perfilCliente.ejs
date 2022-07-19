@@ -11,47 +11,42 @@
             <h3>Informações sobre</h3>
         </section>
         <section class="formulario-geral">
-            <form action="perfil/cliente" method="POST">
+            <form class="" action="perfil/cliente" method="POST">
                 <div>
                     Aqui vai uma imagem
                 </div>
                 <br>
                 <div>
-                    <label for="nome"></label>
+                    <label for="nome">Nome:</label>
                         <br>
                         <input type="text" name="nome" value="<%= cliente.nome  %> ">
                     </label>
                 </div>
                 <div>
-                    <label for="sobrenome"></label>
+                    <label for="sobrenome">Sobrenome:</label>
                         <br>
-                        <input type="text" name="sobrenome" value="<%= cliente.sobrenome  %> ">
+                        <input type="text" name="sobrenome" value="<%= cliente.sobrenome %>">
                     </label>
                 </div>
                 <div>
-                    <label for="cpf"></label>
+                    <label for="cpf">CPF:</label>
                         <br>
-                        <input type="number" name="cpf" value="<%= cliente.cpf %> ">
+                        <input type="number" name="cpf" value="<%= cliente.cpf %>">
                 </div>
                 <div>
-                    <label for="email"></label>
+                    <label for="email">Email:</label>
                     <br>
-                    <input type="email" name="email" placeholder="Email">
+                    <input type="email" name="email" value="<%= cliente.email %>">
                 </div>
                 <div>
-                    <label for="senha"></label>
+                    <label for="CEP">CEP</label>
                     <br>
-                    <input type="password" name="senha" placeholder="Senha">
+                    <input type="text" name="cep" value="<%= cliente.cep %>">
                 </div>
                 <div>
-                    <label for="endereco"></label>
+                    <label for="endereco">Endereço</label>
                     <br>
-                    <input type="text" placeholder="Endereço">
-                </div>
-                <div>
-                    <label for="CEP"></label>
-                    <br>
-                    <input type="number" placeholder="CEP">
+                    <input type="text" placeholder="Endereço" disabled>
                 </div>
                 <br>
                 <button type="button" class="btn btn-success">Finalizar Cadastro</button>
