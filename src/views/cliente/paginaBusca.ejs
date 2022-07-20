@@ -9,76 +9,59 @@
 
 <body>
     <%- include('../partials/header') %>
+    <main>
+        <section class="text-main">
 
-    <section class="text-main">
-
-        <h1 class="title">O que você precisa?</h1>
-        <p class="sub-title">Receba orcamentos de forma rápida e segura.</p>
-
-    </section>
-
-    <nav class="navbar">
-
-        <div class="container-fluid">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-        </div>
-
-    </nav>
-
-    <form class="form-control form-control-checkbox">
-        <section  class=" checkbox">
-
-            <div>
-    
-                <input type="checkbox" class="btn-check" id="Eletricista" autocomplete="off">
-                <label class="btn btn-outline-primary" for="Eletricista">Eletricista</label>
-    
-                <input type="checkbox" class="btn-check" id="Encanador" autocomplete="off">
-                <label class="btn btn-outline-primary" for="Encanador">Encanador</label>
-    
-                <input type="checkbox" class="btn-check" id="Limpeza" autocomplete="off">
-                <label class="btn btn-outline-primary" for="Limpeza">Limpeza</label>
-    
-            </div>
-    
-            <div>
-    
-                <button type="submit" class="btn btn-success"> > </button>
-            </div>
+            <h1 class="title">O que você precisa?</h1>
+            <p class="sub-title">Receba orcamentos de forma rápida e segura.</p>
 
         </section>
 
-    </form>
+        <nav class="navbar">
 
-    <section class="card-carousel">
-
-        <div class="card" style="width: 18rem;">
-            <img src="https://d5y9g7a5.rocketcdn.me/wp-content/uploads/2020/04/girafa-caracteristicas-e-comportamento-da-especie-1.jpg"
-                class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Nome</h5>
-                <p class="card-text">Descrição das Atividades</p>
-                <a href="#" class="btn btn-primary">Ir ao perfil</a>
+            <div class="container-fluid">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
             </div>
-        </div>
 
-        <div class="card" style="width: 18rem;">
-            <img src="https://d5y9g7a5.rocketcdn.me/wp-content/uploads/2020/04/girafa-caracteristicas-e-comportamento-da-especie-1.jpg"
-                class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Nome</h5>
-                <p class="card-text">Descrição das Atividades</p>
-                <a href="#" class="btn btn-primary">Ir ao perfil</a>
+        </nav>
+
+        <form class="form-control form-control-checkbox">
+            <section class=" checkbox">
+
+                <div>
+
+                    <input type="checkbox" class="btn-check" id="Eletricista" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="Eletricista">Eletricista</label>
+
+                    <input type="checkbox" class="btn-check" id="Encanador" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="Encanador">Encanador</label>
+
+                    <input type="checkbox" class="btn-check" id="Limpeza" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="Limpeza">Limpeza</label>
+
+                </div>
+                <button type="submit" class="btn-outline-success align-middle">></button>
+                
+            </section>
+        </form>
+
+        <section class="card-carousel">
+
+            <div class="card" style="width: 18rem;">
+                <img src="https://d5y9g7a5.rocketcdn.me/wp-content/uploads/2020/04/girafa-caracteristicas-e-comportamento-da-especie-1.jpg"
+                    class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Nome</h5>
+                    <p class="card-text">Descrição das Atividades</p>
+                    <a href="#" class="btn btn-primary">Ir ao perfil</a>
+                </div>
             </div>
-        </div>
-
-        
-
-    </section>
-
+        </section>
+    </main>
+    <%- include('../partials/footer')%> 
 </body>
 
 </html>
