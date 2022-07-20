@@ -17,30 +17,30 @@
 
         </section>
 
-        <nav class="navbar">
+        <!-- <nav class="navbar">
 
             <div class="container-fluid">
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <form class="d-flex" role="search" action="/perfil/cliente/profissionais" method="POST">
+                    <input name="area" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
             </div>
 
-        </nav>
+        </nav> -->
 
-        <form class="form-control form-control-checkbox">
+        <form class="form-control form-control-checkbox" action="/perfil/cliente/profissionais" method="POST">
             <section class=" checkbox">
 
                 <div>
 
-                    <input type="checkbox" class="btn-check" id="Eletricista" autocomplete="off">
+                    <input name="area" value="1" type="checkbox" class="btn-check" id="Eletricista" autocomplete="off">
                     <label class="btn btn-outline-primary" for="Eletricista">Eletricista</label>
 
-                    <input type="checkbox" class="btn-check" id="Encanador" autocomplete="off">
+                    <input name="area" value="2" type="checkbox" class="btn-check" id="Encanador" autocomplete="off">
                     <label class="btn btn-outline-primary" for="Encanador">Encanador</label>
 
-                    <input type="checkbox" class="btn-check" id="Limpeza" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="Limpeza">Limpeza</label>
+                    <input name="area" value="3" type="checkbox" class="btn-check" id="Limpeza" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="Limpeza">Pintor</label>
 
                 </div>
                 <button type="submit" class="btn-outline-success align-middle">></button>

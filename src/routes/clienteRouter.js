@@ -6,7 +6,10 @@ const clienteController = require ('../controllers/clienteController')
 
 router.use(auth);
 router.get('/perfil/cliente/buscar', clienteController.showBuscar);
+
+router.post('/perfil/cliente/profissionais', clienteController.showProfissionais);
 router.get('/perfil/cliente/profissionais', clienteController.showProfissionais);
+
 router.get('/perfil/cliente/profissional/:id', clienteController.showProfissional); 
 
 module.exports = router;

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/head') %>
-<link rel="stylesheet" href="/css/cliente/cardProf.css">
+<!-- <link rel="stylesheet" href="/css/cliente/cardProf.css"> -->
 <link rel="stylesheet" href="/css/global.css">
 
 <body>
@@ -9,22 +9,46 @@
     <%- include('../partials/header') %>
 
     <main class="listaDeProf">
+        <details>
+            <form class="" action="/perfil/cliente/profissionais" method="POST">
+                <section class=" checkbox">
+    
+                    <div>
+    
+                        <input name="order" value="ASC" type="radio" class="btn-check" id="Eletricista" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Eletricista">Crescente</label>
+    
+                        <input name="order" value="DESC" type="radio" class="btn-check" id="Encanador" autocomplete="off">
+                        <label class="btn btn-outline-primary" for="Encanador">Decrescente</label>
 
-        <section class="card">
+                        <% for(let i = 0; i< area.length; i++) {%>
+                            <input name="area" value="<%= area[i]%>" hidden>
+                        <% } %> 
+                        
+                    </div>
+                    <button type="submit" class="btn-outline-success align-middle">Buscar</button>
+                    
+                </section>
+        </details>
+        <div class="card">
+            <% if(profissionais != 'undefined') { %>
+                <% profissionais.forEach(profissional => { %>
+    
+                    <div class="card" style="width: 18rem;">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title"><%= `${profissional.nome} ${profissional.area.nome}`  %> </h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <a href="#" class="btn btn-primary"><%= profissional.id %> </a>
+                        </div>
+                    </div>
+    
+                <% }) %>
+            <% } %>
+        </div>
+    </main> 
 
-            <article class="info-profile">
-                <div class="card-img"> </div> <!-- foto de perfil do profissional -->
-                <p class="card-name"> Nome Sobrenome </p>
-            </article>
-            <article class="service-profile">
-                <span> Pintor </span>
-                <span> Eletricista </span>
-                <span> Encanador </span>
-            </article>
-            <p class="card-descrip"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat impedit consequatur aperiam culpa fugiat. Officiis adipisci dicta tempore vel voluptatibus, harum odit optio ipsa sunt laudantium praesentium, perferendis repudiandae! Unde. </p>
-
-        </section>
-    </main>    
     <%- include('../partials/footer') %>
+
 </body>
 </html>
