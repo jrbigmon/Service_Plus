@@ -20,6 +20,33 @@ const clienteController = {
 
     showProfissional: (req, res) => { 
         res.render('./profissional/resumoProfissional', {title: 'cartão profissional'})
+    },
+
+    showEdit: async (req, res) => {
+        const {id} = req.params;
+        const cliente  = await Cliente.findByPk(id);
+        return res.render('./cliente/perfilCliente', {title: cliente.nome, cliente})
+    },
+
+    edit: async (req, res) => {
+        const {nome, sobrenome, cpf, cep} = req.body;
+        const {id} = req.params;
+        await Cliente.update({
+            nome, 
+            sobrenome, 
+            cpf, 
+            cep
+        },
+        {
+            where: { id }
+        })
+        return res.redirect('/perfil/cliente/buscar')
+    },
+
+    delete: async (req, res) => {
+        const {id} = req.params;
+        await Cliente.destroy({ where: { id } });
+        return res.redirect('/');
     }
 }
 

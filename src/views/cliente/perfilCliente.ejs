@@ -9,9 +9,10 @@
         <section class="titulo-pagina">
             <h1>Perfil do cliente</h1>
             <h3>Informações sobre: <%= cliente.nome %></h3>
+            <h3><%= cliente.email %></h3>
         </section>
         <section class="formulario-geral">
-            <form class="" action="perfil/cliente" method="POST">
+            <form class="" action="/perfil/cliente/<%= cliente.id %>/editar?_method=PUT" method="POST">
                 <div>
                     Aqui vai uma imagem
                 </div>
@@ -34,11 +35,6 @@
                         <input type="number" name="cpf" value="<%= cliente.cpf %>">
                 </div>
                 <div>
-                    <label for="email">Email:</label>
-                    <br>
-                    <input type="email" name="email" value="<%= cliente.email %>">
-                </div>
-                <div>
                     <label for="CEP">CEP</label>
                     <br>
                     <input type="text" name="cep" value="<%= cliente.cep %>">
@@ -49,12 +45,15 @@
                     <input type="text" placeholder="Endereço" disabled>
                 </div>
                 <br>
-                <button type="button" class="btn btn-success">Finalizar Cadastro</button>
+                <button type="submit" class="btn btn-warning">Finalizar Cadastro</button>
+            </form>
+            <form action="/perfil/cliente/<%= cliente.id %>/deletar?_method=DELETE" method="POST">
+                <button class="btn btn-danger" type="submit"> Deletar conta!</button>
             </form>
         </section>
         <section class="carrossel">
             <h1>
-                Aqui vai o carrossel =)
+                Aqui vai o carrossel =) NICE
             </h1>
         </section>
     </main>

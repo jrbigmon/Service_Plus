@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const port = 3000;
 const session = require ('express-session');
+var methodOverride = require('method-override')
 
 const homeRouter = require('./src/routes/homeRouter');
 const profissionalRouter = require('./src/routes/profissionalRouter');
@@ -10,6 +11,8 @@ const clienteRouter = require ('./src/routes/clienteRouter');
 
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: false }));
+
+app.use(methodOverride('_method'))
 
 app.set('view engine', 'ejs');
 app.set ('views', 'src/views');
