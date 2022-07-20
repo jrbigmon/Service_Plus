@@ -26,8 +26,8 @@ const homeController = {
             const cliente = await Cliente.findOne({ where: {email} });
             const valid = bcrypt.compareSync(senha, cliente.senha);
             if (valid) {
-                req.session.usuarios = usuario
                 delete cliente.senha;
+                req.session.usuario = cliente
                 return res.render('./cliente/perfilCliente', {
                     title: cliente.nome,
                     cliente
@@ -41,8 +41,8 @@ const homeController = {
             const profissional = await Profissional.findOne({ where: {email} });
             const valid = bcrypt.compareSync(senha, profissional.senha);
             if (valid) {
-                req.session.usuarios = usuario
                 delete profissional.senha;
+                req.session.usuario = profissional
                 return res.render('./profissional/perfilProfissional', {
                     title: profissional.nome,
                     profissional

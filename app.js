@@ -19,7 +19,7 @@ app.use(express.static(path.resolve('public')));
 app.use(session({
     secret: "ourPI",
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: false
 }))
 app.use(homeRouter);
 app.use(profissionalRouter);
