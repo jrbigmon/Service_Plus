@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const port = 3000;
+const session = require ('express-session');
 
 const homeRouter = require('./src/routes/homeRouter');
 const profissionalRouter = require('./src/routes/profissionalRouter');
@@ -15,6 +16,11 @@ app.set ('views', 'src/views');
 
 app.use(express.static(path.resolve('public'))); 
 
+app.use(session({
+    secret: "ourPI",
+    resave: true,
+    saveUninitialized: true
+}))
 app.use(homeRouter);
 app.use(profissionalRouter);
 app.use(clienteRouter);

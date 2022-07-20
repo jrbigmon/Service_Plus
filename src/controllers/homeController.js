@@ -1,6 +1,7 @@
 const {Cliente, Area, Profissional} = require('../database/models');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
+const { ResultWithContext } = require('express-validator/src/chain');
 
 const homeController = {
     index: (req, res) => {
@@ -25,6 +26,7 @@ const homeController = {
             const cliente = await Cliente.findOne({ where: {email} });
             const valid = bcrypt.compareSync(senha, cliente.senha);
             if (valid) {
+                req.session.usuarios = usuario
                 delete cliente.senha;
                 return res.render('./cliente/perfilCliente', {
                     title: cliente.nome,
@@ -39,6 +41,7 @@ const homeController = {
             const profissional = await Profissional.findOne({ where: {email} });
             const valid = bcrypt.compareSync(senha, profissional.senha);
             if (valid) {
+                req.session.usuarios = usuario
                 delete profissional.senha;
                 return res.render('./profissional/perfilProfissional', {
                     title: profissional.nome,
@@ -105,7 +108,6 @@ const homeController = {
         }
 
         return res.render('./home/cadastro', {title:'cadastro', errors: errors.mapped(), areas, old: req.body})
-
     },
     
     sobre: (req, res) => {
