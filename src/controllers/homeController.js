@@ -1,7 +1,7 @@
 const {Cliente, Area, Profissional} = require('../database/models');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
-const { ResultWithContext } = require('express-validator/src/chain');
+const cepRequest = require('../requests/cepAPI/cepRequest')
 
 const homeController = {
     index: (req, res) => {
@@ -23,14 +23,16 @@ const homeController = {
         const { email, senha } = req.body;
 
         if(usuario == 'cliente'){
-            const cliente = await Cliente.findOne({ where: {email} });
+            const cliente = await Cliente.findOne({ where: {email}, raw: true });
             const valid = bcrypt.compareSync(senha, cliente.senha);
             if (valid) {
+                const endereco = await cepRequest.getCep(cliente.cep)
                 delete cliente.senha;
                 req.session.usuario = cliente
                 return res.render('./cliente/perfilCliente', {
                     title: cliente.nome,
-                    cliente
+                    cliente,
+                    endereco: endereco.data.logradouro
                 })
             }
 
@@ -41,11 +43,13 @@ const homeController = {
             const profissional = await Profissional.findOne({ where: {email} });
             const valid = bcrypt.compareSync(senha, profissional.senha);
             if (valid) {
+                const endereco = await cepRequest.getCep(profissional.cep)
                 delete profissional.senha;
                 req.session.usuario = profissional
                 return res.render('./profissional/perfilProfissional', {
                     title: profissional.nome,
-                    profissional
+                    profissional,
+                    endereco: endereco.data.logradouro
                 })
             }
 
