@@ -1,6 +1,6 @@
 const axios = require('axios');
 const defaults = require('./defaults');
-const url = 'json' 
+const url = 'json';
 
 const cepRequest = {
     getCep: (cep) => axios ({
@@ -8,5 +8,6 @@ const cepRequest = {
         method: 'get',
         url: `${cep}/${url}`
     })
-}
+};
+
 module.exports = cepRequest;

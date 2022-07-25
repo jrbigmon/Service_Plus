@@ -1,22 +1,22 @@
 const {Cliente, Area, Profissional} = require('../database/models');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
-const cepRequest = require('../requests/cepAPI/cepRequest')
+const cepRequest = require('../requests/cepAPI/cepRequest');
 
 const homeController = {
     index: (req, res) => {
         res.render('./home/home', {
             title: 'home'
-        })
+        });
     },
 
     login: (req, res) => {
-        const {usuario} = req.query
+        const {usuario} = req.query;
 
         res.render('./home/login', {
             title: 'login',
             usuario
-        })
+        });
     },
 
     loginProcess: async (req, res) => {
@@ -39,7 +39,7 @@ const homeController = {
                 req.session.usuario = dadosPerfil;
 
                 return res.redirect(`/perfil/cliente/${cliente.id}/editar`);
-            }
+            };
 
             return res.redirect('/login/?usuario=cliente');
         }; 
@@ -66,10 +66,11 @@ const homeController = {
 
     cadastro: async (req, res) => {
         const areas = await Area.findAll();
+
         return res.render('./home/cadastro', {
             title: 'Cadastro',
             areas
-        })
+        });
     },
 
     cadastroProcess: async (req, res) => {
@@ -102,7 +103,7 @@ const homeController = {
                     senha: bcrypt.hashSync(senha, 10),
                     cpf,
                     area_id
-                })
+                });
             } else {
                 await Cliente.create({
                     nome,
@@ -114,10 +115,10 @@ const homeController = {
                     email,
                     senha: bcrypt.hashSync(senha, 10),
                     cpf
-                })
+                });
             }
         
-            return res.redirect('/')
+            return res.redirect('/');
         }
 
         return res.render('./home/cadastro', {
@@ -125,13 +126,13 @@ const homeController = {
             errors: errors.mapped(), 
             areas, 
             old: req.body
-        })
+        });
     },
     
     sobre: (req, res) => {
         res.render('./home/sobre', {
             title: 'sobre'
-        })
+        });
     },
     
 }
