@@ -6,6 +6,7 @@ const validacaoCadastro = [
       body('sobrenome').notEmpty().withMessage('Insira um sobrenome!'),
       body('data_nascimento').notEmpty().withMessage('Insira sua data de nascimento!'),
       body('cep').notEmpty().withMessage('Insira seu CEP!'),
+      body('numero').notEmpty().withMessage('Insira o número da casa!'),
       body('telefone').notEmpty().withMessage('Insira seu telefone!'),
       body('email').notEmpty().withMessage('Insira um email válido!'),
       body('cpf').notEmpty().withMessage('Insira seu CPF!'),

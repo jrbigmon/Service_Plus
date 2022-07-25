@@ -12,6 +12,7 @@ const homeController = {
 
     login: (req, res) => {
         const {usuario} = req.query
+
         res.render('./home/login', {
             title: 'login',
             usuario
@@ -24,33 +25,39 @@ const homeController = {
 
         if(usuario == 'cliente'){
             const cliente = await Cliente.findOne({ where: {email}, raw: true });
-            const valid = bcrypt.compareSync(senha, cliente.senha);
-            if (valid) {
-                const endereco = await cepRequest.getCep(cliente.cep)
+
+            if (cliente && bcrypt.compareSync(senha, cliente.senha)) {
+                const endereco = await cepRequest.getCep(cliente.cep);
+
                 delete cliente.senha;
-                req.session.usuario = cliente
-                return res.render('./cliente/perfilCliente', {
-                    title: cliente.nome,
-                    cliente,
+
+                const dadosPerfil = Object.assign({
+                    ...cliente,
                     endereco: endereco.data.logradouro
-                })
+                });
+
+                req.session.usuario = dadosPerfil;
+
+                return res.redirect(`/perfil/cliente/${cliente.id}/editar`);
             }
 
             return res.redirect('/login/?usuario=cliente');
         }; 
 
         if(usuario == 'profissional'){
-            const profissional = await Profissional.findOne({ where: {email} });
-            const valid = bcrypt.compareSync(senha, profissional.senha);
-            if (valid) {
-                const endereco = await cepRequest.getCep(profissional.cep)
-                delete profissional.senha;
-                req.session.usuario = profissional
-                return res.render('./profissional/perfilProfissional', {
-                    title: profissional.nome,
-                    profissional,
-                    endereco: endereco.data.logradouro
-                })
+            const profissional = await Profissional.findOne({ where: {email}, raw: true });
+            
+            if (profissional && bcrypt.compareSync(senha, profissional.senha)) {
+                const endereco = await cepRequest.getCep(profissional.cep);
+
+                const dadosPerfil = Object.assign({
+                   ...profissional,
+                   endereco: endereco.data.logradouro
+                });
+
+                req.session.usuario = dadosPerfil;
+
+                return res.redirect('/perfil/profissional');
             }
 
             return res.redirect('/login/?usuario=profissional');
@@ -75,6 +82,7 @@ const homeController = {
                 sobrenome,
                 data_nascimento,
                 cep,
+                numero,
                 telefone,
                 email,
                 senha,
@@ -101,6 +109,7 @@ const homeController = {
                     sobrenome,
                     data_nascimento,
                     cep,
+                    numero,
                     telefone,
                     email,
                     senha: bcrypt.hashSync(senha, 10),
@@ -111,7 +120,12 @@ const homeController = {
             return res.redirect('/')
         }
 
-        return res.render('./home/cadastro', {title:'cadastro', errors: errors.mapped(), areas, old: req.body})
+        return res.render('./home/cadastro', {
+            title:'cadastro', 
+            errors: errors.mapped(), 
+            areas, 
+            old: req.body
+        })
     },
     
     sobre: (req, res) => {

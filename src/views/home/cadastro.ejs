@@ -47,6 +47,10 @@
                 <label for="cep" class="form-label">CEP</label>
                 <input type="text" name="cep" class="form-control" id="cep" placeholder="12345678" value="<%= locals.old && old.cep %>">
             </div>
+            <div class="col-md-6">
+                <label for="numero" class="form-label">Número</label>
+                <input type="text" name="numero" class="form-control" id="numero" placeholder="1000" value="<%= locals.old && old.numero %>">
+            </div>
             <div class="col-md-6 mb-2">
                 <label for="telefone" class="form-label">Telefone</label>
                 <input type="tel" name="telefone" class="form-control" id="telefone" placeholder="(DDD)912345678" value="<%= locals.old && old.telefone %>">

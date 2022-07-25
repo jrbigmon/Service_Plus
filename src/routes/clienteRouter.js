@@ -4,7 +4,8 @@ const auth = require('../middlewares/auth');
 
 const clienteController = require ('../controllers/clienteController')
 
-// router.use(auth);
+router.use(auth);
+
 router.get('/perfil/cliente/:id/editar', clienteController.showEdit);
 router.put('/perfil/cliente/:id/editar', clienteController.edit);
 

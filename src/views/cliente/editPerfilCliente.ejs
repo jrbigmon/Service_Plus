@@ -35,14 +35,19 @@
                         <input type="number" name="cpf" value="<%= cliente.cpf %>">
                 </div>
                 <div>
-                    <label for="CEP">CEP</label>
+                    <label for="CEP">CEP:</label>
                     <br>
                     <input type="text" name="cep" value="<%= cliente.cep %>">
                 </div>
                 <div>
-                    <label for="endereco">Endereço</label>
+                    <label for="endereco">Endereço:</label>
                     <br>
-                    <input type="text" placeholder="Endereço" value="<%= endereco %> " disabled>
+                    <input type="text" value="<%= locals.usuario.endereco %> " disabled>
+                </div>
+                <div>
+                    <label for="endereco">Número:</label>
+                    <br>
+                    <input type="text" value="<%= cliente.numero %> ">
                 </div>
                 <br>
                 <button type="submit" class="btn btn-warning">Finalizar Cadastro</button>

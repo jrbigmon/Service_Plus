@@ -24,6 +24,7 @@ app.use(session({
     resave: true,
     saveUninitialized: false
 }))
+
 app.use(homeRouter);
 app.use(profissionalRouter);
 app.use(clienteRouter);
