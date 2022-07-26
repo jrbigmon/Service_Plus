@@ -7,29 +7,28 @@ body {
 .main-home {
     font-family: 'Montserrat', sans-serif;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     margin: 10px;
 }
 
-.login {
+.cadastre-se {
     margin: auto;
     width: 100%;
-    height: 80vh;
+    height: 150vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
 }
 
+.cadastre-se h1 {
+    
+}
 
 .formulario {
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 60vh;
-    width: 25vw;
+    height: 100vh;
+    width: 100vh;
     box-shadow: 0 0 7px #035397;
     border-radius: 35px;
     background-color: white;
@@ -38,7 +37,7 @@ body {
 .formulario h1 {
     font-weight: 600;
     color: #E8630A;
-    margin-bottom: 0.5rem;
+    margin-bottom: 2rem;
 }
 
 .formulario input {
@@ -52,12 +51,6 @@ body {
     color: gray;
 }
 
-.formulario label {
-    color: #FCD900;
-    font-weight: 600;
-    margin-top: 1rem;
-}
-
 .formulario a {
     text-decoration: none;
     color: #FCD900;
@@ -67,32 +60,4 @@ body {
 
 .formulario button {
     width: 30vh;
-}
-
-@media (max-width: 1440px) {
-    html {
-        font-size: 90%
-    }
-}
-
-@media (max-width: 768px) {
-    html {
-        font-size: 80%
-    }
-
-    .formulario {
-        height: 60vh;
-        width: 30vw;
-    }
-}
-
-@media (max-width:480px) {
-    html {
-        font-size: 80%
-    }
-
-    .formulario {
-        height: 60vh;
-        width: 60vw;
-    }
 }

@@ -12,12 +12,14 @@
             <form action="/login/?usuario=<%= usuario %> " method="POST" class="formulario">
                 <h1>LOGIN</h1>
                 <div>
-                    <input name='email' type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Seu email">
+                    <label for="email">Email</label>
+                    <br>
+                    <input name='email' type="email">
                 </div>
-                <br>
                 <div>
-                    <input name="senha" type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
+                    <label for="senha">Senha</label>
+                    <br>
+                    <input name="senha" type="password">
                 </div>
                 <br>
                 <button  type="submit" class="btn btn-info">Entrar</button>
