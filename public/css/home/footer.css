@@ -17,29 +17,13 @@
     justify-content: column;
 }
 
-.icones {
-    display: flex;
-    justify-content: space-around;
-    width: 20%;
-}
-
-.bi-instagram {
-    color: #FFA500;
-}
-
-.bi-facebook {
-    color: #FFA500;
-}
-
-.bi-whatsapp {
-    color: #FFA500;
-
-}
-
 .copyright {
-    background-color: #035397;
     display: flex;
     justify-content: space-around;
+}
+
+.copyrright a {
+    text-decoration: none;
 }
 
 @media (max-width: 1440px) {

@@ -6,10 +6,6 @@ body {
 
 .main-home {
     font-family: 'Montserrat', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 10px;
 }
 
 .login {
@@ -24,18 +20,18 @@ body {
 
 
 .formulario {
+    width: 20%;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 60vh;
-    width: 25vw;
     box-shadow: 0 0 7px #035397;
     border-radius: 35px;
     background-color: white;
 }
 
-.formulario h1 {
+.formulario h4 {
     font-weight: 600;
     color: #E8630A;
     margin-bottom: 0.5rem;
@@ -53,46 +49,58 @@ body {
 }
 
 .formulario label {
-    color: #FCD900;
+    color: gray;
     font-weight: 600;
     margin-top: 1rem;
 }
 
 .formulario a {
     text-decoration: none;
-    color: #FCD900;
+    color: gray;
     font-weight: 600;
     margin-top: 1rem;
 }
 
 .formulario button {
-    width: 30vh;
+    width: 10vw;
 }
 
-@media (max-width: 1440px) {
-    html {
-        font-size: 90%
+@media (min-width: 320px) and (max-width: 430px) {
+    body {
+        font-size: 1rem;
     }
-}
-
-@media (max-width: 768px) {
-    html {
-        font-size: 80%
-    }
-
     .formulario {
+        width: 70%;
         height: 60vh;
-        width: 30vw;
     }
 }
 
-@media (max-width:480px) {
-    html {
-        font-size: 80%
+@media (min-width: 430px) and (max-width: 768px) {
+    body {
+        font-size: 1rem;
     }
-
     .formulario {
+        width: 40%;
         height: 60vh;
-        width: 60vw;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    body {
+        font-size: 1rem;
+    }
+    .formulario {
+        width: 40%;
+        height: 60vh;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+    body {
+        font-size: 1rem;
+    }
+    .formulario {
+        width: 30%;
+        height: 60vh;
     }
 }

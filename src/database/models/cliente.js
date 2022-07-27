@@ -14,6 +14,8 @@ module.exports = (sequelize, DataType) => {
 
         cep: DataType.STRING,
 
+        numero: DataType.INTEGER,
+
         telefone: DataType.STRING,
 
         email: DataType.STRING,
