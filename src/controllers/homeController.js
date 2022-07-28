@@ -27,7 +27,7 @@ const homeController = {
             const cliente = await Cliente.findOne({ where: {email}, raw: true });
 
             if (cliente && bcrypt.compareSync(senha, cliente.senha)) {
-                const endereco = await cepRequest.getCep(cliente.cep);
+                const endereco = await cepRequest.getCep(cliente.cep.toString());
 
                 delete cliente.senha;
 
