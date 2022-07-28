@@ -14,25 +14,25 @@
         <% } %>
         <% } %>
 
-        <section class="cadastre-se col">
-            <form action="/cadastro" method="POST" class="formulario col">
+        <section class="cadastre-se">
+            <form action="/cadastro" method="POST" class="formulario">
                 <h1>Cadastre-se</h1>
     
-                <div class="form-floating">
-                    <input class="form-control" type="email" name="email" id="email" placeholder="exemplo@email.com"
-                    value="<%= locals.old && old.email %>">
+                <div>
                     <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="exemplo@email.com"
+                        value="<%= locals.old && old.email %>">
                 </div>
                 <br>
-                <div class="col-md-6 form-floating">
-                    <input class="form-control" type="password" name="senha" id="senha" placeholder="**********">
+                <div class="col-md-6">
                     <label for="senha">Senha</label>
+                    <input type="password" name="senha" id="senha" placeholder="**********">
                 </div>
-                
-                <div class="col-md-6 form-floating">
-                    <input class="form-control" type="password" name="confirmeSenha" id="confirmeSenha"
-                    placeholder="**********">
+                <br>
+                <div class="col-md-6">
                     <label for="confirmeSenha">Confirme a senha</label>
+                    <input type="password" name="confirmeSenha" id="confirmeSenha"
+                        placeholder="**********">
                 </div>
                 <div class="col-md-6">
                     <label for="nome">Nome</label>
