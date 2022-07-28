@@ -34,7 +34,7 @@ body {
 .formulario h4 {
     font-weight: 600;
     color: #E8630A;
-    margin-bottom: 0.5rem;
+    margin-bottom: rem;
 }
 
 .formulario input {
@@ -61,6 +61,7 @@ body {
     color: gray;
     font-weight: 600;
     margin-top: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .formulario button {
@@ -72,12 +73,8 @@ body {
         font-size: 1rem;
     }
     .formulario {
-        width: 70%;
-        height: 60vh;
-    }
-
-    .formulario input {
-
+        width: 80%;
+        height: 65vh;
     }
 }
 
@@ -87,7 +84,7 @@ body {
     }
     .formulario {
         width: 40%;
-        height: 60vh;
+        height: 65vh;
     }
 }
 
@@ -97,7 +94,7 @@ body {
     }
     .formulario {
         width: 40%;
-        height: 60vh;
+        height: 65vh;
     }
 }
 
@@ -107,6 +104,6 @@ body {
     }
     .formulario {
         width: 30%;
-        height: 60vh;
+        height: 65vh;
     }
 }
