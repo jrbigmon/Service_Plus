@@ -1,61 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/head') %>
-
+<link rel="stylesheet" href="/css/home/cadastro.css">
 <body>
 
     <%- include('../partials/header') %>
 
     <main class="m-5">
-        <h1 class="text-center">Cadastre-se</h1>
-
+        
         <% if (typeof errors !== 'undefined'){ %>
             <% for(error in errors){ %>
                 <li> <%= `${errors[error].msg}` %> </li>
-            <% } %> 
-        <% } %> 
-        <form class="row g-3" action="/cadastro" method="POST">
-            <div class="col-md-12">
-                <label for="email" class="form-label">Email</label>
+                <% } %> 
+                <% } %> 
+        <form class="row g-3 meu-form p-2" action="/cadastro" method="POST">
+            <h1 class="text-center">CADASTRE-SE</h1>
+            <div class="form-floating col-md-12 p-1">
                 <input type="email" name="email" class="form-control" id="email" placeholder="exemplo@email.com" value="<%= locals.old && old.email %>">
+                <label for="email">Email</label>
             </div>
-            <div class="col-md-6">
-                <label for="senha" class="form-label">Senha</label>
+            <div class="form-floating p-1 col-md-6">
                 <input type="password" name="senha" class="form-control" id="senha" placeholder="**********">
+                <label for="senha" class="form-label">Senha</label>
             </div>
-            <div class="col-md-6">
-                <label for="confirmeSenha" class="form-label">Confirme a senha</label>
+            <div class="form-floating p-1 col-md-6">
                 <input type="password" name="confirmeSenha" class="form-control" id="confirmeSenha" placeholder="**********">
+                <label for="confirmeSenha" class="form-label">Confirme a senha</label>
             </div>
-            <div class="col-md-6">
-                <label for="nome" class="form-label">Nome</label>
+            <div class="form-floating p-1 col-md-6">
                 <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome" value="<%= locals.old && old.nome %>">
+                <label for="nome" class="form-label">Nome</label>
             </div>
-            <div class="col-md-6">
-                <label for="sobrenome" class="form-label">Sobrenome</label>
+            <div class="form-floating p-1 col-md-6">
                 <input type="text" name="sobrenome" class="form-control" id="sobrenome" placeholder="Sobrenome" value="<%= locals.old && old.sobrenome %>">
+                <label for="sobrenome" class="form-label">Sobrenome</label>
             </div>
-            <div class="col-md-6">
-                <label for="cpf" class="form-label">CPF</label>
+            <div class="form-floating p-1 col-md-6">
                 <input type="text" name="cpf" class="form-control" id="cpf" placeholder="Não utilizar separadores!" value="<%= locals.old && old.cpf %>">
+                <label for="cpf" class="form-label">CPF</label>
             </div>
-            <div class="col-md-6">
-                <label for="dataNascimento" class="form-label">Data de Nascimento</label>
+            <div class="form-floating p-1 col-md-6">
                 <input type="date" name="data_nascimento" class="form-control" id="dataNascimento" value="<%= locals.old && old.data_nascimento %>">
+                <label for="dataNascimento" class="form-label">Data de Nascimento</label>
             </div>
-            <div class="col-md-6">
-                <label for="cep" class="form-label">CEP</label>
+            <div class="form-floating p-1 col-md-6">
                 <input type="text" name="cep" class="form-control" id="cep" placeholder="12345678" value="<%= locals.old && old.cep %>">
+                <label for="cep" class="form-label">CEP</label>
             </div>
-            <div class="col-md-6">
-                <label for="numero" class="form-label">Número</label>
+            <div class="form-floating p-1 col-md-6">
                 <input type="text" name="numero" class="form-control" id="numero" placeholder="1000" value="<%= locals.old && old.numero %>">
+                <label for="numero" class="form-label">Número</label>
             </div>
-            <div class="col-md-6 mb-2">
-                <label for="telefone" class="form-label">Telefone</label>
+            <div class="form-floating p-1 col-md-6 mb-2">
                 <input type="tel" name="telefone" class="form-control" id="telefone" placeholder="(DDD)912345678" value="<%= locals.old && old.telefone %>">
+                <label for="telefone" class="form-label">Telefone</label>
             </div>
-            <div class="col-md-12">
+            <div class="form-floating p-1 col-md-12">
                 <div class="form-check">
                     <input name="profissional" class="form-check-input" type="checkbox" id="gridCheck">
                     <label class="form-check-label" for="gridCheck">
@@ -68,7 +68,7 @@
                     <% }) %> 
                   </select>
             </div>
-            <div class="col-md-12 mt-2 text-center">
+            <div class="col-md-12 mt-2 text-center mb-2">
                 <button type="submit" class="btn btn-primary col-md-6">Salvar</button>
             </div>
         </form>

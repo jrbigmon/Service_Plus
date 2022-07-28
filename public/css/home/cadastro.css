@@ -2,4 +2,16 @@
 
 body {
     background-color: #EAF6F6;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.meu-form {
+    background-color: white;
+    border-radius: 10px;
+}
+
+.meu-form h1{
+    font-weight: 600;
+    color: #E8630A;
+    font-size: 2rem;
 }
