@@ -9,6 +9,7 @@ const clienteController = {
         let {area, order} = req.body;
 
         order == undefined ? order = 'ASC' : order;
+        area == undefined ? area = ['1', '2', '3'] : area
 
         const profissionais = await Profissional.findAll({
             where: { area_id: area },

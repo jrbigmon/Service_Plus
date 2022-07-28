@@ -23,6 +23,12 @@ module.exports = (sequelize, DataType) => {
         senha: DataType.STRING,
 
         cpf: DataType.STRING,
+
+        avatar: {
+            type: DataType.STRING,
+            defaultValue: 'defaultAvatar.jpeg',
+            allowNull: true
+        }
     },
     {
         tableName: 'clientes',

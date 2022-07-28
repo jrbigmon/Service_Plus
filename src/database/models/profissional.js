@@ -25,7 +25,13 @@ module.exports = (sequelize, DataType) => {
             foreignKey: true,
         },
 
-        cpf: DataType.STRING
+        cpf: DataType.STRING,
+
+        avatar: {
+            type: DataType.STRING,
+            defaultValue: 'defaultAvatar.jpeg',
+            allowNull: true
+        }
     },
     {
         tableName: 'profissionais',

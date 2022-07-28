@@ -1,13 +1,20 @@
 const axios = require('axios');
-const defaults = require('./defaults');
-const url = 'json';
+
+const viaCepApi = axios.create({
+    baseURL: "https://viacep.com.br/ws/"
+})
 
 const cepRequest = {
-    getCep: (cep) => axios ({
-        ...defaults,
-        method: 'get',
-        url: `${cep}/${url}`
-    })
+    getCep: async (cep) => {
+        try {
+            const response = await viaCepApi.get(`${cep}/json`);
+            return response;
+
+        } catch (err){
+            err.message = new Error('CEP inexistente!');
+            console.log(err.message)
+        }
+    }
 };
 
 module.exports = cepRequest;
