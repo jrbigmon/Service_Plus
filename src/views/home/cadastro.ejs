@@ -2,89 +2,81 @@
 <html lang="en">
 <%- include('../partials/head') %>
 <link rel="stylesheet" href="/css/home/cadastro.css">
-
 <body>
 
     <%- include('../partials/header') %>
 
-    <main class="main-home">
+    <main class="m-5">
+        
         <% if (typeof errors !== 'undefined'){ %>
-        <% for(error in errors){ %>
-        <li> <%= `${errors[error].msg}` %> </li>
-        <% } %>
-        <% } %>
-
-        <section class="cadastre-se">
-            <form action="/cadastro" method="POST" class="formulario">
-                <h4>Cadastre-se</h4>
-    
-                <div class="col-md">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" placeholder="exemplo@email.com"
-                        value="<%= locals.old && old.email %>">
-                </div>
-                <br>
-                <div class="row-sm">
-                    <label for="senha">Senha</label>
-                    <input type="password" name="senha" id="senha" placeholder="**********">
-                    <label for="confirmeSenha">Confirme a senha</label>
-                    <input type="password" name="confirmeSenha" id="confirmeSenha"
-                        placeholder="**********">
-                </div>
-                <div class="col-md-6">
-                    <label for="nome">Nome</label>
-                    <input type="text" name="nome" id="nome" placeholder="Nome"
-                        value="<%= locals.old && old.nome %>">
-                </div>
-                <div class="col-md-6">
-                    <label for="sobrenome">Sobrenome</label>
-                    <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome"
-                        value="<%= locals.old && old.sobrenome %>">
-                </div>
-                <div class="col-md-6">
-                    <label for="cpf">CPF</label>
-                    <input type="text" name="cpf" id="cpf" placeholder="Não utilizar separadores!"
-                        value="<%= locals.old && old.cpf %>">
-                </div>
-                <div class="col-md-6">
-                    <label for="dataNascimento">Data de Nascimento</label>
-                    <input type="date" name="data_nascimento" id="dataNascimento"
-                        value="<%= locals.old && old.data_nascimento %>">
-                </div>
-                <div class="col-md-6">
-                    <label for="cep">CEP</label>
-                    <input type="text" name="cep" id="cep" placeholder="12345678"
-                        value="<%= locals.old && old.cep %>">
-                </div>
-                <div class="col-md-6">
-                    <label for="numero">numero</label>
-                    <input type="text" name="numero" id="numero" placeholder="1000"
-                        value="<%= locals.old && old.numero %>">
-                </div>
-                <div class="col-md-6 mb-2">
-                    <label for="telefone">Telefone</label>
-                    <input type="tel" name="telefone" id="telefone" placeholder="(DDD)912345678"
-                        value="<%= locals.old && old.telefone %>">
-                </div>
-                <div class="col-md-12">
-                    <div class="form-check">
-                        <input name="profissional" class="form-check-input" type="checkbox" id="gridCheck">
-                        <label class="form-check-label" for="gridCheck">
-                            Sou Profissional
-                        </label>
+            <ul class="row">
+                <% for(error in errors){ %>
+                    <div  class="col-md-4">
+                        <li> <%= `${errors[error].msg}` %> </li>
                     </div>
-                    <select name="area_id" class="form-select form-select-lg mb-2" aria-label=".form-select-lg example"
-                        id="gridCheck">
-                        <% areas.forEach(area => { %>
+                <% } %> 
+            </ul>
+        <% } %> 
+        <form class="row g-3 meu-form p-2" action="/cadastro" method="POST">
+            <h1 class="text-center">CADASTRE-SE</h1>
+            <div class="form-floating col-md-12 p-1">
+                <input type="email" name="email" class="form-control" id="email" placeholder="exemplo@email.com" value="<%= locals.old && old.email %>">
+                <label for="email">Email</label>
+            </div>
+            <div class="form-floating p-1 col-md-6">
+                <input type="password" name="senha" class="form-control" id="senha" placeholder="**********">
+                <label for="senha" class="form-label">Senha</label>
+            </div>
+            <div class="form-floating p-1 col-md-6">
+                <input type="password" name="confirmeSenha" class="form-control" id="confirmeSenha" placeholder="**********">
+                <label for="confirmeSenha" class="form-label">Confirme a senha</label>
+            </div>
+            <div class="form-floating p-1 col-md-6">
+                <input type="text" name="nome" class="form-control" id="nome" placeholder="Nome" value="<%= locals.old && old.nome %>">
+                <label for="nome" class="form-label">Nome</label>
+            </div>
+            <div class="form-floating p-1 col-md-6">
+                <input type="text" name="sobrenome" class="form-control" id="sobrenome" placeholder="Sobrenome" value="<%= locals.old && old.sobrenome %>">
+                <label for="sobrenome" class="form-label">Sobrenome</label>
+            </div>
+            <div class="form-floating p-1 col-md-6">
+                <input type="text" name="cpf" class="form-control" id="cpf" placeholder="Não utilizar separadores!" value="<%= locals.old && old.cpf %>">
+                <label for="cpf" class="form-label">CPF</label>
+            </div>
+            <div class="form-floating p-1 col-md-6">
+                <input type="date" name="data_nascimento" class="form-control" id="dataNascimento" value="<%= locals.old && old.data_nascimento %>">
+                <label for="dataNascimento" class="form-label">Data de Nascimento</label>
+            </div>
+            <div class="form-floating p-1 col-md-6">
+                <input type="text" name="cep" class="form-control" id="cep" placeholder="12345678" value="<%= locals.old && old.cep %>">
+                <label for="cep" class="form-label">CEP</label>
+            </div>
+            <div class="form-floating p-1 col-md-6">
+                <input type="text" name="numero" class="form-control" id="numero" placeholder="1000" value="<%= locals.old && old.numero %>">
+                <label for="numero" class="form-label">Número</label>
+            </div>
+            <div class="form-floating p-1 col-md-6 mb-2">
+                <input type="tel" name="telefone" class="form-control" id="telefone" placeholder="(DDD)912345678" value="<%= locals.old && old.telefone %>">
+                <label for="telefone" class="form-label">Telefone</label>
+            </div>
+            <div class="form-floating p-1 col-md-12">
+                <h1> Para profissionais </h1>
+                <div class="form-check">
+                    <input name="profissional" class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                       Sou Profissional
+                    </label>
+                </div>
+                <select name="area_id" class="form-select form-select-lg mb-2" aria-label=".form-select-lg example" id="gridCheck">
+                    <% areas.forEach(area => { %>
                         <option value="<%= area.id %>"><%= area.nome %></option>
-                        <% }) %>
-                    </select>
-                </div>
-                <div class="col-md-12 mt-2 text-center">
-                    <button type="submit" class="btn btn-primary col-md-6">Salvar</button>
-                </div>
-            </form>
-        </section>
+                    <% }) %> 
+                  </select>
+            </div>
+            <div class="col-md-12 mt-2 text-center mb-2">
+                <button type="submit" class="btn btn-primary col-md-6">Salvar</button>
+            </div>
+        </form>
     </main>
 
     <%- include('../partials/header') %>
