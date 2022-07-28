@@ -16,20 +16,17 @@
 
         <section class="cadastre-se">
             <form action="/cadastro" method="POST" class="formulario">
-                <h1>Cadastre-se</h1>
+                <h4>Cadastre-se</h4>
     
-                <div>
+                <div class="col-md">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" placeholder="exemplo@email.com"
                         value="<%= locals.old && old.email %>">
                 </div>
                 <br>
-                <div class="col-md-6">
+                <div class="row-sm">
                     <label for="senha">Senha</label>
                     <input type="password" name="senha" id="senha" placeholder="**********">
-                </div>
-                <br>
-                <div class="col-md-6">
                     <label for="confirmeSenha">Confirme a senha</label>
                     <input type="password" name="confirmeSenha" id="confirmeSenha"
                         placeholder="**********">

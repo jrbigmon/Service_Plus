@@ -40,6 +40,8 @@ body {
 .formulario input {
     border: 0.1rem solid #035397;
     border-radius: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .input::placeholder {
@@ -62,7 +64,7 @@ body {
 }
 
 .formulario button {
-    width: 10vw;
+    width: 60%;
 }
 
 @media (min-width: 320px) and (max-width: 430px) {
@@ -72,6 +74,10 @@ body {
     .formulario {
         width: 70%;
         height: 60vh;
+    }
+
+    .formulario input {
+
     }
 }
 
