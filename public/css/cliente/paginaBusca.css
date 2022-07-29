@@ -1,34 +1,35 @@
-.text-main{
-    margin-top: 3rem;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #EEEEEE;
+
 }
 
-.title{
-    text-align: center;
+.form-control {
+    background-color: #EEEEEE;
+}
+
+.container-fluid {
+    margin-left: 3rem;
+}
+
+.container-fluid h1 {
+    color: #F66B0E;
+    font-weight: 800;
     font-size: 1.5rem;
 }
-.sub-title{
-    text-align: center;
-    font-size: 0.8rem;
+.container-fluid p {
+    color: #205375;
+    font-weight: 800;
+    font-size: 1rem;
 }
 
 .container-fluid{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     width: 100%;
-    margin-bottom: 0.2rem;
 }
 
 .form-control-checkbox{
-    border: none;
-    margin-bottom: 10rem ;
-}
-
-.checkbox{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border: none;
 }
 
@@ -36,9 +37,22 @@
     margin-right: 0.5rem;
 }
 
+.img-prestador {
+    margin-top: 2rem;
+}
+
 .card-carousel{
     display: flex;
+    width: 20rem;
+    height: 25rem;
     justify-content: center;
     align-items: center;
     margin: 1rem;
+}
+
+
+
+.card-body h5 {
+    color: #F66B0E;
+    font-weight: 800;
 }

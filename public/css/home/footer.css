@@ -5,35 +5,12 @@
 }
 
 .footer-container {
+    height: 10rem;
     font-family: 'Montserrat', sans-serif;
-    background-color: #001E6C;
-    height: 5rem;
-    width: 100%;
-    display: flex;
-    align-items: center;
+    background-color: #112B3C;
 }
 
-.footer-container section {
-    justify-content: column;
-}
-
-.copyright {
-    display: flex;
-    justify-content: space-around;
-}
-
-.copyrright a {
+.text-center a {
     text-decoration: none;
-}
-
-@media (max-width: 1440px) {
-    .footer-container {
-        font-size: 100%
-    }
-}
-
-@media (max-width: 425px) {
-    .footer-container {
-        font-size: 10%
-    }
+    color: #EFEFEF;
 }

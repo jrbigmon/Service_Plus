@@ -1,31 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
-.header-container {
+
+header {
     font-family: 'Montserrat', sans-serif;
-    background-color: #001E6C;
-    height: 5rem;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    background-color: #112B3C;
 }
 
-.logo-container {
-    margin: 2rem;
-    padding: 1px;
+.navbar-toggler {
+    margin-left: 1rem;
 }
 
-.logo-container h1 {
-    font-size: 1.3rem;
-    color: #FFA500;
+.navbar-brand {
+    color: #EFEFEF;
+    margin-left: 1rem;
 }
 
-.menu-burger {
-    margin-top: 2rem;
-    margin-right: 4rem;
-    text-decoration: none;
-    color: #FFA500;
+.form-inline {
+    margin-right: 1rem;
 }
