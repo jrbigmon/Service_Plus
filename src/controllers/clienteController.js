@@ -25,6 +25,21 @@ const clienteController = {
         });
     },
 
+    resumeProfile: async (req, res) => {
+        const { id } = req.params;
+
+        const profissional = await Profissional.findByPk(id, {
+            include: 'area'
+        });
+
+        if(profissional) {
+            console.log(profissional.area.nome)
+            return res.render('./profissional/resumoProfissional', {title: profissional.nome, profissional});
+        }
+        return res.redirect('/perfil/cliente/profissionais');
+
+    },
+
     showProfissional: (req, res) => { 
         res.render('./profissional/resumoProfissional', {title: 'cartão profissional'});
     },
