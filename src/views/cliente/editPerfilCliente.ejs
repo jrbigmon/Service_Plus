@@ -7,10 +7,11 @@
     <%- include('../partials/header')%>
     <main class="m-5 d-flex justify-content-center">
 
-            <form class="row g-3 meu-form p-2 col-7 justify-content-center" action="/perfil/cliente/<%= cliente.id %>/editar?_method=PUT" method="POST">
+            <form class="row g-3 meu-form p-2 col-lg-10 col-md-10 col-sm-12 col-12 justify-content-center" action="/perfil/cliente/<%= cliente.id %>/editar?_method=PUT" method="POST">
                 <h4 class="text-center">PERFIL DO CLIENTE</h4>
-                <h6 class="text-center">Informações sobre: <%= cliente.email %></h6>
-
+                <h6 class="text-center">Informações sobre: <%= cliente.email %> </h6>
+                <input type="hidden" name="email" value="<%= cliente.email %>">
+                   
                 <div class="form-floating p-1 col-md-8">
                     <input type="file" name="avatar" accept=".jpg"  multiple >
                 </div>
@@ -21,7 +22,7 @@
                 </div>
 
                 <div class="form-floating p-1 col-md-8">
-                    <input type="text" name="nome" class="form-control" value="<%= cliente.sobrenome  %>">
+                    <input type="text" name="sobrenome" class="form-control" value="<%= cliente.sobrenome  %>">
                     <label for="nome" class="form-label">Sobrenome</label>
                 </div>
 
@@ -46,10 +47,10 @@
                 </div>
                 <div class="col-md-12 mt-2 text-center mb-2">
                     
-                    <button type="submit" class="btn btn-info col-md-2">Finalizar</button>
+                    <button type="submit" class="btn btn-info col-sm-12 col-md-3 mb-2">Finalizar</button>
 
                 <form action="/perfil/cliente/<%= cliente.id %>/deletar?_method=DELETE" method="POST">
-                    <button type="submit" class="text-center btn btn-danger col-md-2"> Deletar conta</button>
+                    <button type="submit" class="text-center btn btn-danger col-sm-12 col-md-3 mb-2"> Deletar conta</button>
                 </form>
                 </div>
             </form>

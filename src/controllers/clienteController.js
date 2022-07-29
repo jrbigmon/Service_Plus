@@ -1,4 +1,5 @@
 const { Cliente, Profissional } = require('../database/models');
+const cepRequest = require('../requests/cepAPI/cepRequest')
 
 const clienteController = {
     showBuscar: (req, res) => { 
@@ -44,18 +45,21 @@ const clienteController = {
 
     edit: async (req, res) => {
         const {id} = req.params;
-        const {nome, sobrenome, cpf, cep, numero} = req.body;
 
-        await Cliente.update({
-            nome, 
-            sobrenome, 
-            cpf, 
-            cep,
-            numero
-        },
-        {
-            where: { id }
-        });
+        const {email, nome, sobrenome, cpf, cep, numero} = req.body;
+
+        let clienteUpdated = {nome, sobrenome, cpf, cep, numero};
+
+        await Cliente.update(clienteUpdated, { where: { id } });
+
+        const endereco = await cepRequest.getCep(cep);
+
+        Object.assign(clienteUpdated, {
+            id,
+            email,
+            endereco: endereco.logradouro
+        })
+        req.session.usuario = clienteUpdated
 
         return res.redirect('/perfil/cliente/buscar');
     },
