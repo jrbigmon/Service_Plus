@@ -14,7 +14,7 @@
 }
 
 .logo-container {
-    margin: 1rem;
+    margin: 2rem;
     padding: 1px;
 }
 
@@ -24,10 +24,8 @@
 }
 
 .menu-burger {
-    margin: 1rem;
-}
-
-.menu-burger a {
+    margin-top: 2rem;
+    margin-right: 4rem;
     text-decoration: none;
     color: #FFA500;
 }

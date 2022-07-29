@@ -8,11 +8,17 @@ body {
 .meu-form {
     background-color: white;
     border-radius: 10px;
+    box-shadow: 0 0 7px #035397;
+    border-radius: 35px;
+    background-color: white;
 }
 
-.meu-form h1{
+.meu-form h4 {
     font-weight: 600;
     color: #E8630A;
-    font-size: 2rem;
-    text-align: center;
+}
+
+.meu-form h5 {
+    font-weight: 600;
+    color: #E8630A;
 }

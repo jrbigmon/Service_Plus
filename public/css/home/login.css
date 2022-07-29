@@ -34,7 +34,6 @@ body {
 .formulario h4 {
     font-weight: 600;
     color: #E8630A;
-    margin-bottom: rem;
 }
 
 .formulario input {
@@ -42,12 +41,6 @@ body {
     border-bottom: solid 0.1px;
     padding-left: 1rem;
     padding-right: 1rem;
-}
-
-.input::placeholder {
-    font-size: 0.9rem;
-    font-weight: 800;
-    color: gray;
 }
 
 .formulario label {
@@ -67,6 +60,10 @@ body {
 .formulario button {
     border: none;
     width: 60%;
+}
+
+.formulario input:focus-visible {
+    outline: none;
 }
 
 @media (min-width: 320px) and (max-width: 430px) {

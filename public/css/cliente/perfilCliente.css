@@ -1,37 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
-* {
-    box-sizing: border-box;
-}
-
 body {
     font-family: 'Montserrat', sans-serif;
-    width: 100%;
-    background-color: #C4DDFF;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: #EAF6F6;
+
 }
 
-.titulo-pagina h1 {
-    font-size: 1.3rem;
-    font-weight: 800;
-}
-
-.titulo-pagina h3 {
-    font-size: 1rem;
-}
-
-
-.formulario-geral {
+.meu-form {
     background-color: white;
-    width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 0 7px #035397;
+    border-radius: 35px;
+    background-color: white;
 }
 
-.formulario-geral div {
-    align-items: center;
+.meu-form h4 {
+    font-weight: 600;
+    color: #E8630A;
 }
 
-.carrossel h1 {
-    font-size: 1.3rem;
+.meu-form h6 {
+    font-weight: 600;
+    color: #E8630A;
 }

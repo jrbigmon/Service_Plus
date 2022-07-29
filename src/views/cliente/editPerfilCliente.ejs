@@ -5,62 +5,55 @@
 
 <body>
     <%- include('../partials/header')%>
-    <main>
-        <section class="titulo-pagina">
-            <h1>Perfil do cliente</h1>
-            <h3>Informações sobre: <%= cliente.nome %></h3>
-            <h3><%= cliente.email %></h3>
-        </section>
-        <section class="formulario-geral">
-            <form class="" action="/perfil/cliente/<%= cliente.id %>/editar?_method=PUT" method="POST">
-                <div>
-                    Aqui vai uma imagem
+    <main class="m-5 d-flex justify-content-center">
+
+            <form class="row g-3 meu-form p-2 col-7 justify-content-center" action="/perfil/cliente/<%= cliente.id %>/editar?_method=PUT" method="POST">
+                <h4 class="text-center">PERFIL DO CLIENTE</h4>
+                <h6 class="text-center">Informações sobre: <%= cliente.email %></h6>
+
+                <div class="form-floating p-1 col-md-8">
+                    <input type="file" name="avatar" accept=".jpg"  multiple >
                 </div>
-                <br>
-                <div>
-                    <label for="nome">Nome:</label>
-                        <br>
-                        <input type="text" name="nome" value="<%= cliente.nome  %>">
-                    </label>
+
+                <div class="form-floating p-1 col-md-8">
+                    <input type="text" name="nome" class="form-control" value="<%= cliente.nome  %>">
+                    <label for="nome" class="form-label">Nome</label>
                 </div>
-                <div>
-                    <label for="sobrenome">Sobrenome:</label>
-                        <br>
-                        <input type="text" name="sobrenome" value="<%= cliente.sobrenome  %>">
-                    </label>
+
+                <div class="form-floating p-1 col-md-8">
+                    <input type="text" name="nome" class="form-control" value="<%= cliente.sobrenome  %>">
+                    <label for="nome" class="form-label">Sobrenome</label>
                 </div>
-                <div>
-                    <label for="cpf">CPF:</label>
-                        <br>
-                        <input type="number" name="cpf" value="<%= cliente.cpf %>">
+
+                <div class="form-floating p-1 col-md-8">
+                    <input type="number" name="cpf" class="form-control" value="<%= cliente.cpf %>">
+                    <label for="cpf" class="form-label">CPF:</label>
                 </div>
-                <div>
-                    <label for="CEP">CEP:</label>
-                    <br>
-                    <input type="text" name="cep" value="<%= cliente.cep %>">
+
+                <div class="form-floating p-1 col-md-8">
+                    <input type="text" class="form-control" name="cep" value="<%= cliente.cep %>">
+                    <label for="CEP" class="form-label">CEP:</label>
                 </div>
-                <div>
-                    <label for="endereco">Endereço:</label>
-                    <br>
-                    <input type="text" value="<%= locals.usuario.endereco %> " disabled>
+
+                <div class="form-floating p-1 col-md-8">
+                    <input type="text" class="form-control" value="<%= locals.usuario.endereco %> " disabled>
+                    <label for="endereco" class="form-label">Endereço:</label>
                 </div>
-                <div>
-                    <label for="numero">Número:</label>
-                    <br>
-                    <input type="text" name="numero" id="numero" value="<%= cliente.numero %> ">
+
+                <div class="form-floating p-1 col-md-8">
+                    <input type="text" class="form-control" name="numero" id="numero" value="<%= cliente.numero %> ">
+                    <label for="numero" class="form-label">Número:</label>
                 </div>
-                <br>
-                <button type="submit" class="btn btn-warning">Finalizar Cadastro</button>
+                <div class="col-md-12 mt-2 text-center mb-2">
+                    
+                    <button type="submit" class="btn btn-info col-md-2">Finalizar</button>
+
+                <form action="/perfil/cliente/<%= cliente.id %>/deletar?_method=DELETE" method="POST">
+                    <button type="submit" class="text-center btn btn-danger col-md-2"> Deletar conta</button>
+                </form>
+                </div>
             </form>
-            <form action="/perfil/cliente/<%= cliente.id %>/deletar?_method=DELETE" method="POST">
-                <button class="btn btn-danger" type="submit"> Deletar conta!</button>
-            </form>
-        </section>
-        <section class="carrossel">
-            <h1>
-                Aqui vai o carrossel =) NICE
-            </h1>
-        </section>
+
     </main>
     <%- include('../partials/footer')%>
 </body>

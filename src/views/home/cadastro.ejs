@@ -6,7 +6,7 @@
 
     <%- include('../partials/header') %>
 
-    <main class="m-5">
+    <main class="m-5 d-flex justify-content-center">
         
         <% if (typeof errors !== 'undefined'){ %>
             <ul class="row">
@@ -17,8 +17,9 @@
                 <% } %> 
             </ul>
         <% } %> 
-        <form class="row g-3 meu-form p-2" action="/cadastro" method="POST">
-            <h1 class="text-center">CADASTRE-SE</h1>
+        <form class="row g-3 meu-form p-2 col-6" action="/cadastro" method="POST">
+            <h4 class="text-center">CADASTRE-SE</h4>
+            
             <div class="form-floating col-md-12 p-1">
                 <input type="email" name="email" class="form-control" id="email" placeholder="exemplo@email.com" value="<%= locals.old && old.email %>">
                 <label for="email">Email</label>
@@ -60,13 +61,14 @@
                 <label for="telefone" class="form-label">Telefone</label>
             </div>
             <div class="form-floating p-1 col-md-12">
-                <h1> Para profissionais </h1>
+                <h5 class="text-center">PARA PROFISSIONAIS</h5>
                 <div class="form-check">
                     <input name="profissional" class="form-check-input" type="checkbox" id="gridCheck">
                     <label class="form-check-label" for="gridCheck">
                        Sou Profissional
                     </label>
                 </div>
+                <br>
                 <select name="area_id" class="form-select form-select-lg mb-2" aria-label=".form-select-lg example" id="gridCheck">
                     <% areas.forEach(area => { %>
                         <option value="<%= area.id %>"><%= area.nome %></option>
@@ -74,12 +76,12 @@
                   </select>
             </div>
             <div class="col-md-12 mt-2 text-center mb-2">
-                <button type="submit" class="btn btn-primary col-md-6">Salvar</button>
+                <button type="submit" class="btn btn-info col-md-3">Salvar</button>
             </div>
         </form>
     </main>
 
-    <%- include('../partials/header') %>
+    <%- include('../partials/footer') %>
 
 </body>
 
