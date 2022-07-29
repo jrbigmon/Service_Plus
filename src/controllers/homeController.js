@@ -33,7 +33,7 @@ const homeController = {
 
                 const dadosPerfil = Object.assign({
                     ...cliente,
-                    endereco: endereco.data.logradouro
+                    endereco: endereco.logradouro
                 });
 
                 req.session.usuario = dadosPerfil;
@@ -52,7 +52,7 @@ const homeController = {
 
                 const dadosPerfil = Object.assign({
                    ...profissional,
-                   endereco: endereco.data.logradouro
+                   endereco: endereco.logradouro
                 });
 
                 req.session.usuario = dadosPerfil;

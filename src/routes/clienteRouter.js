@@ -16,6 +16,7 @@ router.get('/perfil/cliente/buscar', clienteController.showBuscar);
 router.post('/perfil/cliente/profissionais', clienteController.showProfissionais);
 router.get('/perfil/cliente/profissionais', clienteController.showProfissionais);
 
+router.get('/perfil/cliente/profissionais/:id/resumo', clienteController.resumeProfile)
 
 router.get('/cliente/profissional/:id', clienteController.showProfissional); 
 
