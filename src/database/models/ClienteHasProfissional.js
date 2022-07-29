@@ -15,6 +15,8 @@ module.exports = (sequelize, DataType) => {
             foreignkey: true
         },
 
+        data_servico: DataType.DATE,
+
         preco_servico: DataType.FLOAT,
 
         descricao_servico: DataType.STRING,

@@ -1,7 +1,7 @@
 const {Cliente, Area, Profissional} = require('../database/models');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
-const cepRequest = require('../requests/cepAPI/cepRequest');
+const cepRequest = require('../requests/cepRequest');
 
 const homeController = {
     index: (req, res) => {

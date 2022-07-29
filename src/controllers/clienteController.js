@@ -1,5 +1,5 @@
 const { Cliente, Profissional } = require('../database/models');
-const cepRequest = require('../requests/cepAPI/cepRequest')
+const cepRequest = require('../requests/cepRequest')
 
 const clienteController = {
     showBuscar: (req, res) => { 

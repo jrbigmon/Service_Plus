@@ -31,6 +31,11 @@ module.exports = (sequelize, DataType) => {
             type: DataType.STRING,
             defaultValue: 'defaultAvatar.jpeg',
             allowNull: true
+        },
+
+        descricao: {
+            type: DataType.STRING,
+            allowNull: true
         }
     },
     {
