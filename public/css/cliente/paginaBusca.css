@@ -6,12 +6,12 @@ body {
 
 }
 
+.home {
+    height: 100vh;
+}
+    
 .form-control {
     background-color: #EEEEEE;
-}
-
-.container-fluid {
-    margin-left: 3rem;
 }
 
 .container-fluid h1 {
@@ -37,8 +37,9 @@ body {
     margin-right: 0.5rem;
 }
 
-.img-prestador {
-    margin-top: 2rem;
+.img-prestador img {
+    margin: 2rem;
+    border-radius: 2rem;
 }
 
 .card-carousel{
@@ -55,4 +56,14 @@ body {
 .card-body h5 {
     color: #F66B0E;
     font-weight: 800;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .img-prestador {
+        display: none
+    }
+    .container-fluid h1 {
+        font-size: 1rem;
+        margin-top: 3rem;
+    }
 }
