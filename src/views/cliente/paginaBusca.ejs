@@ -11,51 +11,46 @@
     <%- include('../partials/header') %>
     <main>
 
-        <section>
+        <section class="home">
 
-            <div class="menu-buscar row">
+            <div class="grid text-center menu-buscar row">
                 
-                <div class="container-fluid col align-self-center">
+                <div class="grid container-fluid col align-self-center">
                     <h1>O QUE VOCÊ PRECISA HOJE?</h1>
                     <p>Receba orcamentos de forma rápida e segura</p>
-
-                    <!-- <form class="d-flex" role="search" action="/perfil/cliente/profissionais" method="POST">
-                        <input name="area" class="form-control me-2" type="search" placeholder="Search">
-                        <button class="btn btn-info" type="submit">Search</button>
-                    </form> -->
 
                     <form class="form-control form-control-checkbox" action="/perfil/cliente/profissionais" method="POST">
                         <div class=" checkbox">
     
                             <input name="area" value="1" type="checkbox" class="btn-check" id="Eletricista"
                                 autocomplete="off">
-                            <label class="btn btn-outline-primary" for="Eletricista">Eletricista</label>
+                            <label type="button" class="btn btn-outline-info"  for="Eletricista">Eletricista</label>
     
                             <input name="area" value="2" type="checkbox" class="btn-check" id="Encanador"
                                 autocomplete="off">
-                            <label class="btn btn-outline-primary" for="Encanador">Encanador</label>
+                            <label type="button" class="btn btn-outline-info"  for="Encanador">Encanador</label>
     
                             <input name="area" value="3" type="checkbox" class="btn-check" id="Limpeza" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="Limpeza">Pintor</label>
+                            <label type="button" class="btn btn-outline-info"  for="Limpeza">Pintor</label>
     
-                            <button type="submit" class="btn-outline-primary align-middle">></button>
+                            <button type="submit" class="btn btn-outline-info align-center">▶</button>
                         </div>
                     </form>
     
                 </div>  
 
-                <div class="img-prestador col ">
-                    <img src="/img/prestador-imagem.png" alt="" style="width: 90%">
+                <div class="img-prestador col-6">
+                    <img src="/img/prestador-imagem.png" alt="" style="width: 50%">
                 </div>
 
                 </div>
 
         </section>
 
-        <section class="card-carousel">
+        <!-- <section class="card-carousel">
 
             <div class="card">
-                <img src="/img/prestador-gif.png" style="width: 60% ">
+                <img src="/img/prestador-gif.png">
 
                 <div class="card-body">
                     <h5 class="card-title">PRESTADOR</h5>
@@ -63,7 +58,7 @@
                     <a href="#" class="btn btn-info">Ir ao perfil</a>
                 </div>
             </div>
-        </section>
+        </section> -->
 
     </main>
     <%- include('../partials/footer')%>

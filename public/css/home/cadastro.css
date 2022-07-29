@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 body {
-    background-color: #EAF6F6;
+    background-color: #EEEEEE;
     font-family: 'Montserrat', sans-serif;
 }
 
 .meu-form {
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 0 7px #035397;
+    box-shadow: 0 0 7px;
     border-radius: 35px;
     background-color: white;
 }
@@ -21,4 +21,10 @@ body {
 .meu-form h5 {
     font-weight: 600;
     color: #E8630A;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .form-geral {
+        width: 100%;
+    }
 }

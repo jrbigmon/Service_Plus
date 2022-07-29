@@ -6,7 +6,7 @@ const clienteController = require ('../controllers/clienteController');
 
 router.use(auth);
 
-router.get('/perfil/cliente/:id/editar', clienteController.showEdit);
+router.get('', clienteController.showEdit);
 router.put('/perfil/cliente/:id/editar', clienteController.edit);
 
 router.delete('/perfil/cliente/:id/deletar', clienteController.delete);
