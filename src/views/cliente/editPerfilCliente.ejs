@@ -10,7 +10,6 @@
             <form class="row g-3 meu-form p-2 col-lg-10 col-md-10 col-sm-12 col-12 justify-content-center" action="/perfil/cliente/<%= cliente.id %>/editar?_method=PUT" method="POST">
                 <h4 class="text-center">PERFIL DO CLIENTE</h4>
                 <h6 class="text-center">Informações sobre: <%= cliente.email %> </h6>
-                <input type="hidden" name="email" value="<%= cliente.email %>">
                    
                 <div class="form-floating p-1 col-md-8">
                     <input type="file" name="avatar" accept=".jpg"  multiple >

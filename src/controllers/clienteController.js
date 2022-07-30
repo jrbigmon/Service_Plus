@@ -61,8 +61,10 @@ const clienteController = {
     edit: async (req, res) => {
         const {id} = req.params;
 
-        const {email, nome, sobrenome, cpf, cep, numero} = req.body;
-
+        const {nome, sobrenome, cpf, cep, numero} = req.body;
+        
+        const { email } = req.session;
+        
         let clienteUpdated = {nome, sobrenome, cpf, cep, numero};
 
         await Cliente.update(clienteUpdated, { where: { id } });
@@ -85,6 +87,14 @@ const clienteController = {
         await Cliente.destroy({ where: { id } });
 
         return res.redirect('/');
+    },
+
+    solicitarOrcamento: async (req, res) => {
+        const { descricao } = req.body;
+        const { id: idPrestador } = req.params; 
+        const { id: idCliente} = req.session;
+
+
     }
 }
 
