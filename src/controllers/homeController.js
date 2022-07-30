@@ -12,7 +12,7 @@ const homeController = {
 
     login: (req, res) => {
         const {usuario} = req.query;
-
+        console.log(usuario);
         res.render('./home/login', {
             title: 'login',
             usuario
