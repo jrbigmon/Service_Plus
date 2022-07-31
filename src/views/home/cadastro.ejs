@@ -63,13 +63,13 @@
             <div class="form-floating p-1 col-md-12">
                 <h5 class="text-center">PARA PROFISSIONAIS</h5>
                 <div class="form-check">
-                    <input name="profissional" class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
+                    <input name="profissional" class="form-check-input" type="checkbox" id="checkbox-profissional">
+                    <label class="form-check-label" for="checkbox-profissional">
                        Sou Profissional
                     </label>
                 </div>
                 <br>
-                <select name="area_id" class="form-select form-select-lg mb-2" aria-label=".form-select-lg example" id="gridCheck">
+                <select name="area_id" class="form-select form-select-lg mb-2" aria-label=".form-select-lg example" id="select-areas" disabled>
                     <% areas.forEach(area => { %>
                         <option value="<%= area.id %>"><%= area.nome %></option>
                     <% }) %> 
@@ -83,6 +83,7 @@
 
     <%- include('../partials/footer') %>
 
+    <script src="./js/cadastro.js"></script>
 </body>
 
 </html>
