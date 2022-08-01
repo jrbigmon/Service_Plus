@@ -3,9 +3,10 @@ let select = document.getElementById('select-areas');
 
 checkbox.addEventListener('click', () => {
     if(checkbox.checked) {
-        select.removeAttribute('disabled')
+        select.removeAttribute('hidden');
+        select.removeAttribute('disabled');
     }
     else {
-        select.setAttribute('disabled', 'disabled')
+        select.setAttribute('hidden', 'hidden')
     }
 })
