@@ -17,6 +17,7 @@ router.post('/perfil/cliente/profissionais', clienteController.showProfissionais
 router.get('/perfil/cliente/profissionais', clienteController.showProfissionais);
 
 router.get('/perfil/cliente/profissionais/:id/resumo', clienteController.resumeProfile);
+router.post('/perfil/cliente/profissionais/:id/resumo', clienteController.solicitarOrcamento);
 
 router.get('/cliente/profissional/:id', clienteController.showProfissional); 
 

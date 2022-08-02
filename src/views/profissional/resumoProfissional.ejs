@@ -21,14 +21,14 @@
                 <details>
                     <summary>Solicitar Orçamento</summary>
 
-                    <form action="">
+                    <form action="/perfil/cliente/profissionais/<%= profissional.id %>/resumo" method="POST">
                         <label class="mt-2 col-12 col-md-12 col-lg-12" for=""><strong>Escreva brevemente o serviço a realizar!</strong></label>
                         <textarea class="p-2" name="descricao_servico" id="" cols="30" rows="5">Olá, <%= profissional.nome %>!  </textarea>
                         
                         <label class="mt-2 col-12 col-md-12 col-lg-12" for=""><strong>Escolha a data para a execução da tarefa.</strong></label>
                         <input type="date" name="data_servico" class="col-6" id="data_servico" min="" max="" step="1"> 
                         
-                        <button type="button" class="btn btn-primary col-8 col-md-8 col-lg-8 mt-3">Enviar Solicitação</button>
+                        <button type="submit" class="btn btn-primary col-8 col-md-8 col-lg-8 mt-3">Enviar Solicitação</button>
                     </form>
 
 

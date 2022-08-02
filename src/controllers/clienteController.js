@@ -1,4 +1,4 @@
-const { Cliente, Profissional } = require('../database/models');
+const { Cliente, Profissional, ClienteHasProfissional } = require('../database/models');
 const cepRequest = require('../requests/cepRequest')
 
 const clienteController = {
@@ -76,6 +76,7 @@ const clienteController = {
             email,
             endereco: endereco.logradouro
         })
+
         req.session.usuario = clienteUpdated
 
         return res.redirect('/perfil/cliente/buscar');
@@ -90,10 +91,22 @@ const clienteController = {
     },
 
     solicitarOrcamento: async (req, res) => {
-        const { descricao } = req.body;
-        const { id: idPrestador } = req.params; 
-        const { id: idCliente} = req.session;
+        const { descricao_servico, data_servico } = req.body;
+        const { id: idProfissional } = req.params; 
+        const { id: idCliente} = req.session.usuario;
 
+        let solicitacao = {
+            cliente_id: parseInt(idCliente),
+            profissional_id: parseInt(idProfissional),
+            data_servico,
+            preco_servico: 0.00,
+            descricao_servico,
+            situacao_servico_id: 1
+        } 
+        console.log(solicitacao)
+        await ClienteHasProfissional.create(solicitacao);
+
+        return res.redirect('/perfil/cliente/profissionais');
 
     }
 }
