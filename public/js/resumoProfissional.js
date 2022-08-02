@@ -9,5 +9,10 @@ let ano = new Date().getFullYear().toString();
 dataMinima = `${ano}-${mes}-${dia}`;
 dataMaxima = `${ano}-${mes}-30`;
 
-console.log(dataMinima, dataMaxima);
-console.log(dia.length)
+let dataServico = document.getElementById('data_servico');
+
+dataServico.addEventListener('click', () => {    
+    dataServico.min = dataMinima
+    dataServico.max = dataMaxima;
+})
+
