@@ -7,12 +7,13 @@
     <%- include('../partials/header')%>
     <main class="m-5 d-flex justify-content-center">
 
-            <form class="row g-3 meu-form p-2 col-lg-10 col-md-10 col-sm-12 col-12 justify-content-center" action="/perfil/cliente/<%= cliente.id %>/editar?_method=PUT" method="POST">
+            <form class="row g-3 meu-form p-2 col-lg-10 col-md-10 col-sm-12 col-12 justify-content-center" 
+            action="/perfil/cliente/<%= cliente.id %>/editar?_method=PUT" method="POST" enctype="multipart/form-data">
                 <h4 class="text-center">PERFIL DO CLIENTE</h4>
                 <h6 class="text-center">Informações sobre: <%= cliente.email %> </h6>
                    
                 <div class="form-floating p-1 col-md-8">
-                    <input type="file" name="avatar" accept=".jpg"  multiple >
+                    <input type="file" name="avatar" accept=".jpg, .png">
                 </div>
 
                 <div class="form-floating p-1 col-md-8">

@@ -27,16 +27,15 @@ const homeController = {
             const cliente = await Cliente.findOne({ where: {email}, raw: true });
 
             if (cliente && bcrypt.compareSync(senha, cliente.senha)) {
-                const endereco = await cepRequest.getCep(cliente.cep.toString());
+                const endereco = await cepRequest.getCep(cliente.cep);
 
                 delete cliente.senha;
 
-                const dadosPerfil = Object.assign({
-                    ...cliente,
+                Object.assign(cliente, {
                     endereco: endereco.logradouro
                 });
 
-                req.session.usuario = dadosPerfil;
+                req.session.usuario = cliente;
 
                 return res.redirect(`/perfil/cliente/${cliente.id}/editar`);
             };
@@ -50,12 +49,11 @@ const homeController = {
             if (profissional && bcrypt.compareSync(senha, profissional.senha)) {
                 const endereco = await cepRequest.getCep(profissional.cep);
 
-                const dadosPerfil = Object.assign({
-                   ...profissional,
+                Object.assign(profissional, {
                    endereco: endereco.logradouro
                 });
 
-                req.session.usuario = dadosPerfil;
+                req.session.usuario = profissional;
 
                 return res.redirect('/perfil/profissional');
             }
