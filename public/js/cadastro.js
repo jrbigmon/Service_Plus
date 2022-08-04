@@ -28,7 +28,7 @@ window.addEventListener('load', () => {
                     input.style.border = '1px solid red';
 
                 } else {
-                    input.style.border = '1px solid green'
+                    input.style.border = '1px solid green';
                 }
             }
         }
@@ -38,7 +38,8 @@ window.addEventListener('load', () => {
                 title: 'Oops...',
                 text: 'Possuem campos Vazios!',
                 footer: '<a href="">Why do I have this issue?</a>'
-              })
+              });
+              
             event.preventDefault();
         }
     })
