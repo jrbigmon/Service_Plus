@@ -6,17 +6,17 @@
 
     <%- include('../partials/header') %>
 
+    <% if (typeof errors !== 'undefined'){ %>
+        <ul class="row">
+            <% for(error in errors){ %>
+                <div  class="col-md-4">
+                    <li> <%= `${errors[error].msg}` %> </li>
+                </div>
+            <% } %> 
+        </ul>
+    <% } %> 
     <main class="form-geral m-5 d-flex justify-content-center">
         
-        <% if (typeof errors !== 'undefined'){ %>
-            <ul class="row">
-                <% for(error in errors){ %>
-                    <div  class="col-md-4">
-                        <li> <%= `${errors[error].msg}` %> </li>
-                    </div>
-                <% } %> 
-            </ul>
-        <% } %> 
         <form class="row g-3 meu-form p-2 col-6" action="/cadastro" method="POST">
             <h4 class="text-center">CADASTRE-SE</h4>
             
@@ -82,7 +82,7 @@
     </main>
 
     <%- include('../partials/footer') %>
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/cadastro.js"></script>
 </body>
 
