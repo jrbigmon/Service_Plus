@@ -4,9 +4,6 @@ const path = require('path');
 const fs = require('fs');
 
 const clienteController = {
-    showBuscar: (req, res) => { 
-        res.render ('./cliente/paginaBusca', {title:'Buscar profissional'});
-    },
 
     showProfissionais: async (req, res) => { 
         let {area, order} = req.body;
