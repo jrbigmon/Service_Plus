@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #EAF6F6;
+
+}
+
+.meu-form {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 7px #035397;
+    border-radius: 35px;
+    background-color: white;
+}
+
+.meu-form h4 {
+    font-weight: 600;
+    color: #E8630A;
+}
+
+.meu-form h6 {
+    font-weight: 600;
+    color: #E8630A;
+}

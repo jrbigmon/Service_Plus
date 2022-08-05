@@ -4,7 +4,6 @@ const path = require('path');
 const fs = require('fs');
 
 const clienteController = {
-
     showProfissionais: async (req, res) => { 
         let {area, order} = req.body;
 
@@ -17,7 +16,7 @@ const clienteController = {
             include: 'area' 
         });
         
-        res.render('./cliente/listaDeProf', {
+        return res.render('./cliente/listaDeProf', {
             title:'Lista de Profissionais', 
             profissionais, 
             area 
