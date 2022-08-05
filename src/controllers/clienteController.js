@@ -38,7 +38,7 @@ const clienteController = {
     },
 
     showProfissional: (req, res) => { 
-        res.render('./profissional/resumoProfissional', {title: 'cartão profissional'});
+        return res.render('./profissional/resumoProfissional', {title: 'cartão profissional'});
     },
 
     showEdit: async (req, res) => {
@@ -53,7 +53,7 @@ const clienteController = {
             });
         }
 
-        return res.redirect('/perfil/cliente/buscar');
+        return res.redirect('/');
     },
 
     edit: async (req, res) => {

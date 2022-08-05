@@ -4,7 +4,6 @@ const auth = (req, res, next) => {
         res.locals.usuario = req.session.usuario; 
         
         return next();
-
     } else {
         return res.redirect('/login/?usuario=cliente');
     }

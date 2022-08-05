@@ -4,7 +4,7 @@ const path = require('path');
 
 const profissionalController = {
     history: (req, res) => {
-        res.render('./profissional/historicoServicos', {title: 'histórico de serviços'});
+        return res.render('./profissional/historicoServicos', {title: 'histórico de serviços'});
     },
     showProfile: async (req, res) => {
         const {id} = req.params;

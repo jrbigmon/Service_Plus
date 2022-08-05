@@ -5,25 +5,25 @@ const cepRequest = require('../requests/cepRequest');
 
 const homeController = {
     index: (req, res) => {
-        res.render('./home/home', {
+        return res.render('./home/home', {
             title: 'home'
         });
     },
 
     login: (req, res) => {
-        const {usuario} = req.query;
-        
-        res.render('./home/login', {
+        const queryUsuario = req.query.usuario;
+
+        return res.render('./home/login', {
             title: 'login',
-            usuario
+            queryUsuario
         });
     },
 
     loginProcess: async (req, res) => {
-        const {usuario} = req.query;
+        const queryUsuario = req.query.usuario;
         const { email, senha } = req.body;
 
-        if(usuario == 'cliente'){
+        if(queryUsuario == 'cliente'){
             const cliente = await Cliente.findOne({ where: {email}, raw: true });
 
             if (cliente && bcrypt.compareSync(senha, cliente.senha)) {
@@ -32,6 +32,7 @@ const homeController = {
                 delete cliente.senha;
 
                 Object.assign(cliente, {
+                    tipoUsuario: queryUsuario,
                     endereco
                 });
 
@@ -43,14 +44,15 @@ const homeController = {
             return res.redirect('/login/?usuario=cliente');
         }; 
 
-        if(usuario == 'profissional'){
+        if(queryUsuario == 'profissional'){
             const profissional = await Profissional.findOne({ where: {email}, raw: true });
             
             if (profissional && bcrypt.compareSync(senha, profissional.senha)) {
                 const endereco = await cepRequest.getCep(profissional.cep);
 
                 Object.assign(profissional, {
-                   endereco
+                    tipoUsuario: queryUsuario,
+                    endereco
                 });
 
                 req.session.usuario = profissional;
@@ -128,7 +130,7 @@ const homeController = {
     },
     
     sobre: (req, res) => {
-        res.render('./home/sobre', {
+        return res.render('./home/sobre', {
             title: 'sobre'
         });
     },

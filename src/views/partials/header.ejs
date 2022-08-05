@@ -8,13 +8,10 @@
           <span class="navbar-toggler-icon" ></span>
         </button>
     
-        <span>SERVICE<strong>PLUS</strong></span>
+        <a href="/"><span>SERVICE<strong>PLUS</strong></span></a>
       
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" style="color: #EFEFEF" href="/perfil/cliente/buscar">Home</a>
-            </li>
             <li class="nav-item">
               <a class="nav-link" style="color: #EFEFEF" href="/sobre">Sobre nós</a>
             </li>
@@ -23,16 +20,29 @@
             </li>
           </ul>
     
-          <form class="form-inline my-2 my-lg-0">
-            <a href="/login/?usuario=cliente">
-                <span class="btn btn-outline-light" type="submit">Área do cliente</span>
-             </a>
-          </form>
-          <form class="form-inline my-2 my-lg-0">
-            <a href="/login/?usuario=profissional">
-                <span class="btn btn-outline-light" type="submit">Área do prestador</span>
-             </a>
-          </form>
+          <% if(locals.usuario !== undefined){%> 
+            <form class="form-inline my-2 my-lg-0">
+              <a href="/perfil/<%= `${locals.usuario.tipoUsuario}/${locals.usuario.id}` %>/editar">
+                  <span class="btn btn-outline-light" type="submit">Perfil</span>
+               </a>
+            </form>
+            <form class="form-inline my-2 my-lg-0">
+              <a href="#">
+                  <span class="btn btn-outline-light" type="submit">Logout</span>
+               </a>
+            </form>
+            <% } else { %>
+              <form class="form-inline my-2 my-lg-0">
+                <a href="/login/?usuario=cliente">
+                    <span class="btn btn-outline-light" type="submit">Área do cliente</span>
+                 </a>
+              </form>
+              <form class="form-inline my-2 my-lg-0">
+                <a href="/login/?usuario=profissional">
+                    <span class="btn btn-outline-light" type="submit">Área do prestador</span>
+                 </a>
+              </form>
+             <% } %>  
     
         </div>
       </nav>

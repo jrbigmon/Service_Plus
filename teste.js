@@ -1,6 +1,8 @@
 // let dia = new Date().getDate().toString();
 // dia.length <= 1 ? dia = `0${dia}` : dia;
 
+const { localsName } = require("ejs")
+
 // let mes = (new Date().getMonth() + 1).toString();
 // mes.length <= 1 ? mes = `0${mes}` : mes;
 

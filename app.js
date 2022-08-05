@@ -8,6 +8,7 @@ let methodOverride = require('method-override');
 const homeRouter = require('./src/routes/homeRouter');
 const profissionalRouter = require('./src/routes/profissionalRouter');
 const clienteRouter = require ('./src/routes/clienteRouter');
+const isLoggedIn = require('./src/middlewares/isLoggedIn');
 
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: false }));
@@ -25,6 +26,7 @@ app.use(session({
     saveUninitialized: false
 }));
 
+app.use(isLoggedIn);
 app.use(homeRouter);
 app.use(profissionalRouter);
 app.use(clienteRouter);
