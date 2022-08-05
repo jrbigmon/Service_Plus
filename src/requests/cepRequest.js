@@ -8,7 +8,7 @@ const cepRequest = {
     getCep: async (cep) => {
         try {
             const response = await viaCepApi.get(`${cep}/json`);
-            return response.data;
+            return response.data.logradouro;
 
         } catch (err){
             err.message = new Error('CEP inexistente!');

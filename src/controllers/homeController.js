@@ -32,7 +32,7 @@ const homeController = {
                 delete cliente.senha;
 
                 Object.assign(cliente, {
-                    endereco: endereco.logradouro
+                    endereco
                 });
 
                 req.session.usuario = cliente;
@@ -50,7 +50,7 @@ const homeController = {
                 const endereco = await cepRequest.getCep(profissional.cep);
 
                 Object.assign(profissional, {
-                   endereco: endereco.logradouro
+                   endereco
                 });
 
                 req.session.usuario = profissional;

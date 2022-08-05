@@ -31,7 +31,6 @@ const clienteController = {
         });
 
         if(profissional) {
-            console.log(profissional.area.nome)
             return res.render('./profissional/resumoProfissional', {title: profissional.nome, profissional});
         }
         return res.redirect('/perfil/cliente/profissionais');
@@ -47,6 +46,7 @@ const clienteController = {
 
         if(id == req.session.usuario.id){
             const cliente  = await Cliente.findByPk(id);
+
             return res.render('./cliente/editPerfilCliente', {
                 title: cliente.nome, 
                 cliente
@@ -60,51 +60,44 @@ const clienteController = {
         const {id} = req.params;
         const {nome, sobrenome, cpf, cep, numero} = req.body;
         const avatar = req.file;
-        const { email } = req.session.usuario;  
-        
-        if(avatar){
-            let avatarAntigo = req.session.usuario.avatar;
 
-            let localFileAvatar = path.resolve('public', 'img', 'avatarPerfilCliente', avatarAntigo);
+        const cliente = await Cliente.findByPk(id);
+
+        let clienteUpdated;
+
+        const endereco = await cepRequest.getCep(cep);
+
+        if(avatar){
+            const avatarAntigo = cliente.avatar;
+
+            const localFileAvatar = path.resolve('public', 'img', 'avatarPerfilCliente', avatarAntigo);
 
             fs.unlink(localFileAvatar, (err)=> {
-                err ? console.log(err) : console.log('Removido com sucesso!');
+                err ? console.log(err) : console.log('Sucsses!');
             });
             
-            let clienteUpdated = {avatar: avatar.filename, nome, sobrenome, cpf, cep, numero};
-            
-            await Cliente.update(clienteUpdated, { where: { id } });
-            
-            const endereco = await cepRequest.getCep(cep);
-            
-            Object.assign(clienteUpdated, {
+            clienteUpdated = {avatar: avatar.filename, nome, sobrenome, cpf, cep, numero};
+
+            req.session.usuario = Object.assign({
                 id,
-                email,
-                endereco: endereco.logradouro
+                endereco,
+                ...clienteUpdated,
             });
-           
-            req.session.usuario = clienteUpdated;
-            
+
         } else {
-            let clienteUpdated = {nome, sobrenome, cpf, cep, numero};
-            
-            let usuario = await Cliente.findByPk(id)
+            clienteUpdated = {nome, sobrenome, cpf, cep, numero};
 
-            await Cliente.update(clienteUpdated, { where: { id } });
-            
-            const endereco = await cepRequest.getCep(cep);
-            
-            Object.assign(clienteUpdated, {
+            req.session.usuario = Object.assign({
                 id,
-                email,
-                avatar: usuario.avatar,
-                endereco: endereco.logradouro
+                avatar: cliente.avatar, 
+                endereco,
+                ...clienteUpdated,
             });
-            
-            req.session.usuario = clienteUpdated;
         }
-
-        return res.redirect('/perfil/cliente/buscar');
+        
+        await Cliente.update(clienteUpdated, { where: { id } });
+        
+        return res.redirect('/');
     },
 
     delete: async (req, res) => {
@@ -132,7 +125,6 @@ const clienteController = {
         await ClienteHasProfissional.create(solicitacao);
 
         return res.redirect('/perfil/cliente/profissionais');
-
     }
 }
 
