@@ -81,7 +81,8 @@ const clienteController = {
             req.session.usuario = Object.assign({
                 id,
                 endereco,
-                ...clienteUpdated,
+                tipoUsuario: req.session.usuario.tipoUsuario,
+                ...clienteUpdated
             });
 
         } else {
@@ -91,7 +92,8 @@ const clienteController = {
                 id,
                 avatar: cliente.avatar, 
                 endereco,
-                ...clienteUpdated,
+                tipoUsuario: req.session.usuario.tipoUsuario,
+                ...clienteUpdated
             });
         }
         

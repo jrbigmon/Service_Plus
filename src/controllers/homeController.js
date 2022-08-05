@@ -135,5 +135,14 @@ const homeController = {
         });
     },
     
+    logout: (req, res) => {
+        if(req.session.usuario){
+            req.session.destroy();
+            delete res.locals.usuario;
+        }
+        
+        return res.redirect('/');
+    },
+
 }
 module.exports = homeController;

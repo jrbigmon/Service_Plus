@@ -43,14 +43,14 @@ const profissionalController = {
 
         await Profissional.update(profissionalEdit, { where: { id } })
 
-        return res.redirect('/perfil/cliente/buscar')
+        return res.redirect('/')
     },
     deleteProfile: async (req, res) => {
         const {id} = req.params;
 
         await Profissional.destroy({ where: { id } });
 
-        return res.redirect('/perfil/cliente/buscar')
+        return res.redirect('/')
     }
    
 }

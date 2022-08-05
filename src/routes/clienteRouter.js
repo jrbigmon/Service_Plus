@@ -5,6 +5,7 @@ const clienteController = require ('../controllers/clienteController');
 const storageAvatar = require('../middlewares/storageAvatar');
 
 router.get('/perfil/cliente/profissionais', clienteController.showProfissionais);
+router.post('/perfil/cliente/profissionais', clienteController.showProfissionais);
 
 router.use(auth);
 
@@ -13,7 +14,6 @@ router.put('/perfil/cliente/:id/editar', storageAvatar('avatarPerfilCliente').si
 
 router.delete('/perfil/cliente/:id/deletar', clienteController.delete);
 
-router.post('/perfil/cliente/profissionais', clienteController.showProfissionais);
 
 router.get('/perfil/cliente/profissionais/:id/resumo', clienteController.resumeProfile);
 router.post('/perfil/cliente/profissionais/:id/resumo', clienteController.solicitarOrcamento);

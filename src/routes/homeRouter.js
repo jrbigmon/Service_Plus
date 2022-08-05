@@ -13,4 +13,6 @@ router.post('/cadastro', validacaoCadastro, homeController.cadastroProcess);
 
 router.get('/sobre', homeController.sobre);
 
+router.get('/logout', homeController.logout);
+
 module.exports = router;
