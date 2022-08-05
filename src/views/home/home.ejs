@@ -1,37 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/head') %>
-<link rel="stylesheet" href="/css/home/home.css">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/global.css">
+<link rel="stylesheet" href="/css/cliente/paginaBusca.css">
 
 <body>
+    <%- include('../partials/header') %>
+    <main>
 
-   <%- include('../partials/header')%>
+        <section class="home">
 
-   <main class="main-home">
-      <section class="home">
+            <div class="grid text-center menu-buscar row">
+                
+                <div class="grid container-fluid col align-self-center">
+                    <h1>O QUE VOCÊ PRECISA HOJE?</h1>
+                    <p>Receba orcamentos de forma rápida e segura</p>
 
-         <a href="/login/?usuario=cliente">
-            <section>
-               <div><img src="/img/imagem-cliente.png" alt="">
-               </div>
-               <span class="btn btn-info">Área do cliente</span>
-            </section>
-         </a>
+                    <form class="form-control form-control-checkbox" action="/perfil/cliente/profissionais" method="POST">
+                        <div class=" checkbox">
+    
+                            <input name="area" value="1" type="checkbox" class="btn-check" id="Eletricista"
+                                autocomplete="off">
+                            <label type="button" class="btn btn-outline-info"  for="Eletricista">Eletricista</label>
+    
+                            <input name="area" value="2" type="checkbox" class="btn-check" id="Encanador"
+                                autocomplete="off">
+                            <label type="button" class="btn btn-outline-info"  for="Encanador">Encanador</label>
+    
+                            <input name="area" value="3" type="checkbox" class="btn-check" id="Limpeza" autocomplete="off">
+                            <label type="button" class="btn btn-outline-info"  for="Limpeza">Pintor</label>
+    
+                            <button type="submit" class="btn btn-outline-info align-center">▶</button>
+                        </div>
+                    </form>
+    
+                </div>  
 
-         <a href="/login/?usuario=profissional">
-            <section>
-               <div>
-                  <img src="/img/imagem-prestador.png" alt="">
-               </div>
-               <span class="btn btn-info">Área do prestador</span>
-            </section>
-         </a>
+                <div class="img-prestador col-6">
+                    <img src="/img/prestador-imagem.png" alt="" style="width: 50%">
+                </div>
 
-      </section>
+                </div>
 
-   </main>
-   <%- include('../partials/footer')%>
+        </section>
+
+        <!-- <section class="card-carousel">
+
+            <div class="card">
+                <img src="/img/prestador-gif.png">
+
+                <div class="card-body">
+                    <h5 class="card-title">PRESTADOR</h5>
+                    <p class="card-text">Descrição das Atividades</p>
+                    <a href="#" class="btn btn-info">Ir ao perfil</a>
+                </div>
+            </div>
+        </section> -->
+
+    </main>
+    <%- include('../partials/footer')%>
 </body>
 
 </html>
-
