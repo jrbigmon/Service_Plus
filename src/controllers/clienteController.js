@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const clienteController = {
     showBuscar: (req, res) => { 
-        res.render ('./cliente/paginaBusca', {title:'Buscar profissional'});
+        return res.render ('./cliente/paginaBusca', {title:'Buscar profissional'});
     },
 
     showProfissionais: async (req, res) => { 
@@ -20,7 +20,7 @@ const clienteController = {
             include: 'area' 
         });
         
-        res.render('./cliente/listaDeProf', {
+        return res.render('./cliente/listaDeProf', {
             title:'Lista de Profissionais', 
             profissionais, 
             area 

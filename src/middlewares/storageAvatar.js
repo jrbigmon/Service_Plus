@@ -1,7 +1,7 @@
 const multer = require('multer');
 const path = require('path')
 
-const storageDisk = (routeFile)=> {
+const storageDisk = (routeFile) => {
     const storage = multer.diskStorage({
         destination: (req, file, callback) => {
             let folder = path.resolve('public', 'img', routeFile);

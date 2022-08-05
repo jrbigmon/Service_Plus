@@ -55,7 +55,7 @@ const homeController = {
 
                 req.session.usuario = profissional;
 
-                return res.redirect('/perfil/profissional');
+                return res.redirect(`/perfil/profissional/${profissional.id}/editar`);
             }
 
             return res.redirect('/login/?usuario=profissional');

@@ -4,7 +4,7 @@ const auth = require('../middlewares/auth');
 const clienteController = require ('../controllers/clienteController');
 const storageAvatar = require('../middlewares/storageAvatar');
 
-router.use(auth);
+// router.use(auth);
 
 router.get('/perfil/cliente/:id/editar', clienteController.showEdit);
 router.put('/perfil/cliente/:id/editar', storageAvatar('avatarPerfilCliente').single('avatar'), clienteController.edit);
