@@ -114,6 +114,11 @@ const clienteController = {
         const { descricao_servico, data_servico } = req.body;
         const { id: idProfissional } = req.params; 
         const { id: idCliente} = req.session.usuario;
+        const {tipoUsuario} = req.session.usuario;
+
+        if(tipoUsuario !== 'cliente'){
+            return res.redirect('/perfil/profissional/historico');
+        }
 
         let solicitacao = {
             cliente_id: parseInt(idCliente),

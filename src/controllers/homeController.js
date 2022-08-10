@@ -40,7 +40,7 @@ const homeController = {
 
                 return res.redirect(`/perfil/cliente/${cliente.id}/editar`);
             };
-
+            
             return res.redirect('/login/?usuario=cliente');
         }; 
 

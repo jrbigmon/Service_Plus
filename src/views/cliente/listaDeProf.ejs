@@ -35,10 +35,11 @@
                 <% profissionais.forEach(profissional => { %>
     
                     <div class="card m-2" style="width: 18rem;">
-                        <img src="/img/<%= profissional.avatar %> " class="card-img-top" alt="...">
+                        <img src="/img/avatarPerfilProfissional/<%= profissional.avatar %> " class="card-img-top" alt="...">
                         <div class="card-body">
-                          <h5 class="card-title"><%= `${profissional.nome} ${profissional.area.nome}`  %> </h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                          <h5 class="card-title"><%= `${profissional.nome} ${profissional.sobrenome}`  %> </h5>
+                          <h5 class="card-title"><%= `${profissional.area.nome}`  %> </h5>
+                          <p class="card-text"><%= profissional.descricao %> </p>
                           <a href="/perfil/cliente/profissionais/<%=profissional.id%>/resumo" class="btn btn-primary"> Ir ao perfil </a>
                         </div>
                     </div>

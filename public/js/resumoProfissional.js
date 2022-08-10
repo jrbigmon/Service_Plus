@@ -21,6 +21,7 @@ window.addEventListener('load', () => {
     const inputs = document.querySelectorAll('input[name="data_servico"], textarea[name="descricao_servico"]');
     
     formulario.addEventListener('submit', (event) => {  
+        
         let errors = [];
 
         for(let input of inputs) {
@@ -45,6 +46,8 @@ window.addEventListener('load', () => {
 
             event.preventDefault();
         }
+        console.log(sessionStorage.getItem('tipoUsuario'))
+        
     })
 })
 

@@ -36,7 +36,19 @@ module.exports = (sequelize, DataType) => {
         ClienteHasProfissional.belongsTo(models.SituacaoServico, {
             foreignKey: 'situacao_servico_id',
             as: 'situacao_servico'
+        }),
+
+        ClienteHasProfissional.belongsTo(models.Cliente, {
+            foreignKey: 'cliente_id',
+            as: 'cliente'
+        }),
+
+        ClienteHasProfissional.belongsTo(models.Profissional, {
+            foreignKey: 'profissional_id',
+            as: 'profissional'
         })
+
+
     }
 
 
