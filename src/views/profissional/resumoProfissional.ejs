@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/head') %>
+<link rel="stylesheet" href="/css/profissional/resumoProfissional.css">
 
 <body>
     <%- include('../partials/header') %>
 
-    <main class="mt-2 mb-2" >
-       <section class="d-flex align-items-center justify-content-center">
+    <main class= "m-5 p-2 d-flex justify-content-center align-items-center">
 
-        <div class="card col-11 col-sm-8 align-items-center">
+        <div class="resumo row pt-2 col-lg-6 justify-content-center">
 
-            <img src="/img/avatarPerfilProfissional/<%= profissional.avatar  %> " style="height: 30vh; width: 80%; max-width: 210px;" class="card-img-top" alt="...">
+            <div class="imagem">
+                <img src="/img/avatarPerfilProfissional/<%= profissional.avatar  %>" class="card-img-top" alt="...">
+            </div>
             
             <div class="card-body text-center">
-                <h5 class="card-title"><%= `${profissional.nome} ${profissional.sobrenome}`  %></h5>
-                <h5 class="card-title"><%= `${profissional.area.nome}`  %></h5>
+                <h4  class="card-title"><%= `${profissional.nome} ${profissional.sobrenome}`  %></h4>
+                <h6 class="card-title"><%= `${profissional.area.nome}`  %></h6>
                 <p> 
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim placeat impedit laboriosam perferendis, neque eveniet ipsa ab? Praesentium accusantium quos quo repellendus eligendi dolore, nesciunt est? Consequuntur quam sit eum?
+                    <%= profissional.descricao %>
                 </p>
-                <details>
-                    <summary>Solicitar Orçamento</summary>
 
-                    <form action="/perfil/cliente/profissionais/<%= profissional.id %>/resumo" method="POST">
-                        <label class="mt-2 col-12 col-md-12 col-lg-12" for=""><strong>Escreva brevemente o serviço a realizar!</strong></label>
-                        <textarea class="p-2" name="descricao_servico" id="" cols="30" rows="5">Olá, <%= profissional.nome %>!  </textarea>
-                        
-                        <label class="mt-2 col-12 col-md-12 col-lg-12" for=""><strong>Escolha a data para a execução da tarefa.</strong></label>
-                        <input type="date" name="data_servico" class="col-6" id="data_servico" min="" max="" step="1"> 
-                        
-                        <button type="submit" class="btn btn-primary col-8 col-md-8 col-lg-8 mt-3">Enviar Solicitação</button>
-                    </form>
+                <details class="">
+                    <summary class="d-flex justify-content-center align-ites-center col-md-8"><strong>SOLICITE SEU ORÇAMENTO</strong></summary>
+
+                    <p>
+                        <form action="/perfil/cliente/profissionais/<%= profissional.id %>/resumo" method="POST">
+                            <label class="mt-2 col-12 col-md-12 col-lg-12" for=""><strong>No que posso lhe ajudar?</strong></label>
+                            <textarea class="text-area p-5" name="descricao_servico" id="" cols="30" rows="5"></textarea>
+                            
+                            <label class="mt-2 col-sm-8" for=""><strong>Qual dia é ideal para</strong></label>
+                            <input type="date" name="data_servico" class="col-6" id="data_servico" min="" max="" step="1"> 
+                            
+                            <button type="submit" class="btn btn-outline-info col-sm-6 mt-3">Enviar Solicitação</button>
+                        </form>
+                    </p>
 
                 </details>   
             </div>
             
         </div>
 
-       </section>
     </main>
     <%- include('../partials/footer')  %> 
 

@@ -5,7 +5,8 @@
 
 <body>
     <%- include('../partials/header')%>
-    <main class="m-5 d-flex justify-content-center">
+
+    <main class="main-home m-5 d-flex justify-content-center">
 
             <form class="row g-3 meu-form p-2 col-lg-10 col-md-10 col-sm-12 col-12 justify-content-center" 
             action="/perfil/cliente/<%= cliente.id %>/editar?_method=PUT" method="POST" enctype="multipart/form-data">
@@ -57,6 +58,7 @@
 
     </main>
     <%- include('../partials/footer')%>
+    
 </body>
 
 </html>
