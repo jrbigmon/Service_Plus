@@ -5,4 +5,5 @@ const isLoggedIn = (req, res, next) => {
 
     return next();
 }
+
 module.exports = isLoggedIn;
