@@ -1,11 +1,11 @@
-'use strict';
-const bcrypt = require('bcryptjs');
+'use strict'
+const bcrypt = require('bcryptjs')
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    let users = []
+    const users = []
 
-    for(let i = 1; i<=5; i++){
+    for (let i = 1; i <= 5; i++) {
       users.push({
         id: i,
         nome: `NomeTeste${i}`,
@@ -19,10 +19,10 @@ module.exports = {
         area_id: i <= 3 ? i : i - 2
       })
     }
-    await queryInterface.bulkInsert('profissionais', users, {});
+    await queryInterface.bulkInsert('profissionais', users, {})
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('profissionais', null, {});
+    await queryInterface.bulkDelete('profissionais', null, {})
   }
-};
+}

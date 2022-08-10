@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -15,12 +15,12 @@ module.exports = {
         id: 3,
         estado: 'Finalizado'
       }
-    ];
-    
-    await queryInterface.bulkInsert('situacao_servicos', estado, {});
+    ]
+
+    await queryInterface.bulkInsert('situacao_servicos', estado, {})
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('situacao_servicos', null, {});
+    await queryInterface.bulkDelete('situacao_servicos', null, {})
   }
-};
+}

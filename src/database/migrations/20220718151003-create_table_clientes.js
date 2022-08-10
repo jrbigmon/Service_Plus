@@ -1,9 +1,8 @@
-'use strict';
+'use strict'
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-
-    await queryInterface.createTable('clientes', { 
+    await queryInterface.createTable('clientes', {
       id: {
         type: Sequelize.DataTypes.INTEGER(10),
         primaryKey: true,
@@ -28,12 +27,12 @@ module.exports = {
       },
       telefone: {
         type: Sequelize.DataTypes.STRING(20),
-        allowNull: false,
+        allowNull: false
       },
       email: {
         type: Sequelize.DataTypes.STRING(200),
         allowNull: false,
-        unique: true 
+        unique: true
       },
       senha: {
         type: Sequelize.DataTypes.STRING(400),
@@ -44,11 +43,10 @@ module.exports = {
         allowNull: false,
         unique: true
       }
-    });
-    
+    })
   },
 
-  async down (queryInterface, Sequelize) {  
-    await queryInterface.dropTable('clientes');
+  async down (queryInterface, Sequelize) {
+    await queryInterface.dropTable('clientes')
   }
-};
+}

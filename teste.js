@@ -1,7 +1,7 @@
 // let dia = new Date().getDate().toString();
 // dia.length <= 1 ? dia = `0${dia}` : dia;
 
-const { localsName } = require("ejs")
+const { localsName } = require('ejs')
 
 // let mes = (new Date().getMonth() + 1).toString();
 // mes.length <= 1 ? mes = `0${mes}` : mes;
@@ -14,8 +14,8 @@ const { localsName } = require("ejs")
 // console.log(dataMinima, dataMaxima);
 // console.log(dia.length)
 
-let meuObjeto = false
+const meuObjeto = false
 
 if (meuObjeto) {
-    console.log('Exsite essa propriedade')
+  console.log('Exsite essa propriedade')
 }
