@@ -6,8 +6,12 @@
 <body>
 
     <main class="main-home">
-        <section class="login">
+        <% if(typeof locals.errorValidation !== 'undefined'){ %>
+            <p hidden><%= locals.errorValidation %></p>
+        <% } %> 
 
+        <section class="login">
+            
             <form action="/login/?usuario=<%= queryUsuario %> " method="POST" class="formulario">
                 <h4>LOGIN</h4>
                 <div>
