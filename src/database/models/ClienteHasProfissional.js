@@ -22,7 +22,7 @@ module.exports = (sequelize, DataType) => {
       field: 'data_servico'
     },
 
-    preco_servico: {
+    precoServico: {
       type: DataType.FLOAT,
       field: 'preco_servico'
     },
