@@ -1,4 +1,3 @@
-
 window.addEventListener('load', () => {
     let checkbox = document.getElementById('checkbox-profissional');
     let select = document.getElementById('select-areas');
