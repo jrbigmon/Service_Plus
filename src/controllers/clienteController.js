@@ -43,16 +43,15 @@ const clienteController = {
   showEdit: async (req, res) => {
     const { id } = req.params
 
-    if (id === req.session.usuario.id) {
-      const cliente = await Cliente.findByPk(id)
-
-      return res.render('./cliente/editPerfilCliente', {
-        title: cliente.nome,
-        cliente
-      })
+    if (id != req.session.usuario.id) {
+      return res.redirect('/')
     }
+    const cliente = await Cliente.findByPk(id)
 
-    return res.redirect('/')
+    return res.render('./cliente/editPerfilCliente', {
+      title: cliente.nome,
+      cliente
+    })
   },
 
   edit: async (req, res) => {
