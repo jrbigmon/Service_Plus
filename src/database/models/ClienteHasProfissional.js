@@ -5,24 +5,36 @@ module.exports = (sequelize, DataType) => {
       primaryKey: true,
       autoIncrement: true
     },
-    cliente_id: {
+    clienteId: {
       type: DataType.INTEGER,
+      field: 'cliente_id',
       foreignkey: true
     },
 
-    profissional_id: {
+    profissionalId: {
       type: DataType.INTEGER,
+      field: 'profissional_id',
       foreignkey: true
     },
 
-    data_servico: DataType.DATE,
+    dataServico: {
+      type: DataType.DATE,
+      field: 'data_servico'
+    },
 
-    preco_servico: DataType.FLOAT,
+    preco_servico: {
+      type: DataType.FLOAT,
+      field: 'preco_servico'
+    },
 
-    descricao_servico: DataType.STRING,
+    descricaoServico: {
+      type: DataType.STRING,
+      field: 'descricao_servico'
+    },
 
-    situacao_servico_id: {
+    situacaoServicoId: {
       type: DataType.INTEGER,
+      field: 'situacao_servico_id',
       foreignkey: true
     }
   },
@@ -34,17 +46,17 @@ module.exports = (sequelize, DataType) => {
 
   ClienteHasProfissional.associate = (models) => {
     ClienteHasProfissional.belongsTo(models.SituacaoServico, {
-      foreignKey: 'situacao_servico_id',
-      as: 'situacao_servico'
+      foreignKey: 'situacaoServicoId',
+      as: 'situacaoServico'
     })
 
     ClienteHasProfissional.belongsTo(models.Cliente, {
-      foreignKey: 'cliente_id',
+      foreignKey: 'clienteId',
       as: 'cliente'
     })
 
     ClienteHasProfissional.belongsTo(models.Profissional, {
-      foreignKey: 'profissional_id',
+      foreignKey: 'profissionalId',
       as: 'profissional'
     })
   }

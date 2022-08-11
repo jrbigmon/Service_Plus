@@ -6,6 +6,10 @@ header {
     background-color: #112B3C;
 }
 
+.btn-home {
+    text-decoration: none;
+}
+
 .navbar-toggler {
     margin-left: 1rem;
 }

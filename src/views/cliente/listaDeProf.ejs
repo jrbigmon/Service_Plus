@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/head') %>
-<!-- <link rel="stylesheet" href="/css/cliente/cardProf.css"> -->
-<link rel="stylesheet" href="/css/global.css">
+
+<link rel="stylesheet" href="/css/profissional/listaProfissionais.css">
 
 <body>
     
     <%- include('../partials/header') %>
 
-    <main class="listaDeProf">
+    <main class="main-home">
         <details>
-            <form class="" action="/perfil/cliente/profissionais" method="POST">
-                <section class=" checkbox">
-    
+            <summary><strong>FILTRO</strong></summary>
+
+            <p>
+                <form class="form-checkbox" action="/perfil/cliente/profissionais" method="POST">
                     <div>
-    
+
                         <input name="order" value="ASC" type="radio" class="btn-check" id="Eletricista" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="Eletricista">Crescente</label>
+                        <label class="btn btn-outline-info" for="Eletricista">Crescente</label>
     
                         <input name="order" value="DESC" type="radio" class="btn-check" id="Encanador" autocomplete="off">
-                        <label class="btn btn-outline-primary" for="Encanador">Decrescente</label>
+                        <label class="btn btn-outline-info" for="Encanador">Decrescente</label>
 
                         <% for(let i = 0; i< area.length; i++) {%>
                             <input name="area" value="<%= area[i]%>" hidden>
@@ -27,20 +28,21 @@
                         
                     </div>
                     <button type="submit" class="btn-outline-success align-middle">Buscar</button>
-                    
-                </section>
-        </details>
-        <div class="card col-md-12 flex-wrap flex-row justify-content-center align-items-center">
+            </p>
+
+          </details>
+        
+        <div class="cards card col-md-12 flex-wrap flex-row justify-content-center align-items-center">
             <% if(profissionais != 'undefined') { %>
                 <% profissionais.forEach(profissional => { %>
     
-                    <div class="card m-2" style="width: 18rem;">
-                        <img src="/img/avatarPerfilProfissional/<%= profissional.avatar %> " class="card-img-top" alt="...">
+                    <div class="card m-2" style="width: 20rem; height: 40rem">
+                        <img src="/img/avatarPerfilProfissional/<%= profissional.avatar %> " class="card-img-top" style="width: 20rem; height: 20rem">
                         <div class="card-body">
                           <h5 class="card-title"><%= `${profissional.nome} ${profissional.sobrenome}`  %> </h5>
-                          <h5 class="card-title"><%= `${profissional.area.nome}`  %> </h5>
+                          <h6 class="card-title"><%= `${profissional.area.nome}`  %> </h6>
                           <p class="card-text"><%= profissional.descricao %> </p>
-                          <a href="/perfil/cliente/profissionais/<%=profissional.id%>/resumo" class="btn btn-primary"> Ir ao perfil </a>
+                          <a href="/perfil/cliente/profissionais/<%=profissional.id%>/resumo" class="btn btn-outline-info"> Ir ao perfil </a>
                         </div>
                     </div>
     

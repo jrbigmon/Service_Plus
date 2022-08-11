@@ -10,8 +10,7 @@ module.exports = (sequelize, DataType) => {
   },
   {
     tableName: 'areas',
-    timestamps: false,
-    underscored: true
+    timestamps: false
   })
 
   Area.associate = (models) => {

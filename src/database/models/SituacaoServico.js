@@ -16,7 +16,7 @@ module.exports = (sequelize, DataType) => {
 
   SituacaoServico.associate = (models) => {
     SituacaoServico.hasMany(models.ClienteHasProfissional, {
-      foreignKey: 'situacao_servico_id',
+      foreignKey: 'situacaoServicoId',
       as: 'servicos'
     })
   }

@@ -10,7 +10,10 @@ module.exports = (sequelize, DataType) => {
 
     sobrenome: DataType.STRING,
 
-    data_nascimento: DataType.DATE,
+    dataNascimento: {
+      type: DataType.DATE,
+      field: 'data_nascimento'
+    },
 
     cep: DataType.STRING,
 
@@ -20,8 +23,9 @@ module.exports = (sequelize, DataType) => {
 
     senha: DataType.STRING,
 
-    area_id: {
+    areaId: {
       type: DataType.INTEGER,
+      field: 'area_id',
       foreignKey: true
     },
 
@@ -40,26 +44,25 @@ module.exports = (sequelize, DataType) => {
   },
   {
     tableName: 'profissionais',
-    timestamps: false,
-    underscored: true
+    timestamps: false
   })
 
   Profissional.associate = (models) => {
     Profissional.belongsTo(models.Area, {
-      foreignkey: 'area_id',
+      foreignkey: 'areaId',
       as: 'area'
     })
 
     Profissional.belongsToMany(models.Cliente, {
       as: 'profissionalCliente',
-      foreignKey: 'profissional_id',
-      otherKey: 'cliente_id',
+      foreignKey: 'profissionalId',
+      otherKey: 'clienteId',
       through: models.ClienteHasProfissional
     })
 
     Profissional.hasMany(models.ClienteHasProfissional, {
       as: 'servicosDoProfissional',
-      foreignKey: 'profissional_id'
+      foreignKey: 'profissionalId'
     })
   }
 
