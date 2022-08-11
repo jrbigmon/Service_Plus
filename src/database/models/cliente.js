@@ -41,14 +41,14 @@ module.exports = (sequelize, DataType) => {
   Cliente.associate = (models) => {
     Cliente.belongsToMany(models.Profissional, {
       as: 'clienteProfissional',
-      foreignKey: 'cliente_id',
-      otherKey: 'profissional_id',
+      foreignKey: 'clienteId',
+      otherKey: 'profissionalId',
       through: models.ClienteHasProfissional
     })
 
     Cliente.hasMany(models.ClienteHasProfissional, {
       as: 'servicosDoCliente',
-      foreignKey: 'cliente_id'
+      foreignKey: 'clienteId'
     })
   }
 
