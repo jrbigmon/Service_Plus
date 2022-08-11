@@ -1,25 +1,25 @@
 module.exports = (sequelize, DataType) => {
-    const SituacaoServico = sequelize.define('SituacaoServico', {
-        id: {
-            type: DataType.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },
-        
-        estado: DataType.STRING
+  const SituacaoServico = sequelize.define('SituacaoServico', {
+    id: {
+      type: DataType.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
     },
 
-    {
-        tableName: 'situacao_servicos',
-        timestamps: false
+    estado: DataType.STRING
+  },
+
+  {
+    tableName: 'situacao_servicos',
+    timestamps: false
+  })
+
+  SituacaoServico.associate = (models) => {
+    SituacaoServico.hasMany(models.ClienteHasProfissional, {
+      foreignKey: 'situacaoServicoId',
+      as: 'servicos'
     })
+  }
 
-    SituacaoServico.associate = (models) => {
-        SituacaoServico.hasMany(models.ClienteHasProfissional, {
-            foreignKey: 'situacao_servico_id',
-            as: 'servicos'
-        })
-    }
-
-    return SituacaoServico;
+  return SituacaoServico
 }

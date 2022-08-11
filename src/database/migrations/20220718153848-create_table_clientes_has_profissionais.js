@@ -1,8 +1,8 @@
-'use strict';
+'use strict'
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    await queryInterface.createTable('clientes_has_profissionais', { 
+    await queryInterface.createTable('clientes_has_profissionais', {
       id: {
         type: Sequelize.DataTypes.INTEGER(10),
         primaryKey: true,
@@ -12,7 +12,7 @@ module.exports = {
       cliente_id: {
         type: Sequelize.DataTypes.INTEGER(10),
         references: {
-          model: {tableName: 'clientes'},
+          model: { tableName: 'clientes' },
           key: 'id'
         },
         allowNull: false
@@ -20,7 +20,7 @@ module.exports = {
       profissional_id: {
         type: Sequelize.DataTypes.INTEGER(10),
         references: {
-          model: {tableName: 'profissionais'},
+          model: { tableName: 'profissionais' },
           key: 'id'
         },
         allowNull: false
@@ -30,22 +30,22 @@ module.exports = {
         allowNull: false
       },
       preco_servico: {
-        type: Sequelize.DataTypes.FLOAT(4,2),
+        type: Sequelize.DataTypes.FLOAT(4, 2),
         allowNull: false
       },
       situacao_servico_id: {
         type: Sequelize.DataTypes.INTEGER(10),
         references: {
-          model: {tableName: 'situacao_servicos'},
+          model: { tableName: 'situacao_servicos' },
           key: 'id'
         },
         allowNull: false
       }
 
-    });
+    })
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.dropTable('clientes_has_profissionais');
+    await queryInterface.dropTable('clientes_has_profissionais')
   }
-};
+}
