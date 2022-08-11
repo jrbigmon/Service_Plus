@@ -66,4 +66,15 @@ body {
         font-size: 1rem;
         margin-top: 3rem;
     }
+    .body-home {
+        background-image: url("/img/prestador-imagem.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+    .form-control-checkbox {
+        background: none;
+    }
+
+    .checkbox input {
+    }
 }

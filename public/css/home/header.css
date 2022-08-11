@@ -12,6 +12,11 @@ header {
 
 .navbar-toggler {
     margin-left: 1rem;
+    background-color: #112B3C;
+}
+
+.menu-burguer-icon {
+    color: white;
 }
 
 span {

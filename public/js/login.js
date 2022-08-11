@@ -1,24 +1,23 @@
 window.addEventListener('load', () => {
     let formulario = document.querySelector('.formulario');
-    let inputs = document.querySelector('input.nome');
+    let inputs = document.querySelectorAll('input');
+
+    let errors = [];
 
     formulario.addEventListener('submit', (event) => {
 
-        let errors = [];
-
-        let campo = inputs;
-
         for (let input of inputs){
-            if(campo.value == ""){
-                errors.push(` ${input.name}`)
+            let campo = input.value.trim()
+            if(campo == ""){
+                errors.push(input.name)
     
-                input.style.border = '1px solid red'
+                input.style.borderBottom = '1px solid red'
             } else {
-                input.style.border = '1px solid green'
+                input.style.borderBottom = '1px solid green'
             }
         }
         if(errors.length > 0) {
-            wal.fire({
+            Swal.fire({
                 icon: 'warning',
                 title: 'Oops...',
                 text: 'Possuem campos Vazios!',
