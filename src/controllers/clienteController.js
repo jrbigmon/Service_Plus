@@ -11,8 +11,8 @@ const clienteController = {
     area = area || ['1', '2', '3']
 
     const profissionais = await Profissional.findAll({
-      where: { area_id: area },
-      order: [['area_id', order]],
+      where: { areaId: area },
+      order: [['areaId', order]],
       include: 'area'
     })
 
@@ -109,7 +109,7 @@ const clienteController = {
   },
 
   solicitarOrcamento: async (req, res) => {
-    const { descricao_servico, data_servico } = req.body
+    const { descricaoServico, dataServico } = req.body
     const { id: idProfissional } = req.params
     const { id: idCliente } = req.session.usuario
     const { tipoUsuario } = req.session.usuario
@@ -119,12 +119,12 @@ const clienteController = {
     }
 
     const solicitacao = {
-      cliente_id: parseInt(idCliente),
-      profissional_id: parseInt(idProfissional),
-      data_servico,
-      preco_servico: 0.00,
-      descricao_servico,
-      situacao_servico_id: 1
+      clienteId: parseInt(idCliente),
+      profissionalId: parseInt(idProfissional),
+      dataServico,
+      precoServico: 0.00,
+      descricaoServico,
+      situacaoServicoId: 1
     }
 
     await ClienteHasProfissional.create(solicitacao)
