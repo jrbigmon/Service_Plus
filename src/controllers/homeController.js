@@ -41,8 +41,6 @@ const homeController = {
         return res.redirect(`/perfil/cliente/${cliente.id}/editar`)
       };
 
-      res.locals.errorValidation = new Error('Credências Incorretas')
-
       return res.redirect('/login/?usuario=cliente')
     };
 
