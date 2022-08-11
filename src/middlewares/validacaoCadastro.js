@@ -4,7 +4,7 @@ const { Cliente, Profissional } = require('../database/models/index')
 const validacaoCadastro = [
   body('nome').notEmpty().withMessage('Insira um nome!'),
   body('sobrenome').notEmpty().withMessage('Insira um sobrenome!'),
-  body('data_nascimento').notEmpty().withMessage('Insira sua data de nascimento!'),
+  body('dataNascimento').notEmpty().withMessage('Insira sua data de nascimento!'),
   body('cep').notEmpty().withMessage('Insira seu CEP!'),
   body('numero').notEmpty().withMessage('Insira o número da casa!'),
   body('telefone').notEmpty().withMessage('Insira seu telefone!'),
