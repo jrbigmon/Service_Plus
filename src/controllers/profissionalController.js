@@ -7,10 +7,10 @@ const profissionalController = {
     // const { id } = req.session.usuario;
     const id = 6
     const dadosServicos = await ClienteHasProfissional.findAll({
-      where: { profissional_id: id },
+      where: { profissionalId: id },
       include: [
         {
-          association: 'situacao_servico',
+          association: 'situacaoServico',
           attributes: ['estado']
         },
         {
