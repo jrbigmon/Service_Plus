@@ -7,8 +7,8 @@ const clienteController = {
   showProfissionais: async (req, res) => {
     let { area, order } = req.body
 
-    order == undefined ? order = 'ASC' : order
-    area == undefined ? area = ['1', '2', '3'] : area
+    order = order || 'ASC'
+    area = area || ['1', '2', '3']
 
     const profissionais = await Profissional.findAll({
       where: { area_id: area },
@@ -43,7 +43,7 @@ const clienteController = {
   showEdit: async (req, res) => {
     const { id } = req.params
 
-    if (id == req.session.usuario.id) {
+    if (id === req.session.usuario.id) {
       const cliente = await Cliente.findByPk(id)
 
       return res.render('./cliente/editPerfilCliente', {

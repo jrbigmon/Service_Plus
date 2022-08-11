@@ -5,7 +5,7 @@ const path = require('path')
 const profissionalController = {
   history: async (req, res) => {
     // const { id } = req.session.usuario;
-    const id = 1
+    const id = 6
     const dadosServicos = await ClienteHasProfissional.findAll({
       where: { profissional_id: id },
       include: [
@@ -15,7 +15,7 @@ const profissionalController = {
         },
         {
           association: 'cliente',
-          attributes: ['nome', 'sobrenome', 'cep']
+          attributes: ['nome', 'sobrenome', 'cep', 'avatar']
         }
       ]
     })

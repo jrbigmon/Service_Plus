@@ -16,17 +16,12 @@
             <section class="cards">
                 
                 <div class="card" style="width: 18rem;">
-                    <img src="https://d5y9g7a5.rocketcdn.me/wp-content/uploads/2020/04/girafa-caracteristicas-e-comportamento-da-especie-1.jpg"
+                    <img src="/img/avatarPerfilCliente/<%= dadoServico.cliente.avatar %> "
                     class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><%= `${dadoServico.cliente.nome} ${dadoServico.cliente.sobrenome}` %></h5>
                         <p class="card-text"><%= dadoServico.descricao_servico %></p>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Pintar Sala</li>
-                    <li class="list-group-item">Pintar Cozinha</li>
-                    <li class="list-group-item">Pintar Banheiro</li>
-                </ul>
                 <div class="card-body">
                     <a href="#" class="card-link"> Orçamentar </a>
                     <a href="#" class="card-link"> Cancelar Pedido </a>
