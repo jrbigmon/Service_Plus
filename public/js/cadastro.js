@@ -20,7 +20,7 @@ window.addEventListener('load', () => {
       if (input.type !== 'checkbox') {
         const campo = input.value.trim()
 
-        if (campo.length == 0) {
+        if (campo.length === 0) {
           errors.push(` ${input.name}`)
 
           input.style.border = '1px solid red'
