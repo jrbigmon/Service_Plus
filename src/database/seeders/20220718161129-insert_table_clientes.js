@@ -10,7 +10,7 @@ module.exports = {
         id: i,
         nome: `NomeTeste${i}`,
         sobrenome: `SobrenomeTeste${i}`,
-        data_nascimento: '1990-05-01',
+        dataNascimento: '1990-05-01',
         cep: '01234567',
         numero: '2000',
         telefone: `(11)9${(i.toString()).repeat(8)}`,
