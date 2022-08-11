@@ -23,7 +23,7 @@ const homeController = {
     const queryUsuario = req.query.usuario
     const { email, senha } = req.body
 
-    if (queryUsuario == 'cliente') {
+    if (queryUsuario === 'cliente') {
       const cliente = await Cliente.findOne({ where: { email }, raw: true })
 
       if (cliente && bcrypt.compareSync(senha, cliente.senha)) {
@@ -44,7 +44,7 @@ const homeController = {
       return res.redirect('/login/?usuario=cliente')
     };
 
-    if (queryUsuario == 'profissional') {
+    if (queryUsuario === 'profissional') {
       const profissional = await Profissional.findOne({ where: { email }, raw: true })
 
       if (profissional && bcrypt.compareSync(senha, profissional.senha)) {
@@ -81,34 +81,34 @@ const homeController = {
       const {
         nome,
         sobrenome,
-        data_nascimento,
+        dataNascimento,
         cep,
         numero,
         telefone,
         email,
         senha,
         cpf,
-        area_id,
+        areaId,
         profissional
       } = req.body
 
-      if (profissional && area_id) {
+      if (profissional && areaId) {
         await Profissional.create({
           nome,
           sobrenome,
-          data_nascimento,
+          dataNascimento,
           cep,
           telefone,
           email,
           senha: bcrypt.hashSync(senha, 10),
           cpf,
-          area_id
+          areaId
         })
       } else {
         await Cliente.create({
           nome,
           sobrenome,
-          data_nascimento,
+          dataNascimento,
           cep,
           numero,
           telefone,
