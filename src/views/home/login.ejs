@@ -8,8 +8,8 @@
     <%- include('../partials/header')%>
 
     <main class="main-home">
-        <% if(typeof locals.errorValidation !== 'undefined'){ %>
-            <p hidden><%= locals.errorValidation %></p>
+        <% if(typeof locals.errorValidation !== 'undefined'){ %> 
+            <% console.log(locals.errorValidation)  %>
         <% } %> 
 
         <section class="login">
