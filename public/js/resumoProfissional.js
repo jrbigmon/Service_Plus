@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-  const dataServico = document.getElementById('data_servico')
+  const dataServico = document.getElementById('dataServico')
 
   dataServico.addEventListener('click', () => {
     let dia = new Date().getDate().toString()
@@ -18,7 +18,7 @@ window.addEventListener('load', () => {
   })
 
   const formulario = document.querySelector('details form')
-  const inputs = document.querySelectorAll('input[name="data_servico"], textarea[name="descricao_servico"]')
+  const inputs = document.querySelectorAll('input[name="dataServico"], textarea[name="descricaoServico"]')
 
   formulario.addEventListener('submit', (event) => {
     const errors = []
