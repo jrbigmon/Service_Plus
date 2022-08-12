@@ -40,6 +40,7 @@ summary {
     color: white;
     background-color: #035397;
     list-style-type: '';
+    margin: auto;
 }
 
 details[open] summary{

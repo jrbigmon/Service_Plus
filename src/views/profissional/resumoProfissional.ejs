@@ -11,7 +11,7 @@
         <div class="resumo row pt-2 col-lg-6 justify-content-center">
 
             <div class="imagem">
-                <img src="/img/avatarPerfilProfissional/<%= profissional.avatar  %>" class="card-img-top" alt="...">
+                <img src="/img/avatarPerfilProfissional/<%= profissional.avatar %>" class="card-img-top" alt="...">
             </div>
             
             <div class="card-body text-center">
@@ -21,8 +21,8 @@
                     <%= profissional.descricao %>
                 </p>
 
-                <details class="">
-                    <summary class="d-flex justify-content-center align-ites-center col-md-8"><strong>SOLICITE SEU ORÇAMENTO</strong></summary>
+                <details class="d-flex align-items-center justify-content-center">
+                    <summary class="col-md-8"><strong>SOLICITE SEU ORÇAMENTO</strong></summary>
 
                     <p>
                         <form action="/perfil/cliente/profissionais/<%= profissional.id %>/resumo" method="POST">
