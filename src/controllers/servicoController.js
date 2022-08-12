@@ -9,7 +9,7 @@ const servicoController = {
         })
 
         if (profissional) {
-        return res.render('./profissional/resumoProfissional', { title: profissional.nome, profissional })
+          return res.render('./servico/solicitarOrcamento', { title: profissional.nome, profissional })
         }
         return res.redirect('/perfil/cliente/profissionais')
     },
