@@ -4,9 +4,10 @@ const router = express.Router()
 const auth = require('../middlewares/auth')
 const storageAvatar = require('../middlewares/storageAvatar')
 
-// router.use(auth);
+router.use(auth);
 
 router.get('/perfil/profissional/historico', profissionalController.history)
+router.post('/perfil/profissional/historico', profissionalController.history)
 
 router.get('/perfil/profissional/:id/editar', profissionalController.showProfile)
 router.put('/perfil/profissional/:id/editar', storageAvatar('avatarPerfilProfissional').single('avatar'), profissionalController.editProfile)
