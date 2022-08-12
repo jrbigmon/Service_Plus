@@ -14,9 +14,6 @@ router.put('/perfil/cliente/:id/editar', storageAvatar('avatarPerfilCliente').si
 
 router.delete('/perfil/cliente/:id/deletar', clienteController.delete)
 
-router.get('/perfil/cliente/profissionais/:id/resumo', clienteController.resumeProfile)
-router.post('/perfil/cliente/profissionais/:id/resumo', clienteController.solicitarOrcamento)
-
 router.get('/cliente/profissional/:id', clienteController.showProfissional)
 
 module.exports = router
