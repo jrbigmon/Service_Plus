@@ -9,7 +9,22 @@
     <%- include('../partials/header')%>
 
     <main>
+        <nav>
+            <form action="/perfil/profissional/historico" method="POST">
+                <label for="orcamentar"> A Orçamentar
+                    <input value="1" type="radio" id="orcamentar" name="statusServicoFromBody">    
+                </label>
 
+                <label for="executar"> Executados
+                    <input value="2" type="radio" id="executar" name="statusServicoFromBody">
+                </label>
+
+                <label for="finalizado"> Finalizados
+                    <input value="3" type="radio" id="finalizado" name="statusServicoFromBody">
+                </label>
+                <button type="submit">Buscar</button>
+            </form>
+        </nav>
         <h1 class="title"> Lista de Serviços aguardando orçamento </h1>
         <% dadosServicos.forEach(dadoServico => { %>
 
@@ -23,7 +38,16 @@
                         <p class="card-text"><%= dadoServico.descricaoServico %></p>
                     </div>
                 <div class="card-body">
-                    <a href="#" class="card-link"> Orçamentar </a>
+                    <details>
+                        <summary>Orçamentar</summary>
+                        <form action="/perfil/profissional/historico/<%= dadoServico.id %>/orcamentar" method="POST">
+                            <label for=""> Insira o valor previsto para o serviço
+                                <input type="number" step="any" name="precoServico">
+                            </label>
+                            <button type="submit">Enviar Orçamento</button>
+                        </form>
+                    </details>
+                    <!-- <a href="#" class="card-link"> Orçamentar </a> -->
                     <a href="#" class="card-link"> Cancelar Pedido </a>
                 </div>
             </div>

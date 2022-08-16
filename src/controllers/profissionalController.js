@@ -4,10 +4,13 @@ const path = require('path')
 
 const profissionalController = {
   history: async (req, res) => {
-    // const { id } = req.session.usuario;
-    const id = 6
+    const { statusServicoFromBody } = req.body
+    const { id } = req.session.usuario;
+
+    let statusServico = statusServicoFromBody || 1
+
     const dadosServicos = await ClienteHasProfissional.findAll({
-      where: { profissionalId: id },
+      where: { profissionalId: id, situacaoServicoId: statusServico },
       include: [
         {
           association: 'situacaoServico',
@@ -15,7 +18,7 @@ const profissionalController = {
         },
         {
           association: 'cliente',
-          attributes: ['nome', 'sobrenome', 'cep', 'avatar']
+          attributes: ['nome', 'sobrenome', 'cep', 'numero', 'avatar']
         }
       ]
     })

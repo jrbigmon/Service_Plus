@@ -31,8 +31,7 @@ module.exports = {
       },
       email: {
         type: Sequelize.DataTypes.STRING(200),
-        allowNull: false,
-        unique: true
+        allowNull: false
       },
       senha: {
         type: Sequelize.DataTypes.STRING(400),
@@ -48,8 +47,7 @@ module.exports = {
       },
       cpf: {
         type: Sequelize.DataTypes.STRING(50),
-        allowNull: false,
-        unique: true
+        allowNull: false
       }
     })
   },

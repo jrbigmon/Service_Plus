@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+<link rel="stylesheet" href="/css/profissional/resumoProfissional.css">
+
+<body>
+    <%- include('../partials/header') %>
+
+    <main class= "m-5 p-2 d-flex justify-content-center align-items-center">
+
+        <div class="resumo row pt-2 col-lg-6 justify-content-center">
+
+            <div class="imagem">
+                <img src="/img/avatarPerfilProfissional/<%= profissional.avatar %>" class="card-img-top" alt="...">
+            </div>
+            
+            <div class="card-body text-center">
+                <h4  class="card-title"><%= `${profissional.nome} ${profissional.sobrenome}`  %></h4>
+                <h6 class="card-title"><%= `${profissional.area.nome}`  %></h6>
+                <p> 
+                    <%= profissional.descricao %>
+                </p>
+
+                <details class="d-flex align-items-center justify-content-center">
+                    <summary class="col-md-8"><strong>SOLICITE SEU ORÇAMENTO</strong></summary>
+
+                    <p>
+                        <form action="/perfil/cliente/profissionais/<%= profissional.id %>/resumo" method="POST">
+                            <label class="mt-2 col-12 col-md-12 col-lg-12" for=""><strong>No que posso lhe ajudar?</strong></label>
+                            <textarea class="text-area p-5" name="descricaoServico" id="" cols="30" rows="5"></textarea>
+                            
+                            <label class="mt-2 col-sm-8" for=""><strong>Qual dia é ideal para você?</strong></label>
+                            <input type="date" name="dataServico" class="col-6" id="dataServico" min="" max="" step="1"> 
+                            
+                            <button type="submit" class="btn btn-outline-info col-sm-6 mt-3">Enviar Solicitação</button>
+                        </form>
+                    </p>
+
+                </details>   
+            </div>
+            
+        </div>
+
+    </main>
+    <%- include('../partials/footer')  %> 
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/resumoProfissional.js"></script>
+</body>
+
+</html>

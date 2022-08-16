@@ -36,6 +36,24 @@ const servicoController = {
     await ClienteHasProfissional.create(solicitacao)
 
     return res.redirect('/perfil/cliente/profissionais')
+  },
+
+  orcamentar: async (req, res) => {
+    const { id } = req.params
+    const { precoServico } = req.body
+    const servicoSolicitado = await ClienteHasProfissional.findByPk(id)
+
+    const servicoOcamentado = {
+      ...servicoSolicitado,
+      precoServico: parseFloat(precoServico),
+      situacaoServicoId: 2
+    }
+    await ClienteHasProfissional.update(servicoOcamentado, { where: { id } })
+    return res.json(servicoOcamentado)
+  },
+
+  aceitarServico: async (req, res) => {
+    
   }
 }
 
