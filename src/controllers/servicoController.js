@@ -50,6 +50,10 @@ const servicoController = {
     }
     await ClienteHasProfissional.update(servicoOcamentado, { where: { id } })
     return res.json(servicoOcamentado)
+  },
+
+  aceitarServico: async (req, res) => {
+    
   }
 }
 
