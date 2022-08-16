@@ -92,7 +92,7 @@ const clienteController = {
     await Cliente.destroy({ where: { id } })
 
     return res.redirect('/')
-  },
+  }
 
 }
 

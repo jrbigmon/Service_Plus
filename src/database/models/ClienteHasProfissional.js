@@ -5,7 +5,7 @@ module.exports = (sequelize, DataType) => {
       primaryKey: true,
       autoIncrement: true
     },
-    
+
     clienteId: {
       type: DataType.INTEGER,
       field: 'cliente_id',
