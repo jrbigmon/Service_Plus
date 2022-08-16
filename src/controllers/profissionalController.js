@@ -23,12 +23,12 @@ const profissionalController = {
       ]
     })
 
-    // return res.json(dadosServicos)
     return res.render('./profissional/historicoServicos', {
       title: 'histórico de serviços',
       dadosServicos
     })
   },
+
   showProfile: async (req, res) => {
     const { id } = req.params
 
@@ -36,6 +36,7 @@ const profissionalController = {
 
     return res.render('./profissional/perfilProfissional', { title: 'Perfil do profissional', profissional })
   },
+
   editProfile: async (req, res) => {
     const { id } = req.params
     const { nome, sobrenome, cpf, telefone, cep, descricao } = req.body
@@ -68,6 +69,7 @@ const profissionalController = {
 
     return res.redirect('/')
   },
+  
   deleteProfile: async (req, res) => {
     const { id } = req.params
 

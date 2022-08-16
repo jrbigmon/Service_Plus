@@ -25,7 +25,7 @@
                     <summary class="col-md-8"><strong>SOLICITE SEU ORÇAMENTO</strong></summary>
 
                     <p>
-                        <form action="/perfil/cliente/profissionais/<%= profissional.id %>/resumo" method="POST">
+                        <form action="/servicos/<%= profissional.id %>/solicitar" method="POST">
                             <label class="mt-2 col-12 col-md-12 col-lg-12" for=""><strong>No que posso lhe ajudar?</strong></label>
                             <textarea class="text-area p-5" name="descricaoServico" id="" cols="30" rows="5"></textarea>
                             

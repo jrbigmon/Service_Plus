@@ -31,6 +31,21 @@ const validacaoCadastro = [
     }
 
     return true
+  }),
+  body('cpf').custom(async (value, { req }) => {
+    if (req.profissional) {
+      const usuario = await Profissional.findOne({ where: { cpf: value } })
+      if (usuario) {
+        throw new Error('Credênciais já cadastradas!')
+      }
+    } else {
+      const usuario = await Cliente.findOne({ where: { cpf: value } })
+      if (usuario) {
+        throw new Error('Credênciais já cadastradas!')
+      }
+    }
+
+    return true
   })
 ]
 

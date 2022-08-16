@@ -4,8 +4,9 @@ const auth = require('../middlewares/auth')
 const router = express.Router()
 
 router.use(auth)
-router.get('/perfil/cliente/profissionais/:id/resumo', servicoController.viewOrcamento)
-router.post('/perfil/cliente/profissionais/:id/resumo', servicoController.solicitarOrcamento)
-
-router.post('/perfil/profissional/historico/:id/orcamentar', servicoController.orcamentar)
+router.get('/servicos/:id/solicitar', servicoController.viewOrcamentoByClient)
+router.post('/servicos/:id/solicitar', servicoController.solicitarOrcamentoByClient)
+router.put('/servicos/:id/orcamentar', servicoController.orcamentarByProfessional)
+router.put('/servicos/:id/aceitar', servicoController.aceitarServicoOrcadoClient)
+router.put('/servicos/:id/cancelar', servicoController.cancelarServico)
 module.exports = router
