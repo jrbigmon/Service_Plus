@@ -1,7 +1,7 @@
 const { ClienteHasProfissional, Profissional } = require('../database/models')
 
 const servicoController = {
-  viewOrcamento: async (req, res) => {
+  viewOrcamentoByClient: async (req, res) => {
     const { id } = req.params
 
     const profissional = await Profissional.findByPk(id, {
@@ -14,7 +14,7 @@ const servicoController = {
     return res.redirect('/perfil/cliente/profissionais')
   },
 
-  solicitarOrcamento: async (req, res) => {
+  solicitarOrcamentoByClient: async (req, res) => {
     const { descricaoServico, dataServico } = req.body
     const { id: idProfissional } = req.params
     const { id: idCliente } = req.session.usuario
@@ -38,7 +38,7 @@ const servicoController = {
     return res.redirect('/perfil/cliente/profissionais')
   },
 
-  orcamentar: async (req, res) => {
+  orcamentarByProfessional: async (req, res) => {
     const { id } = req.params
     const { precoServico } = req.body
     const servicoSolicitado = await ClienteHasProfissional.findByPk(id)
@@ -49,11 +49,33 @@ const servicoController = {
       situacaoServicoId: 2
     }
     await ClienteHasProfissional.update(servicoOcamentado, { where: { id } })
-    return res.json(servicoOcamentado)
+    return res.redirect('/perfil/profissional/historico')
+  },
+  // view do cliente 
+  aceitarServicoOrcadoClient: async (req, res) => {
+    const { id } = req.params
+    const servicoOrcamentado = await ClienteHasProfissional.findByPk(id)
+    if(!servicoOrcamentado) return res.redirect('/')
+    const servicoUpdated = {
+      ...servicoOrcamentado,
+      situacaoServicoId: 3
+    }
+    await ClienteHasProfissional.update(servicoUpdated, { where: { id } })
+    return res.redirect('/')
   },
 
-  aceitarServico: async (req, res) => {
-    
+  cancelarServico: async (req, res) => {
+    const { id } = req.params
+    const { descricaoServico } = req.body
+    const servicoOrcamentado = await ClienteHasProfissional.findByPk(id)
+    if(!servicoOrcamentado) return res.redirect('/')
+    const servicoUpdated = {
+      ...servicoOrcamentado,
+      descricaoServico,
+      situacaoServicoId: 5
+    }
+    await ClienteHasProfissional.update(servicoUpdated, { where: { id } })
+    return res.redirect('/')
   }
 }
 

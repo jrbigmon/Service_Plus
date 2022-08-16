@@ -40,15 +40,24 @@
                 <div class="card-body">
                     <details>
                         <summary>Orçamentar</summary>
-                        <form action="/perfil/profissional/historico/<%= dadoServico.id %>/orcamentar" method="POST">
+                        <form action="/servicos/<%= dadoServico.id %>/orcamentar?_method=PUT" method="POST">
                             <label for=""> Insira o valor previsto para o serviço
                                 <input type="number" step="any" name="precoServico">
                             </label>
                             <button type="submit">Enviar Orçamento</button>
                         </form>
                     </details>
-                    <!-- <a href="#" class="card-link"> Orçamentar </a> -->
-                    <a href="#" class="card-link"> Cancelar Pedido </a>
+                    
+                    <details>
+                        <summary>Cancelar</summary>
+                        <form action="/servicos/<%= dadoServico.id %>/cancelar?_method=PUT" method="POST">
+                            <label for=""> Insira o valor previsto para o serviço
+                                <textarea name="descricaoServico">
+                                </textarea>
+                            </label>
+                            <button type="submit">Enviar Orçamento</button>
+                        </form>
+                    </details>
                 </div>
             </div>
             
