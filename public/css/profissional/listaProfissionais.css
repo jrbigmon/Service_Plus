@@ -3,7 +3,6 @@
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #EAF6F6;
-
 }
 
 summary {
@@ -19,6 +18,20 @@ details[open] summary{
     margin-left: 2rem;
 }
 
-.cards {
-    background-color: #EAF6F6;
+.card {
+    width: 20rem;
+    height: 30rem;
+    box-shadow: 0 0 3px #035397;
+    border-radius: 20px;
+
+}
+
+.card-img-top {
+    display: flex;
+    align-self: center;
+}
+
+.text {
+    font-weight: 600;
+    color: #E8630A;
 }

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head') %>
+<body>
+    <%- include('../partials/header')%>
+    <main>
+        <% servicos.forEach(servico => { %>
+            <%= servico.situacaoServico.estado %>
+       <% }) %>
+    </main>
+    <%- include('../partials/footer')%> 
+</body>
+</html>

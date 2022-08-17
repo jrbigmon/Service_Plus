@@ -6,7 +6,7 @@
 <body>
     <%- include('../partials/header') %>
 
-    <main class= "m-5 p-2 d-flex justify-content-center align-items-center">
+    <main class= "main m-5 p-2 d-flex justify-content-center align-items-center">
 
         <div class="resumo row pt-2 col-lg-6 justify-content-center">
 
@@ -16,27 +16,27 @@
             
             <div class="card-body text-center">
                 <h4  class="card-title"><%= `${profissional.nome} ${profissional.sobrenome}`  %></h4>
-                <h6 class="card-title"><%= `${profissional.area.nome}`  %></h6>
+                <h4 class="card-title"><%= `${profissional.area.nome}`  %></h4>
                 <p> 
                     <%= profissional.descricao %>
                 </p>
 
-                <details class="d-flex align-items-center justify-content-center">
-                    <summary class="col-md-8"><strong>SOLICITE SEU ORÇAMENTO</strong></summary>
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <h6 class="col-md-8"><strong>Solicite seu orçamento:</strong></h6>
 
                     <p>
                         <form action="/servicos/<%= profissional.id %>/solicitar" method="POST">
                             <label class="mt-2 col-12 col-md-12 col-lg-12" for=""><strong>No que posso lhe ajudar?</strong></label>
-                            <textarea class="text-area p-5" name="descricaoServico" id="" cols="30" rows="5"></textarea>
+                            <textarea class="text-area col-8 col-sm-8 col-md-8 col-lg-6" name="descricaoServico" rows="5" id=""></textarea>
                             
-                            <label class="mt-2 col-sm-8" for=""><strong>Qual dia é ideal para você?</strong></label>
+                            <label class="mt-2 col-sm-8 col-md-12 col-lg-12" for=""><strong>Qual dia é ideal para você?</strong></label>
                             <input type="date" name="dataServico" class="col-6" id="dataServico" min="" max="" step="1"> 
                             
                             <button type="submit" class="btn btn-outline-info col-sm-6 mt-3">Enviar Solicitação</button>
                         </form>
                     </p>
 
-                </details>   
+                </div>   
             </div>
             
         </div>

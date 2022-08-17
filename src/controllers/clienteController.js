@@ -92,6 +92,26 @@ const clienteController = {
     await Cliente.destroy({ where: { id } })
 
     return res.redirect('/')
+  },
+  historicoServicos: async (req, res) => {
+    const {id} = req.session.usuario;
+    const situacaoServico = req.body.situacaoServico || 1
+
+    const dadosServicos = await ClienteHasProfissional.findAll({
+      where: {clienteId: id, situacaoServicoId: situacaoServico}, 
+      include: [
+        {
+          association: 'profissional',
+          attributes: ['nome', 'sobrenome', 'avatar']
+        }, 
+        {
+          association: 'situacaoServico',
+          attributes: ['estado']
+        }, 
+      ]
+    })
+    
+    return res.render('./cliente/historicoServicos', {title: 'Histórico serviços', dadosServicos})
   }
 
 }

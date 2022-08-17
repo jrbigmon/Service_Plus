@@ -27,24 +27,22 @@
                         <% } %> 
                         
                     </div>
-                    <button type="submit" class="btn-outline-success align-middle">Buscar</button>
+                    <button type="submit" class="btn btn-outline-success align-middle">Buscar</button>
             </p>
 
           </details>
         
-        <div class="cards card col-md-12 flex-wrap flex-row justify-content-center align-items-center">
+        <div class="cards container d-flex justify-content-around align-content-around flex-wrap">
             <% if(profissionais != 'undefined') { %>
                 <% profissionais.forEach(profissional => { %>
-    
-                    <div class="card m-2" style="width: 20rem; height: 40rem">
-                        <img src="/img/avatarPerfilProfissional/<%= profissional.avatar %> " class="card-img-top" style="width: 20rem; height: 20rem">
-                        <div class="card-body">
-                          <h5 class="card-title"><%= `${profissional.nome} ${profissional.sobrenome}`  %> </h5>
-                          <h6 class="card-title"><%= `${profissional.area.nome}`  %> </h6>
-                          <p class="card-text"><%= profissional.descricao %> </p>
-                          <a href="/servicos/<%=profissional.id%>/solicitar" class="btn btn-outline-info"> Ir ao perfil </a>
-                        </div>
-                    </div>
+
+                        <div class="card">
+                            <img src="/img/avatarPerfilProfissional/<%= profissional.avatar %> " class="card-img-top d-flex align-self-center" style="width: 15rem; height: 15rem">
+                              <h4 class="text d-flex align-self-center"><%= `${profissional.nome} ${profissional.sobrenome}`  %> </h5>
+                              <h6 class="text d-flex align-self-center"><%= `${profissional.area.nome}`  %> </h6>
+                              <h6 class="text d-flex align-self-center"><%= profissional.descricao %> </h6>
+                              <a href="/perfil/cliente/profissionais/<%=profissional.id%>/resumo" class="btn btn-outline-info d-flex align-self-center" style="width: 30%">PERFIL</a>
+                            </div>
     
                 <% }) %>
             <% } %>
