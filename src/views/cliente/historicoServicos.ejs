@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+
+<link rel="stylesheet" href="/css/profissional/listaProfissionais.css">
+
+<body>
+    <%- include('../partials/header')%>
+    <main>
+        <details>
+            <summary><strong>FILTRO</strong></summary>
+
+            <p>
+                <form class="form-checkbox" action="/perfil/cliente/profissionais" method="POST">
+                    <div>
+
+                        <input name="order" value="ASC" type="radio" class="btn-check" id="Eletricista"
+                            autocomplete="off">
+                        <label class="btn btn-outline-info" for="Eletricista">Crescente</label>
+
+                        <input name="order" value="DESC" type="radio" class="btn-check" id="Encanador"
+                            autocomplete="off">
+                        <label class="btn btn-outline-info" for="Encanador">Decrescente</label>
+
+                    </div>
+                    <button type="submit" class="btn btn-outline-success align-middle">Buscar</button>
+            </p>
+
+        </details>
+
+        <div class="cards container d-flex justify-content-around align-content-around flex-wrap">
+            <% if(dadosServicos != 'undefined') { %>
+            <% dadosServicos.forEach(servico => { %>
+            <div class="card">
+                <h4 class="text d-flex align-self-center"><%= servico.situacaoServico.estado %></h4>
+            </div>
+            <% }) %>
+            <% } %>
+        </div>
+    </main>
+    <%- include('../partials/footer')%>
+</body>
+
+</html>
