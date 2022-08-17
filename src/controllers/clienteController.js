@@ -111,7 +111,7 @@ const clienteController = {
       ]
     })
     
-    return res.render('./cliente/historicoServicos', {title: 'Histórico serviços', dadosServicos})
+    return res.render('./cliente/historicoServicos', {title: 'Histórico serviços', dadosServicos, area})
   }
 
 }
