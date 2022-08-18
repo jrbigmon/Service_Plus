@@ -43,7 +43,7 @@
                                 <h4 class="text d-flex align-self-center"><%= profissional.sobrenome %></h4>
                               <h6 class="text d-flex align-self-center"><%= `${profissional.area.nome}`  %> </h6>
                               <h6 class="text d-flex align-self-center"><%= profissional.descricao %> </h6>
-                              <a href="/perfil/cliente/profissionais/<%=profissional.id%>/resumo" class="btn btn-outline-info d-flex align-self-center" style="width: 30%">PERFIL</a>
+                              <a href="/servicos/<%= profissional.id %>/solicitar" class="btn btn-outline-info d-flex align-self-center" style="width: 30%">PERFIL</a>
                             </div>
     
                 <% }) %>
