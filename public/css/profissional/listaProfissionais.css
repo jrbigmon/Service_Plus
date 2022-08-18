@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #EAF6F6;
+    background-color: #EFEFEF;
 }
 
 summary {
@@ -16,6 +16,13 @@ details[open] summary{
 
 .form-checkbox {
     margin-left: 2rem;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 2px;
 }
 
 .card {
@@ -35,3 +42,5 @@ details[open] summary{
     font-weight: 600;
     color: #E8630A;
 }
+
+/* container pb-3 d-flex justify-content-around align-content-around flex-wrap */

@@ -32,13 +32,15 @@
 
           </details>
         
-        <div class="cards container d-flex justify-content-around align-content-around flex-wrap">
+        <div class="cards">
             <% if(profissionais != 'undefined') { %>
                 <% profissionais.forEach(profissional => { %>
 
-                        <div class="card">
+                        <div class="card mt-5 mb-3">
                             <img src="/img/avatarPerfilProfissional/<%= profissional.avatar %> " class="card-img-top d-flex align-self-center" style="width: 15rem; height: 15rem">
-                              <h4 class="text d-flex align-self-center"><%= `${profissional.nome} ${profissional.sobrenome}`  %> </h5>
+                            <br>
+                              <h4 class="text d-flex align-self-center"><%= profissional.nome %></h5>
+                                <h4 class="text d-flex align-self-center"><%= profissional.sobrenome %></h4>
                               <h6 class="text d-flex align-self-center"><%= `${profissional.area.nome}`  %> </h6>
                               <h6 class="text d-flex align-self-center"><%= profissional.descricao %> </h6>
                               <a href="/perfil/cliente/profissionais/<%=profissional.id%>/resumo" class="btn btn-outline-info d-flex align-self-center" style="width: 30%">PERFIL</a>
@@ -46,7 +48,6 @@
     
                 <% }) %>
             <% } %>
-        </div>
     </main> 
 
     <%- include('../partials/footer') %>
