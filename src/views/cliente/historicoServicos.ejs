@@ -2,37 +2,48 @@
 <html lang="en">
 <%- include('../partials/head') %>
 
-<link rel="stylesheet" href="/css/profissional/listaProfissionais.css">
+<link rel="stylesheet" href="/css/profissional/historicoServicos.css">
 
 <body>
     <%- include('../partials/header')%>
     <main>
         <details>
             <summary><strong>FILTRO</strong></summary>
+            <form action="/perfil/cliente/historico" class="form-checkbox ml-2" method="POST">
+                <input value="1" class="btn-check" type="radio" id="orcamentar" name="statusServicoFromBody">
+                <label class="btn btn-outline-info" for="orcamentar"> A Orçamentar
+                </label>
+                <input value="2" class="btn-check" type="radio" id="executar" name="statusServicoFromBody">
+                <label class="btn btn-outline-info" for="executar"> A executar
+                </label>
 
-            <p>
-                <form class="form-checkbox" action="/perfil/cliente/profissionais" method="POST">
-                    <div>
+                <input value="3" class="btn-check" type="radio" id="aceite" name="statusServicoFromBody">
+                <label class="btn btn-outline-info" for="aceite"> Aguardando aceite
+                </label>
 
-                        <input name="order" value="ASC" type="radio" class="btn-check" id="Eletricista"
-                            autocomplete="off">
-                        <label class="btn btn-outline-info" for="Eletricista">Crescente</label>
+                <input value="4" class="btn-check" type="radio" id="finalizado" name="statusServicoFromBody">
+                <label class="btn btn-outline-info" for="finalizado"> Finalizados
+                </label>
 
-                        <input name="order" value="DESC" type="radio" class="btn-check" id="Encanador"
-                            autocomplete="off">
-                        <label class="btn btn-outline-info" for="Encanador">Decrescente</label>
+                <input value="5" class="btn-check" type="radio" id="cancelado" name="statusServicoFromBody">
+                <label class="btn btn-outline-info" for="cancelado"> Cancelados
+                </label>
 
-                    </div>
-                    <button type="submit" class="btn btn-outline-success align-middle">Buscar</button>
-            </p>
+                <button type="submit" class="btn btn-outline-success">Buscar</button>
+            </form>
 
         </details>
 
-        <div class="cards container d-flex justify-content-around align-content-around flex-wrap">
+        <div class="cards">
             <% if(dadosServicos != 'undefined') { %>
             <% dadosServicos.forEach(servico => { %>
-            <div class="card">
-                <h4 class="text d-flex align-self-center"><%= servico.situacaoServico.estado %></h4>
+
+            <div class="card mt-5 mb-3">
+                <img src="/img/avatarPerfilProfissional/<%= servico.profissional.avatar %>" class="card-img-top d-flex align-self-center" style="width: 15rem; height: 15rem">
+                <h4 class="text-h4 d-flex align-self-center"><%= servico.profissional.nome %></h4>
+                <h4 class="text-h4 d-flex align-self-center"><%= servico.profissional.sobrenome %></h4>
+                <h4 class="text-h4 d-flex align-self-center"><%= servico.profissional.descricao %> </h4>
+                <h6 class="text-h6 d-flex align-items-center justify-content-center align-self-center"><%= servico.situacaoServico.estado %></h6>
             </div>
             <% }) %>
             <% } %>

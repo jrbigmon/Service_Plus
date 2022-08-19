@@ -95,10 +95,10 @@ const clienteController = {
   },
   historicoServicos: async (req, res) => {
     const {id} = req.session.usuario;
-    const situacaoServico = req.body.situacaoServico || 1
+    const situacaoServico = req.body.statusServicoFromBody || 2
 
     const dadosServicos = await ClienteHasProfissional.findAll({
-      where: {clienteId: id, situacaoServicoId: situacaoServico}, 
+      where: {clienteId: id, situacaoServicoId: parseInt(situacaoServico)}, 
       include: [
         {
           association: 'profissional',
@@ -110,8 +110,7 @@ const clienteController = {
         }, 
       ]
     })
-    
-    return res.render('./cliente/historicoServicos', {title: 'Histórico serviços', dadosServicos, area})
+    return res.render('./cliente/historicoServicos', {title: 'Histórico serviços', dadosServicos})
   }
 
 }

@@ -21,9 +21,31 @@ details[open] summary{
     margin: 2rem 0rem 2rem 0rem;
 }
 
-.cards{
+.cards {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 2px;
+}
+
+.card {
+    width: 20rem;
+    height: 30rem;
+    box-shadow: 0 0 3px #035397;
+    border-radius: 20px;
+
+}
+
+.text-h4 {
+    font-weight: 600;
+    color: #E8630A;
+}
+
+.text-h6 {
+    width: 10rem;
+    height: 1.5rem;
+    background-color: #035397;
+    border-radius: 1rem;
+    font-weight: 600;
+    color: white;
 }
