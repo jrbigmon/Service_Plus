@@ -44,13 +44,28 @@
                 <h4 class="text-h4 d-flex align-self-center"><%= servico.profissional.sobrenome %></h4>
                 <h4 class="text-h4 d-flex align-self-center"><%= servico.profissional.descricao %> </h4>
                 <h6 class="text-h6 d-flex align-items-center justify-content-center align-self-center"><%= servico.situacaoServico.estado %></h6>
+                <% if (servico.situacaoServicoId !== 5 && servico.situacaoServicoId !== 4){ %>
+                    <details>
+                        <summary> Cancelar </summary>
+                        <form action="/servicos/<%= servico.id %>/cancelar?_method=PUT" class="d-flex align-items-center flex-column" method="POST">
+                            <div class="form-floating p-1 col-md-8">
+                                <input type="text" name="descricaoServico" class="form-control" id="descricaoServico">
+                                <label for="descricaoServico" class="form-label">Motivo</label>
+                            </div>
+                            <button type="submit" class="btn btn-danger col-md-6">Cancelar</button>
+                        </form>
+                    </details>
+                <% } %> 
             </div>
+
             <% }) %>
+
             <% } if(dadosServicos.length < 1) { %>
                 <div class="h1-sem-estado">
                     <h1> NÃO HÁ SERVIÇOS NESSA SITUAÇÃO </h1>
                 </div>
             <% } %>
+
         </div>
     </main>
     <%- include('../partials/footer')%>
