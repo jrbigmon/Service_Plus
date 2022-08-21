@@ -23,10 +23,6 @@ const clienteController = {
     })
   },
 
-  showProfissional: (req, res) => {
-    return res.render('./profissional/resumoProfissional', { title: 'cartão profissional' })
-  },
-
   showEdit: async (req, res) => {
     const { id } = req.params
 

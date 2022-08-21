@@ -29,8 +29,8 @@ app.use(session({
 
 app.use(isLoggedIn)
 app.use(homeRouter)
-app.use(profissionalRouter)
 app.use(clienteRouter)
+app.use(profissionalRouter)
 app.use(servicoRouter)
 
 app.use((req, res, next) => {
