@@ -35,7 +35,7 @@
         </details>
 
         <div class="cards">
-            <% if(dadosServicos != 'undefined') { %>
+            <% if(dadosServicos != 'undefined' && dadosServicos.length > 0){ %>
             <% dadosServicos.forEach(servico => { %>
 
             <div class="card mt-5 mb-3">
@@ -46,6 +46,10 @@
                 <h6 class="text-h6 d-flex align-items-center justify-content-center align-self-center"><%= servico.situacaoServico.estado %></h6>
             </div>
             <% }) %>
+            <% } if(dadosServicos.length < 1) { %>
+                <div class="h1-sem-estado">
+                    <h1> NÃO HÁ SERVIÇOS NESSA SITUAÇÃO </h1>
+                </div>
             <% } %>
         </div>
     </main>
