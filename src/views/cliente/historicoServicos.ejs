@@ -55,6 +55,9 @@
                             <button type="submit" class="btn btn-danger col-md-6">Cancelar</button>
                         </form>
                     </details>
+                <% } if(servico.situacaoServicoId == 5){ %>
+                    <h5 class="text-center mt-2"><b>Descrição do cancelamento</b></h5>
+                    <p class="text-center"> <%= servico.descricaoServico %> </p>
                 <% } %> 
             </div>
 
