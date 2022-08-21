@@ -11,10 +11,8 @@ window.addEventListener('load', () => {
     const ano = new Date().getFullYear().toString()
 
     const dataMinima = `${ano}-${mes}-${dia}`
-    const dataMaxima = `${ano}-${mes}-30`
 
     dataServico.min = dataMinima
-    dataServico.max = dataMaxima
   })
 
   const formulario = document.querySelector('details form')
