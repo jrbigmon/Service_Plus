@@ -61,10 +61,10 @@ const servicoController = {
       situacaoServicoId: 3
     }
     await ClienteHasProfissional.update(servicoUpdated, { where: { id } })
-    return res.redirect('/')
+    return res.redirect('/perfil/cliente/profissionais')
   },
 
-  servicoExecutado: async (req, res) =>{
+  servicoExecutadoByProfissional: async (req, res) =>{
     const { id } = req.params
     const servicoRealizado = await ClienteHasProfissional.findByPk(id)
     if (!servicoRealizado || !servicoRealizado.situacaoServicoId !== 3) return res.redirect('/')
