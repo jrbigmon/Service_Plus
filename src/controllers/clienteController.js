@@ -8,11 +8,11 @@ const clienteController = {
     let { area, order } = req.body
 
     order = order || 'ASC'
-    area = area || ['1', '2', '3']
-
+    area = area || ['1', '2', '3'] 
+    
     const profissionais = await Profissional.findAll({
       where: { areaId: area },
-      order: [['areaId', order]],
+      order: [['nome', order]],
       include: 'area'
     })
 

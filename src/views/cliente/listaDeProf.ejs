@@ -16,18 +16,25 @@
                 <form class="form-checkbox" action="/perfil/cliente/profissionais" method="POST">
                     <div>
 
-                        <input name="order" value="ASC" type="radio" class="btn-check" id="Eletricista" autocomplete="off">
-                        <label class="btn btn-outline-info" for="Eletricista">Crescente</label>
+                        <input name="order" value="ASC" type="radio" class="btn-check" id="crescente" autocomplete="off">
+                        <label class="btn btn-outline-info" for="crescente">Crescente</label>
     
-                        <input name="order" value="DESC" type="radio" class="btn-check" id="Encanador" autocomplete="off">
-                        <label class="btn btn-outline-info" for="Encanador">Decrescente</label>
-
-                        <% for(let i = 0; i< area.length; i++) {%>
-                            <input name="area" value="<%= area[i]%>" hidden>
-                        <% } %> 
+                        <input name="order" value="DESC" type="radio" class="btn-check" id="decrescente" autocomplete="off">
+                        <label class="btn btn-outline-info" for="decrescente">Decrescente</label>
+                        <br>
                         
-                    </div>
+                        <input name="area" value="1" type="checkbox" class="btn-check" id="eletricista" autocomplete="off">
+                        <label class="btn btn-outline-info" for="eletricista">Eletricista</label>
+
+                        <input name="area" value="2" type="checkbox" class="btn-check" id="encanador" autocomplete="off">
+                        <label class="btn btn-outline-info" for="encanador">Encanador</label>
+
+                        <input name="area" value="3" type="checkbox" class="btn-check" id="pintor" autocomplete="off">
+                        <label class="btn btn-outline-info" for="pintor">Pintor</label>
+
+                    </div>  
                     <button type="submit" class="btn btn-outline-success align-middle">Buscar</button>
+                </form>
             </p>
 
           </details>
