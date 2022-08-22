@@ -42,7 +42,7 @@ const servicoController = {
     const { id } = req.params
     const { precoServico } = req.body
     const servicoSolicitado = await ClienteHasProfissional.findByPk(id)
-    if(!servicoSolicitado || !servicoSolicitado.situacaoServicoId !== 1) return res.redirect('/')
+    if(!servicoSolicitado || servicoSolicitado.situacaoServicoId !== 1) return res.redirect('/')
     const servicoOcamentado = {
       ...servicoSolicitado,
       precoServico: parseFloat(precoServico),
