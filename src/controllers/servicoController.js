@@ -55,7 +55,7 @@ const servicoController = {
   aceitarServicoOrcadoClient: async (req, res) => {
     const { id } = req.params
     const servicoOrcamentado = await ClienteHasProfissional.findByPk(id)
-    if(!servicoOrcamentado || !servicoRealizado.situacaoServicoId !== 2) return res.redirect('/')
+    if(!servicoOrcamentado || servicoRealizado.situacaoServicoId !== 2) return res.redirect('/')
     const servicoUpdated = {
       ...servicoOrcamentado,
       situacaoServicoId: 3
@@ -67,7 +67,7 @@ const servicoController = {
   servicoExecutadoByProfissional: async (req, res) =>{
     const { id } = req.params
     const servicoRealizado = await ClienteHasProfissional.findByPk(id)
-    if (!servicoRealizado || !servicoRealizado.situacaoServicoId !== 3) return res.redirect('/')
+    if (!servicoRealizado || servicoRealizado.situacaoServicoId !== 3) return res.redirect('/')
     const servicoUpdated = {
       ...servicoRealizado,
       situacaoServicoId: 4

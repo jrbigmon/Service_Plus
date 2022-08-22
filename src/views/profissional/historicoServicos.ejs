@@ -49,10 +49,13 @@
                         <h5 class="card-title"><%= `${dadoServico.cliente.nome} ${dadoServico.cliente.sobrenome}` %> </h5>
                         <p class="card-text">Desc: <%= dadoServico.descricaoServico %></p>
                         <p> R$ <%= dadoServico.precoServico %> </p>
+
                         <% if(dadoServico.situacaoServicoId !== 5){ %>
+
                         <p>Data: <%= dadoServico.dataServico.toLocaleDateString('pt-BR') %> </p>
                         <p class="cepsToApi"><%= dadoServico.cliente.cep %></p>
                         <p> Número: <%= dadoServico.cliente.numero %> </p>
+                        
                         <% } %>
 
                     
