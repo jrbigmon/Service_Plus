@@ -8,7 +8,7 @@
 
     <%- include('../partials/header')%>
 
-    <main>
+    <main class="mb-5">
 
         <details>
             <summary><strong>FILTRO</strong></summary>
@@ -18,11 +18,11 @@
                 <label class="btn btn-outline-info"  for="orcamentar"> A Orçamentar
                 </label>
                 <input value="2"  class="btn-check" type="radio" id="executar" name="statusServicoFromBody">
-                <label class="btn btn-outline-info" for="executar"> A executar
+                <label class="btn btn-outline-info" for="executar"> Aguardando aceite
                 </label>
 
                 <input value="3"  class="btn-check" type="radio" id="aceite" name="statusServicoFromBody">
-                <label class="btn btn-outline-info" for="aceite"> Aguardando aceite
+                <label class="btn btn-outline-info" for="aceite"> A Executar
                 </label>
 
                 <input value="4"  class="btn-check" type="radio" id="finalizado" name="statusServicoFromBody">
@@ -36,48 +36,64 @@
                 <button type="submit" class="btn btn-outline-success">Buscar</button>
             </form>
         </details>
+        <% if(dadosServicos.length > 0){ %>
 
-        <h1 class="title"></h1>
         <% dadosServicos.forEach(dadoServico => { %>
 
-            <section class="cards">
-                
-                <div class="card" style="width: 18rem;">
-                    <img src="/img/avatarPerfilCliente/<%= dadoServico.cliente.avatar %> "
-                    class="card-img-top" alt="">
-                    <div class="card-body">
-                        <h5 class="card-title"><%= `${dadoServico.cliente.nome} ${dadoServico.cliente.sobrenome}` %></h5>
-                        <p class="card-text"><%= dadoServico.descricaoServico %></p>
-                    </div>
-                <div class="card-body">
-                    <details>
-                        <summary>Orçamentar</summary>
-                        <form action="/servicos/<%= dadoServico.id %>/orcamentar?_method=PUT" method="POST">
-                            <label for=""> Insira o valor previsto para o serviço
-                                <input type="number" step="any" name="precoServico">
-                            </label>
-                            <button type="submit">Enviar Orçamento</button>
-                        </form>
-                    </details>
+            <section class="cards mt-2">
+
+                <div class="card p-1" style="width: 18rem; height: auto;">
+                    <img src="/img/avatarPerfilCliente/<%= dadoServico.cliente.avatar %>" alt="">
                     
-                    <details>
-                        <summary>Cancelar</summary>
-                        <form action="/servicos/<%= dadoServico.id %>/cancelar?_method=PUT" method="POST">
-                            <label for=""> Insira o valor previsto para o serviço
-                                <textarea name="descricaoServico">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= `${dadoServico.cliente.nome} ${dadoServico.cliente.sobrenome}` %> </h5>
+                        <p class="card-text">Desc: <%= dadoServico.descricaoServico %></p>
+                        <p> R$ <%= dadoServico.precoServico %> </p>
+                        <% if(dadoServico.situacaoServicoId !== 5){ %>
+                        <p>Data: <%= dadoServico.dataServico.toLocaleDateString('pt-BR') %> </p>
+                        <p class="cepsToApi"><%= dadoServico.cliente.cep %></p>
+                        <p> Número: <%= dadoServico.cliente.numero %> </p>
+                        <% } %>
+
+                    
+
+                    <% if (dadoServico.situacaoServicoId == 1){ %>
+                    
+                        <details>
+                            <summary>Orçamentar</summary>
+                            <form action="/servicos/<%= dadoServico.id %>/orcamentar?_method=PUT" method="POST">
+                                <label for=""> Insira o valor previsto para o serviço
+                                    <input type="number" step="any" name="precoServico">
+                                </label>
+                                <button class="btn btn-primary" type="submit">Enviar Orçamento</button>
+                            </form>
+                        </details>
+
+                        <details>
+                            <summary>Cancelar</summary>
+                            <form action="/servicos/<%= dadoServico.id %>/cancelar?_method=PUT" method="POST">
+                                <label for=""> Motivo do Cancelamento
+                                    <textarea name="descricaoServico">
                                 </textarea>
-                            </label>
-                            <button type="submit">Enviar Orçamento</button>
-                        </form>
-                    </details>
+                                </label>
+                                <button class="btn btn-danger" type="submit">Cancelar</button>
+                            </form>
+                        </details>
+                    
+                    <% } %>
                 </div>
             </div>
-            
-        </section>
-        
+            </section>
         <% }) %> 
+        <% } else{ %>
+            <div class="h1-sem-estado">
+                <h1> NÃO HÁ SERVIÇOS NESSA SITUAÇÃO </h1>
+            </div>
+        <% } %> 
     </main>
     <%- include('../partials/footer') %>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js/historicoServicoProf.js"></script> 
 </body>
 
 </html>
