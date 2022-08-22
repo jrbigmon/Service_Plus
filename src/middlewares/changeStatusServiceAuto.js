@@ -1,13 +1,23 @@
 const moment = require('moment')
 const { ClienteHasProfissional } = require('../database/models')
-
-const dataAtual = moment().format('YYYYMMDD')
+const { Op } = require('sequelize')
 
 const changeStatusServiceAuto = async (req, res, next) => {
+    const dataAtual = moment().format('YYYYMMDD')
+
     if(req.session.countUpdateStatusService) return next()
 
-    const servicos = await ClienteHasProfissional.findAll()
-
+    const servicos = await ClienteHasProfissional.findAll({
+        where: {
+            situacaoServicoId: { [Op.ne]: 5 }
+        }
+    })
+    
+    if(servicos.length < 1) {
+        req.session.countUpdateStatusService = 'Já verificado nessa sessão!'
+        return next()
+    }
+    
     for (let servico of servicos){
         const dataServico = servico.dataServico
 
