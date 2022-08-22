@@ -16,6 +16,7 @@ const changeStatusServiceAuto = async (req, res, next) => {
         if(dataServicoFormat - dataAtual < 0){
             const servicoAtualizado = {
                 ...servico,
+                descricaoServico: 'Cancelado por data limite excedida.',
                 situacaoServicoId: 5
             }
 
