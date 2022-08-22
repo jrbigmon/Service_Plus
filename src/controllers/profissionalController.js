@@ -22,7 +22,6 @@ const profissionalController = {
         }
       ]
     })
-
     return res.render('./profissional/historicoServicos', {
       title: 'histórico de serviços',
       dadosServicos
