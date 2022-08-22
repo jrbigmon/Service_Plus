@@ -38,7 +38,7 @@
             <% if(dadosServicos != 'undefined' && dadosServicos.length > 0){ %>
             <% dadosServicos.forEach(servico => { %>
 
-            <div class="card mt-5 mb-3">
+            <div class="card mt-5 mb-3" style="height: auto;">
                 <img src="/img/avatarPerfilProfissional/<%= servico.profissional.avatar %>" class="card-img-top d-flex align-self-center" style="width: 15rem; height: 15rem">
                 <h4 class="text-h4 d-flex align-self-center"><%= servico.profissional.nome %></h4>
                 <h4 class="text-h4 d-flex align-self-center"><%= servico.profissional.sobrenome %></h4>
@@ -55,6 +55,11 @@
                             <button type="submit" class="btn btn-danger col-md-6">Cancelar</button>
                         </form>
                     </details>
+                    <% if (servico.id == 2){ %>
+                        <form action="/servicos/<%= servico.id %>/aceitar?_method=PUT" method="POST" class="mt-3 mb-3 d-flex justify-content-center">
+                            <button class="btn btn-success col-10" type="submit">Aceitar</button>
+                        </form>
+                    <% } %>
                 <% } if(servico.situacaoServicoId == 5){ %>
                     <h5 class="text-center mt-2"><b>Descrição do cancelamento</b></h5>
                     <p class="text-center"> <%= servico.descricaoServico %> </p>

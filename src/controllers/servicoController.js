@@ -55,7 +55,7 @@ const servicoController = {
   aceitarServicoOrcadoClient: async (req, res) => {
     const { id } = req.params
     const servicoOrcamentado = await ClienteHasProfissional.findByPk(id)
-    if(!servicoOrcamentado || servicoRealizado.situacaoServicoId !== 2) return res.redirect('/')
+    if(!servicoOrcamentado || servicoOrcamentado.situacaoServicoId !== 2) return res.redirect('/')
     const servicoUpdated = {
       ...servicoOrcamentado,
       situacaoServicoId: 3
