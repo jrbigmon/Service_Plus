@@ -34,8 +34,8 @@ details[open] summary{
 }
 
 .card-img-top {
-    display: flex;
-    align-self: center;
+  width: auto;
+  height:auto;
 }
 
 .text {
