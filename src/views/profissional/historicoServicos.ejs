@@ -47,19 +47,17 @@
                     
                     <div class="card-body">
                         <h5 class="card-title"><%= `${dadoServico.cliente.nome} ${dadoServico.cliente.sobrenome}` %> </h5>
-                        <h5 class="text-h4 d-flex align-self-center"><%= dadoServico.dataServico.toLocaleDateString('pt-BR') %> </h5>
+                        <h5 class=" date-br text-h4 d-flex align-self-center"><%= dadoServico.dataServico %> </h5>
                         <p class="card-text">Desc: <%= dadoServico.descricaoServico %></p>
                         <p> R$ <%= dadoServico.precoServico %> </p>
 
                         <% if(dadoServico.situacaoServicoId !== 5){ %>
 
-                        <p>Data: <%= dadoServico.dataServico.toLocaleDateString('pt-BR') %> </p>
+                        <p class="date-br">Data: <%= dadoServico.dataServico %> </p>
                         <p class="cepsToApi"><%= dadoServico.cliente.cep %></p>
                         <p> Número: <%= dadoServico.cliente.numero %> </p>
                         
                         <% } %>
-
-                    
 
                     <% if (dadoServico.situacaoServicoId == 1){ %>
                     
@@ -98,6 +96,7 @@
     <%- include('../partials/footer') %>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/js/historicoServicoProf.js"></script> 
+    <script src="/js/dataServicoProf.js"></script>
 </body>
 
 </html>
