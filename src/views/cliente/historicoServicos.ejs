@@ -41,6 +41,12 @@
                 <h4 class="text-h4 d-flex align-self-center"><%= servico.profissional.descricao %> </h4>
                 <h4 class="text-h4 d-flex align-self-center"><%= servico.dataServico.toLocaleDateString('pt-BR') %> </h4>
                 <h6 class="text-h6 d-flex align-items-center justify-content-center align-self-center"><%= servico.situacaoServico.estado %></h6>
+                <% if (servico.situacaoServicoId == 2){ %>
+                    <h4 class="text-h4 d-flex align-self-center">R$ <%= servico.precoServico %> </h4>
+                    <form action="/servicos/<%= servico.id %>/aceitar?_method=PUT" method="POST" class="mt-3 mb-3 d-flex justify-content-center">
+                        <button class="btn btn-success col-10" type="submit">Aceitar</button>
+                    </form>
+                <% } %>
                 <% if (servico.situacaoServicoId !== 5 && servico.situacaoServicoId !== 4){ %>
                     <details>
                         <summary> Cancelar </summary>
@@ -52,11 +58,6 @@
                             <button type="submit" class="btn btn-danger col-md-6">Cancelar</button>
                         </form>
                     </details>
-                    <% if (servico.situacaoServicoId == 2){ %>
-                        <form action="/servicos/<%= servico.id %>/aceitar?_method=PUT" method="POST" class="mt-3 mb-3 d-flex justify-content-center">
-                            <button class="btn btn-success col-10" type="submit">Aceitar</button>
-                        </form>
-                    <% } %>
                 <% } if(servico.situacaoServicoId == 5){ %>
                     <h5 class="text-center mt-2"><b>Descrição do cancelamento</b></h5>
                     <p class="text-center"> <%= servico.descricaoServico %> </p>
