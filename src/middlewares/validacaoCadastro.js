@@ -18,7 +18,7 @@ const validacaoCadastro = [
     return true
   }),
   body('email').custom(async (value, { req }) => {
-    if (req.profissional) {
+    if (req.body.profissional) {
       const usuario = await Profissional.findOne({ where: { email: value } })
       if (usuario) {
         throw new Error('Credênciais já cadastradas!')
