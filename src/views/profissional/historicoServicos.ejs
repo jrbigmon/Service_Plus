@@ -47,6 +47,7 @@
                     
                     <div class="card-body">
                         <h5 class="card-title"><%= `${dadoServico.cliente.nome} ${dadoServico.cliente.sobrenome}` %> </h5>
+                        <h5 class="text-h4 d-flex align-self-center"><%= dadoServico.dataServico.toLocaleDateString('pt-BR') %> </h5>
                         <p class="card-text">Desc: <%= dadoServico.descricaoServico %></p>
                         <p> R$ <%= dadoServico.precoServico %> </p>
 
