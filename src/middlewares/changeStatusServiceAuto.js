@@ -9,7 +9,7 @@ const changeStatusServiceAuto = async (req, res, next) => {
 
     const servicos = await ClienteHasProfissional.findAll({
         where: {
-            situacaoServicoId: { [Op.ne]: 5 }
+            situacaoServicoId: { [Op.ne]: [4, 5] }
         }
     })
     
