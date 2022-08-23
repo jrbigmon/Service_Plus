@@ -48,12 +48,15 @@
                     <div class="card-body">
                         <h5 class="card-title"><%= `${dadoServico.cliente.nome} ${dadoServico.cliente.sobrenome}` %> </h5>
                         <h5 class=" date-br text-h4 d-flex align-self-center"><%= dadoServico.dataServico %> </h5>
+                        <h5 class="text-h4 d-flex align-self-center"><%= dadoServico.dataServico %> </h5>
+
                         <p class="card-text">Desc: <%= dadoServico.descricaoServico %></p>
                         <p> R$ <%= dadoServico.precoServico %> </p>
 
                         <% if(dadoServico.situacaoServicoId !== 5){ %>
 
                         <p class="date-br">Data: <%= dadoServico.dataServico %> </p>
+                        <p>Data: <%= dadoServico.dataServico %> </p>
                         <p class="cepsToApi"><%= dadoServico.cliente.cep %></p>
                         <p> Número: <%= dadoServico.cliente.numero %> </p>
                         
@@ -81,8 +84,12 @@
                                 <button class="btn btn-danger" type="submit">Cancelar</button>
                             </form>
                         </details>
-                    
                     <% } %>
+                    <% if (dadoServico.situacaoServicoId == 3) { %>
+                        <form action="/servicos/<%= dadoServico.id %>/finalizar?_method=PUT" method="POST">
+                            <button class="btn btn-success" type="submit">Finalizado</button>
+                        </form>
+                    <% } %> 
                 </div>
             </div>
             <% }) %> 

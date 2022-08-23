@@ -23,7 +23,7 @@ const servicoController = {
     if (tipoUsuario !== 'cliente') {
       return res.redirect('/perfil/profissional/historico')
     }
-
+    console.log(dataServico)
     const solicitacao = {
       clienteId: parseInt(idCliente),
       profissionalId: parseInt(idProfissional),

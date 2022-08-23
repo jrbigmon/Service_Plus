@@ -19,7 +19,7 @@ module.exports = (sequelize, DataType) => {
     },
 
     dataServico: {
-      type: DataType.DATE,
+      type: DataType.DATEONLY,
       field: 'data_servico'
     },
 
