@@ -38,9 +38,9 @@
         </details>
         <% if(dadosServicos.length > 0){ %>
 
-        <% dadosServicos.forEach(dadoServico => { %>
-
             <section class="cards mt-2">
+            <% dadosServicos.forEach(dadoServico => { %>
+
 
                 <div class="card p-1" style="width: 18rem; height: auto;">
                     <img src="/img/avatarPerfilCliente/<%= dadoServico.cliente.avatar %>" alt="">
@@ -86,8 +86,8 @@
                     <% } %>
                 </div>
             </div>
-            </section>
-        <% }) %> 
+            <% }) %> 
+        </section>
         <% } else{ %>
             <div class="h1-sem-estado">
                 <h1> NÃO HÁ SERVIÇOS NESSA SITUAÇÃO </h1>
