@@ -3,6 +3,7 @@
 <%- include('../partials/head') %>
 
 <link rel="stylesheet" href="/css/profissional/historicoServicos.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
 
 <body>
 
@@ -38,11 +39,13 @@
         </details>
         <% if(dadosServicos.length > 0){ %>
 
-            <section class="cards mt-2">
-            <% dadosServicos.forEach(dadoServico => { %>
+            <div class="glider-contain">
+
+            <div class="glider cards d-flex justify-content-center">
+                <% dadosServicos.forEach(dadoServico => { %>
 
 
-                <div class="card p-1" style="width: 18rem; height: auto;">
+                <div class="card m-3 p-1" style="width: 18rem; height: auto;">
                     <img src="/img/avatarPerfilCliente/<%= dadoServico.cliente.avatar %>" alt="">
                     
                     <div class="card-body">
@@ -74,11 +77,9 @@
                         <details>
                             <summary>Cancelar</summary>
                             <form action="/servicos/<%= dadoServico.id %>/cancelar?_method=PUT" method="POST">
-                                <label for=""> Motivo do Cancelamento
-                                    <textarea name="descricaoServico">
-                                </textarea>
-                                </label>
-                                <button class="btn btn-danger" type="submit">Cancelar</button>
+                                <label for="" class="col-md-12"> Motivo do Cancelamento </label>
+                                <textarea name="descricaoServico" class="col-md-12"></textarea>
+                                <button class="btn btn-danger col-md-10" type="submit">Cancelar</button>
                             </form>
                         </details>
                     <% } %>
@@ -89,8 +90,13 @@
                     <% } %> 
                 </div>
             </div>
-            <% }) %> 
-        </section>
+            <% }) %>
+        </div>
+                    <button aria-label="Previous" class="glider-prev">«</button>
+                    <button aria-label="Next" class="glider-next">»</button>
+                    <div role="tablist" class="dots"></div>
+    </div>
+
         <% } else{ %>
             <div class="h1-sem-estado">
                 <h1> NÃO HÁ SERVIÇOS NESSA SITUAÇÃO </h1>
@@ -101,6 +107,8 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/js/historicoServicoProf.js"></script> 
     <script src="/js/dataServicoProf.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+    <script src="/js/glider.js"></script> 
 </body>
 
 </html>
