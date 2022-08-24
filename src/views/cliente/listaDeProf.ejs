@@ -3,6 +3,7 @@
 <%- include('../partials/head') %>
 
 <link rel="stylesheet" href="/css/profissional/listaProfissionais.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
 
 <body>
     
@@ -38,26 +39,36 @@
             </p>
 
           </details>
-        
-        <div class="cards">
-            <% if(profissionais != 'undefined') { %>
+        <div class="glider-container">
+            <div class="glider d-flex justify-content-center">
+                <% if(profissionais != 'undefined') { %>
                 <% profissionais.forEach(profissional => { %>
 
-                        <div class="card mt-5 mb-3">
-                            <img src="/img/avatarPerfilProfissional/<%= profissional.avatar %> " class="card-img-top d-flex align-self-center" style="width: 15rem; height: 15rem">
-                            <br>
-                              <h4 class="text d-flex align-self-center"><%= profissional.nome %></h5>
-                                <h4 class="text d-flex align-self-center"><%= profissional.sobrenome %></h4>
-                              <h6 class="text d-flex align-self-center"><%= `${profissional.area.nome}`  %> </h6>
-                              <h6 class="text d-flex align-self-center"><%= profissional.descricao %> </h6>
-                              <a href="/servicos/<%= profissional.id %>/solicitar" class="btn btn-outline-info d-flex align-self-center" style="width: 30%">PERFIL</a>
-                            </div>
-    
+                <div class="card m-3">
+                    <img src="/img/avatarPerfilProfissional/<%= profissional.avatar %> "
+                        class="card-img-top d-flex align-self-center" style="width: 15rem; height: 15rem">
+                    <br>
+                    <h5 class="text d-flex align-self-center"><%= profissional.nome %></h5>
+                    <h4 class="text d-flex align-self-center"><%= profissional.sobrenome %></h4>
+                    <h6 class="text d-flex align-self-center"><%= `${profissional.area.nome}`  %> </h6>
+                    <h6 class="text d-flex align-self-center"><%= profissional.descricao %> </h6>
+                    <a href="/servicos/<%= profissional.id %>/solicitar"
+                        class="btn btn-outline-info  align-self-center" style="width: 30%">PERFIL</a>
+                </div>
+
                 <% }) %>
-            <% } %>
+                <% } %>
+
+                
+            </div>
+            <button aria-label="Previous" class="glider-prev">«</button>
+            <button aria-label="Next" class="glider-next">»</button>
+            <div role="tablist" class="dots"></div>
+        </div>
     </main> 
 
     <%- include('../partials/footer') %>
-
+    <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+    <script src="/js/glider.js"></script> 
 </body>
 </html>
