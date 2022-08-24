@@ -1,14 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
+*{
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
 
 header {
-    font-family: 'Montserrat', sans-serif;
     background-color: #112B3C;
 }
 
-.btn-home {
-    text-decoration: none;
-}
+
 
 .menu-burguer {
     margin-left: 1rem;

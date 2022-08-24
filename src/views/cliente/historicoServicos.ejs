@@ -40,11 +40,11 @@
     
                 <div class="card m-3 " style="height: auto;">
                     <img src="/img/avatarPerfilProfissional/<%= servico.profissional.avatar %>" class="card-img-top d-flex align-self-center" style="width: 15rem; height: 15rem">
-                    <h4 class="text-h4 d-flex align-self-center"><%= servico.profissional.nome %></h4>
-                    <h4 class="text-h4 d-flex align-self-center"><%= servico.profissional.sobrenome %></h4>
-                    <h4 class="text-h4 d-flex align-self-center"><%= servico.profissional.descricao %> </h4>
-                    <h4 class="date-br text-h4 d-flex align-self-center"><%= servico.dataServico %> </h4>
-                    <h6 class="text-h6 d-flex align-items-center justify-content-center align-self-center"><%= servico.situacaoServico.estado %></h6>
+                    <h4 class="card-title d-flex align-self-center"><%= servico.profissional.nome %></h4>
+                    <h4 class="card-title d-flex align-self-center"><%= servico.profissional.sobrenome %></h4>
+                    <h4 class="card-title d-flex align-self-center"><%= servico.profissional.descricao %> </h4>
+                    <h4 class="card-subtitle date-br text-h4 d-flex align-self-center"><%= servico.dataServico %> </h4>
+                    <h6 class="card-background mt-2 d-flex align-items-center justify-content-center align-self-center"><strong><%= servico.situacaoServico.estado %></strong></h6>
                     <% if (servico.situacaoServicoId == 2){ %>
                         <h4 class="text-h4 d-flex align-self-center">R$ <%= servico.precoServico %> </h4>
                         <form action="/servicos/<%= servico.id %>/aceitar?_method=PUT" method="POST" class="mt-3 mb-3 d-flex justify-content-center">
@@ -53,13 +53,13 @@
                     <% } %>
                     <% if (servico.situacaoServicoId !== 5 && servico.situacaoServicoId !== 4){ %>
                         <details>
-                            <summary> Cancelar </summary>
+                            <summary><strong>CANCELAR</strong></summary>
                             <form action="/servicos/<%= servico.id %>/cancelar?_method=PUT" class="d-flex align-items-center flex-column" method="POST">
                                 <div class="form-floating p-1 col-md-8">
                                     <input type="text" name="descricaoServico" class="form-control" id="descricaoServico">
-                                    <label for="descricaoServico" class="form-label">Motivo</label>
+                                    <label for="descricaoServico" class="form-label">Motivo do cancelamento</label>
                                 </div>
-                                <button type="submit" class="btn btn-danger col-md-6">Cancelar</button>
+                                <button type="submit" class="btn btn-danger m-2 col-md-4">Cancelar</button>
                             </form>
                         </details>
                     <% } if(servico.situacaoServicoId == 5){ %>
@@ -71,8 +71,8 @@
                 <% }) %>
     
                 <% } if(dadosServicos.length < 1) { %>
-                    <div class="h1-sem-estado">
-                        <h1> NÃO HÁ SERVIÇOS NESSA SITUAÇÃO </h1>
+                    <div>
+                        <h5><strong>NÃO HÁ SERVIÇOS NESSA SITUAÇÃO!</strong></h5>
                     </div>
                 <% } %>
     

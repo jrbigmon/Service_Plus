@@ -1,10 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
-body {
+*{
+    box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
-    background-color: #EFEFEF;
-
+    
 }
+body {
+    padding: 0;
+    margin: 0;
+    background-color:#EFEFEF;
+    height: 100vh;
+}
+
 
 summary {
     list-style-type: '+';
@@ -36,16 +43,18 @@ details[open] summary{
 
 }
 
-.text-h4 {
+.card-title {
     font-weight: 600;
     color: #E8630A;
 }
 
-.text-h6 {
-    width: 10rem;
-    height: 1.5rem;
-    background-color: #035397;
-    border-radius: 1rem;
+.card-subtitle {
     font-weight: 600;
-    color: white;
+    color: #035397;
+}
+
+.card-background {
+    background-color: #EFEFEF;
+    width: 100%;
+    border-radius: 1rem;
 }
