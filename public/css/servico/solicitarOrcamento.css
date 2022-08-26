@@ -3,27 +3,31 @@
 *{
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
-    
-}
-body {
     padding: 0;
     margin: 0;
-    background-color:#EFEFEF;
-    height: 100vh;
 }
 
-.card-body h4 {
-    font-size: 1.5rem;
+body {
+    background-color:#EFEFEF;
+}
+
+.properties-professional {
+    width: 70%;
+}
+.text-nome {
     font-weight: 600;
     color: #035397;
 }
 
-.card-body h6 {
+.text {
     font-weight: 600;
     color: #E8630A;
 }
 
 .resumo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 7px #035397;
@@ -31,29 +35,20 @@ body {
     background-color: white;
 }
 
-.imagem {
-    width: 40%;
-    max-width: 40%;
-
-}
-
 .imagem img {
+    width: 25%;
+    max-width: 25%;
     border-radius: 10rem;
 }
 
+.text-area {
+    padding: 10px;
+    box-shadow: 0 0 3px #035397;
+}
 
-
-@media (min-width: 320px) and (max-width: 425px){
-    summary {
-        font-size: 1rem;
-        color: white;
-        background-color: #035397;
-        list-style-type: '';
-        margin: auto;
-    }
-    
-    details[open] summary{
-        list-style-type: '';
-    }
+.description {
+    padding: 10px;
+    border: 1px solid black;
+    text-align: justify;
 }
 
