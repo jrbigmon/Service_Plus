@@ -5,8 +5,8 @@ const fs = require('fs')
 
 const clienteController = {
   showProfissionais: async (req, res) => {
-    let { area, order } = req.body
-
+    let { area, order } = req.query
+    
     order = order || 'ASC'
     area = area || ['1', '2', '3'] 
     

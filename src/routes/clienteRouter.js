@@ -5,7 +5,6 @@ const clienteController = require('../controllers/clienteController')
 const storageAvatar = require('../middlewares/storageAvatar')
 
 router.get('/perfil/cliente/profissionais', clienteController.showProfissionais)
-router.post('/perfil/cliente/profissionais', clienteController.showProfissionais)
 
 router.use(auth)
 
