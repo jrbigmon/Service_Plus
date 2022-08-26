@@ -29,15 +29,17 @@ body {
     height: auto;
     margin: 1px 0px 1px 0px;
 }
-.sidebar-filter {
-    position:sticky;
-    top: 10px;
-    left: 10px;
+.sidebar-filter {    
     width: 20%;
-    height: 45vh;
+    height: auto;
     background-color: white;
     opacity: 60%;
     box-shadow: 0 0 5px #035397;
+    box-sizing: content-box;
+}
+.sidebar-slid{
+    position:sticky;
+    top: 10px;
 }
 .section-principal {
     width: 80%;
