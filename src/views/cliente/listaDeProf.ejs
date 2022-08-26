@@ -2,65 +2,90 @@
 <html lang="en">
 <%- include('../partials/head') %>
 
-<link rel="stylesheet" href="/css/profissional/listaProfissionais.css">
+    <link rel="stylesheet" href="/css/profissional/listaProfissionais.css">
 
-<body>
-    
-    <%- include('../partials/header') %>
+    <body>
 
-    <main class="main-home">
-        <details>
-            <summary><strong>FILTRO</strong></summary>
+        <%- include('../partials/header') %>
 
-            <p>
-                <form class="form-checkbox" action="/perfil/cliente/profissionais" method="GET">
-                    <div>
+            <main class="main-home d-flex flex-wrap main-contain">
+                <nav class="sidebar-filter d-flex flex-column align-items-center">
 
-                        <input name="order" value="ASC" type="radio" class="btn-check" id="crescente" autocomplete="off">
-                        <label class="btn btn-outline-info" for="crescente">Crescente</label>
-    
-                        <input name="order" value="DESC" type="radio" class="btn-check" id="decrescente" autocomplete="off">
-                        <label class="btn btn-outline-info" for="decrescente">Decrescente</label>
-                        <br>
-                        
-                        <input name="area" value="1" type="checkbox" class="btn-check" id="eletricista" autocomplete="off">
-                        <label class="btn btn-outline-info" for="eletricista">Eletricista</label>
+                    <h5 class="text-center m-2"><b>FILTRO</b></h5>
 
-                        <input name="area" value="2" type="checkbox" class="btn-check" id="encanador" autocomplete="off">
-                        <label class="btn btn-outline-info" for="encanador">Encanador</label>
+                    <form class="form-checkbox" action="/perfil/cliente/profissionais" method="GET">
+                        <div>
 
-                        <input name="area" value="3" type="checkbox" class="btn-check" id="pintor" autocomplete="off">
-                        <label class="btn btn-outline-info" for="pintor">Pintor</label>
+                            <div>
+                                <p class="text-center"><strong>Ordem:</strong></p>
+                                <input name="order" value="ASC" type="radio" class="btn-check" id="crescente"
+                                    autocomplete="off">
+                                <label class="btn btn-outline-info" for="crescente">Crescente</label>
 
-                    </div>  
-                    <button type="submit" class="btn btn-outline-success align-middle">Buscar</button>
-                </form>
-            </p>
+                                <input name="order" value="DESC" type="radio" class="btn-check" id="decrescente"
+                                    autocomplete="off">
+                                <label class="btn btn-outline-info" for="decrescente">Decrescente</label>
+                            </div>
 
-          </details>
-        
-            <div class="cards d-flex">
-                <% if(profissionais != 'undefined') { %>
-                <% profissionais.forEach(profissional => { %>
+                            <div class="d-flex flex-column">
+                                <strong class="text-center">Categoria:</strong>
+                                <div class="d-flex align-items-center">
+                                    <input name="area" value="1" type="checkbox" class="mb-1 mr-2" id="eletricista"
+                                        autocomplete="off">
+                                    <label for="eletricista">Eletricista</label>
+                                </div>
 
-                <div class="card mb-2">
-                    <img src="/img/avatarPerfilProfissional/<%= profissional.avatar %> "
-                        class="card-img-top d-flex align-self-center" style="width: 15rem; height: 15rem">
-                    <br>
-                    <h5 class="text d-flex align-self-center"><%= profissional.nome %></h5>
-                    <h4 class="text d-flex align-self-center"><%= profissional.sobrenome %></h4>
-                    <h6 class="text d-flex align-self-center"><%= `${profissional.area.nome}`  %> </h6>
-                    <h6 class="text d-flex align-self-center"><%= profissional.descricao %> </h6>
-                    <a href="/servicos/<%= profissional.id %>/solicitar"
-                        class="btn btn-outline-info  align-self-center mb-2" style="width: 30%">PERFIL</a>
-                </div>
+                                <div class="d-flex align-items-center">
+                                    <input name="area" value="2" type="checkbox" class="mb-1 mr-2" id="encanador"
+                                        autocomplete="off">
+                                    <label for="encanador">Encanador</label>
+                                </div>
 
-                <% }) %>
-                <% } %>
-            </div>
+                                <div class="d-flex align-items-center">
+                                    <input name="area" value="3" type="checkbox" class="mb-1 mr-2" id="pintor"
+                                        autocomplete="off">
+                                    <label for="pintor">Pintor</label>
 
-    </main> 
+                                </div>
+                            </div>
 
-    <%- include('../partials/footer') %>
-</body>
+                        </div>
+
+                        <div class="d-flex justify-content-center mt-3">
+                            <button type="submit" class="btn btn-outline-success">Buscar</button>
+                        </div>
+                    </form>
+
+                </nav>
+
+                <section class="section-principal d-flex flex-wrap justify-content-evenly">
+                    <% if(profissionais !='undefined' ) { %>
+                        <% profissionais.forEach(profissional=> { %>
+
+                            <div class="cards-prof d-flex flex-column align-items-center">
+                                <img src="/img/avatarPerfilProfissional/<%= profissional.avatar %> "
+                                    class="card-img-top">
+                                <br>
+                                <h5 class="text-nome">
+                                    <%= profissional.nome %>
+                                </h5>
+                                <h5 class="text-nome">
+                                    <%= profissional.sobrenome %>
+                                </h5>
+                                <h6 class="text">
+                                    <%= `${profissional.area.nome}` %>
+                                </h6>
+                                
+                                <a href="/servicos/<%= profissional.id %>/solicitar"
+                                    class="btn btn-outline-info m-2">PERFIL</a>
+                            </div>
+
+                            <% }) %>
+                                <% } %>
+                </section>
+            </main>
+
+            <%- include('../partials/footer') %>
+    </body>
+
 </html>
