@@ -1,6 +1,5 @@
 window.addEventListener('load', async () => {
   let cepsToApi = document.querySelector('.cepsToApi')
-  console.log(cepsToApi.innerHTML)
   const response = await axios(`https://viacep.com.br/ws/${cepsToApi.innerText}/json`)
   let endereco = response.data.localidade
   if(endereco) {
