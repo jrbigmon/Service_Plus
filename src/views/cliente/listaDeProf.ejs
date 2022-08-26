@@ -3,7 +3,6 @@
 <%- include('../partials/head') %>
 
 <link rel="stylesheet" href="/css/profissional/listaProfissionais.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
 
 <body>
     
@@ -39,12 +38,12 @@
             </p>
 
           </details>
-        <div class="glider-contain">
-            <div class="glider d-flex">
+        
+            <div class="cards d-flex">
                 <% if(profissionais != 'undefined') { %>
                 <% profissionais.forEach(profissional => { %>
 
-                <div class="card m-3">
+                <div class="card mb-2">
                     <img src="/img/avatarPerfilProfissional/<%= profissional.avatar %> "
                         class="card-img-top d-flex align-self-center" style="width: 15rem; height: 15rem">
                     <br>
@@ -60,15 +59,8 @@
                 <% } %>
             </div>
 
-            <button aria-label="Previous" class="glider-prev">«</button>
-            <button aria-label="Next" class="glider-next">»</button>
-            <div role="tablist" class="dots"></div>
-            
-        </div>
     </main> 
 
     <%- include('../partials/footer') %>
-    <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
-    <script src="/js/glider.js"></script> 
 </body>
 </html>
