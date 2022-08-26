@@ -1,4 +1,14 @@
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
+  let cepsToApi = document.querySelector('.cepsToApi')
+  console.log(cepsToApi.innerHTML)
+  const response = await axios(`https://viacep.com.br/ws/${cepsToApi.innerText}/json`)
+  let endereco = response.data.localidade
+  if(endereco) {
+    cepsToApi.innerHTML = '📍' + endereco
+  } else {
+    cepsToApi.innerHTML = 'Cep: ' + cepsToApi.innerHTML
+  }   
+
   const dataServico = document.getElementById('dataServico')
 
   dataServico.addEventListener('click', () => {
@@ -15,7 +25,7 @@ window.addEventListener('load', () => {
     dataServico.min = dataMinima
   })
 
-  const formulario = document.querySelector('details form')
+  const formulario = document.querySelector('form')
   const inputs = document.querySelectorAll('input[name="dataServico"], textarea[name="descricaoServico"]')
 
   formulario.addEventListener('submit', (event) => {
@@ -42,6 +52,5 @@ window.addEventListener('load', () => {
 
       event.preventDefault()
     }
-    console.log(sessionStorage.getItem('tipoUsuario'))
   })
 })
