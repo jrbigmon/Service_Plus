@@ -52,10 +52,12 @@ const clienteController = {
       const avatarAntigo = cliente.avatar
 
       const localFileAvatar = path.resolve('public', 'img', 'avatarPerfilCliente', avatarAntigo)
-
-      fs.unlink(localFileAvatar, (err) => {
-        err ? console.log(err) : console.log('Sucsses!')
-      })
+      
+      if(avatarAntigo !== 'defaultAvatar.jpeg'){
+        fs.unlink(localFileAvatar, (err) => {
+          err ? console.log(err) : console.log('Sucsses!')
+        })
+      }
 
       clienteUpdated = { avatar: avatar.filename, nome, sobrenome, cpf, cep, numero }
 
