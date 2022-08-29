@@ -9,10 +9,10 @@
     <%- include('../partials/header')%>
 
     <main class="main-historic">
-        <details>
+        <details class="details-container">
             <summary><strong>FILTRO</strong></summary>
             
-            <form action="/perfil/cliente/historico" class="form-checkbox ml-2" method="POST">
+            <form action="/perfil/cliente/historico" class="form-checkbox ml-2 form-filter-historic" method="POST">
                 <input value="1" class="btn-check" type="radio" id="orcamentar" name="statusServicoFromBody">
                 <label class="btn btn-outline-info" for="orcamentar"> A Oçamentar </label>
                 
