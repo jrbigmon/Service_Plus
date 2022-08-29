@@ -44,6 +44,7 @@ body {
 .section-principal {
     width: 80%;
     height: auto;
+    margin-bottom: 2rem;
 }
 .cards-prof {
     background-color: white;
