@@ -27,8 +27,20 @@
 
                 <input value="5" class="btn-check" type="radio" id="cancelado" name="status">
                 <label class="btn btn-outline-info" for="cancelado"> Cancelados </label>
+                
+                <label for="precoMin">Preço mínimo </label>
+                <input type="number" name="precoMin" min="0" step="1" id="precoMin">
+                
+                <label for="precoMax">Preço máximo </label>
+                <input type="number" name="precoMax" max="10000" step="1" id="precoMax" class="mb-3">
 
-                <button type="submit" class="btn btn-outline-success">Buscar</button>
+                <input value="ASC" class="btn-check" type="radio" id="asc" name="ordem">
+                <label class="btn btn-outline-info" for="asc"> Ordem crescente </label>
+                
+                <input value="DESC" class="btn-check" type="radio" id="desc" name="ordem">
+                <label class="btn btn-outline-info" for="desc"> Ordem decrescente </label>
+
+                <button type="submit" class="btn btn-outline-success mt-3">Buscar</button>
             </form>
         </details>
 
@@ -67,6 +79,7 @@
                         <% } if(servico.situacaoServicoId == 5){ %>
                             <h5 class="text-center mt-2"><b>Descrição do cancelamento</b></h5>
                             <p class="text-center"> <%= servico.descricaoServico %> </p>
+                            <p class="text-center">Valor: <%= servico.precoServico %> </p>
                         <% } %> 
                         </div>
     

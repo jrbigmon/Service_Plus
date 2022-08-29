@@ -9,6 +9,7 @@ body {
     padding: 0;
     margin: 0;
     background-color:#EFEFEF;
+    overflow-x: hidden;
 }
 
 summary {
@@ -29,6 +30,10 @@ details[open] .form-filter-historic {
     display: flex;
     flex-direction: column;
     width: max-content;
+}
+
+.details-container:not([open]) { 
+    height:10px;
 }
 
 .title {

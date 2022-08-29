@@ -1,6 +1,7 @@
 const { Cliente, Profissional, ClienteHasProfissional } = require('../database/models')
 const path = require('path')
 const fs = require('fs')
+const { Op } = require('sequelize')
 
 const clienteController = {
   showProfissionais: async (req, res) => {
@@ -84,15 +85,23 @@ const clienteController = {
   },
   
   historicoServicos: async (req, res) => {
-    const {id} = req.session.usuario;
+    const { id } = req.session.usuario;
     const situacaoServico = req.query.status || 2
+    const precoMin = req.query.precoMin || '0'
+    const precoMax = req.query.precoMax || '1000'
+    const order = req.query.ordem || 'ASC'
 
     const dadosServicos = await ClienteHasProfissional.findAll({
-      where: {clienteId: id, situacaoServicoId: parseInt(situacaoServico)}, 
+      where: {
+        clienteId: id, 
+        situacaoServicoId: parseInt(situacaoServico),
+        precoServico: { [Op.between]: [precoMin, precoMax] }
+      }, 
+      order: [['precoServico', order]],
       include: [
         {
           association: 'profissional',
-          attributes: ['nome', 'sobrenome', 'avatar']
+          attributes: ['nome', 'sobrenome', 'avatar'],
         }, 
         {
           association: 'situacaoServico',
