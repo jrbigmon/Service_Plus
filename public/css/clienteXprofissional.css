@@ -25,4 +25,8 @@ body {
 .main-historic {
     background-image: url('/img/historicServices.svg');
     background-repeat: no-repeat;
+    background-position: center;
+}
+.not-service-contain {
+    height: 100vh;
 }

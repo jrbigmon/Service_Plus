@@ -7,9 +7,11 @@
 
 <body>
     <%- include('../partials/header')%>
+
     <main class="main-historic">
         <details>
             <summary><strong>FILTRO</strong></summary>
+            
             <form action="/perfil/cliente/historico" class="form-checkbox ml-2" method="POST">
                 <input value="1" class="btn-check" type="radio" id="orcamentar" name="statusServicoFromBody">
                 <label class="btn btn-outline-info" for="orcamentar"> A Oçamentar </label>
@@ -28,7 +30,6 @@
 
                 <button type="submit" class="btn btn-outline-success">Buscar</button>
             </form>
-
         </details>
 
         <% if(dadosServicos != 'undefined' && dadosServicos.length > 0){ %>
@@ -39,51 +40,53 @@
 
                     <% dadosServicos.forEach(servico => { %>
     
-                    <div class="card m-3 " style="height: auto;">
-                    <img src="/img/avatarPerfilProfissional/<%= servico.profissional.avatar %>" class="card-img-top d-flex align-self-center" style="width: 15rem; height: 15rem">
-                    <h4 class="card-title d-flex align-self-center"><%= servico.profissional.nome %></h4>
-                    <h4 class="card-title d-flex align-self-center"><%= servico.profissional.sobrenome %></h4>
-                    <h4 class="card-title d-flex align-self-center"><%= servico.profissional.descricao %> </h4>
-                    <h4 class="card-subtitle date-br text-h4 d-flex align-self-center"><%= servico.dataServico %> </h4>
-                    <h6 class="card-background mt-2 d-flex align-items-center justify-content-center align-self-center"><strong><%= servico.situacaoServico.estado %></strong></h6>
-                    <% if (servico.situacaoServicoId == 2){ %>
-                        <h4 class="text-h4 d-flex align-self-center">R$ <%= servico.precoServico %> </h4>
-                        <form action="/servicos/<%= servico.id %>/aceitar?_method=PUT" method="POST" class="mt-3 mb-3 d-flex justify-content-center">
-                            <button class="btn btn-success col-10" type="submit">Aceitar</button>
-                        </form>
-                    <% } %>
-                    <% if (servico.situacaoServicoId !== 5 && servico.situacaoServicoId !== 4){ %>
-                        <details>
-                            <summary><strong>CANCELAR</strong></summary>
-                            <form action="/servicos/<%= servico.id %>/cancelar?_method=PUT" class="d-flex align-items-center flex-column" method="POST">
-                                <div class="form-floating p-1 col-md-8">
-                                    <input type="text" name="descricaoServico" class="form-control" id="descricaoServico">
-                                    <label for="descricaoServico" class="form-label">Motivo do cancelamento</label>
-                                </div>
-                                <button type="submit" class="btn btn-danger m-2 col-md-4">Cancelar</button>
+                        <div class="card m-3 " style="height: auto;">
+                        <img src="/img/avatarPerfilProfissional/<%= servico.profissional.avatar %>" class="card-img-top d-flex align-self-center" style="width: 15rem; height: 15rem">
+                        <h4 class="card-title d-flex align-self-center"><%= servico.profissional.nome %></h4>
+                        <h4 class="card-title d-flex align-self-center"><%= servico.profissional.sobrenome %></h4>
+                        <h4 class="card-title d-flex align-self-center"><%= servico.profissional.descricao %> </h4>
+                        <h4 class="card-subtitle date-br text-h4 d-flex align-self-center"><%= servico.dataServico %> </h4>
+                        <h6 class="card-background mt-2 d-flex align-items-center justify-content-center align-self-center"><strong><%= servico.situacaoServico.estado %></strong></h6>
+                        <% if (servico.situacaoServicoId == 2){ %>
+                            <h4 class="text-h4 d-flex align-self-center">R$ <%= servico.precoServico %> </h4>
+                            <form action="/servicos/<%= servico.id %>/aceitar?_method=PUT" method="POST" class="mt-3 mb-3 d-flex justify-content-center">
+                                <button class="btn btn-success col-10" type="submit">Aceitar</button>
                             </form>
-                        </details>
-                    <% } if(servico.situacaoServicoId == 5){ %>
-                        <h5 class="text-center mt-2"><b>Descrição do cancelamento</b></h5>
-                        <p class="text-center"> <%= servico.descricaoServico %> </p>
-                    <% } %> 
-                    </div>
+                        <% } %>
+                        <% if (servico.situacaoServicoId !== 5 && servico.situacaoServicoId !== 4){ %>
+                            <details>
+                                <summary><strong>CANCELAR</strong></summary>
+                                <form action="/servicos/<%= servico.id %>/cancelar?_method=PUT" class="d-flex align-items-center flex-column" method="POST">
+                                    <div class="form-floating p-1 col-md-8">
+                                        <input type="text" name="descricaoServico" class="form-control" id="descricaoServico">
+                                        <label for="descricaoServico" class="form-label">Motivo do cancelamento</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-danger m-2 col-md-4">Cancelar</button>
+                                </form>
+                            </details>
+                        <% } if(servico.situacaoServicoId == 5){ %>
+                            <h5 class="text-center mt-2"><b>Descrição do cancelamento</b></h5>
+                            <p class="text-center"> <%= servico.descricaoServico %> </p>
+                        <% } %> 
+                        </div>
     
                     <% }) %>
     
                 </div>
 
-            <button aria-label="Previous" class="col-md-120 glider-prev">«</button>
+                <button aria-label="Previous" class="col-md-120 glider-prev">«</button>
 
-            <button aria-label="Next" class="glider-next">»</button>
+                <button aria-label="Next" class="glider-next">»</button>
 
-            <div role="tablist" class="dots"></div>
-        </div>
-
-        <% } if(dadosServicos.length < 1) { %>
-            <div class="d-flex justify-content-center align-items-center">
-               <img src="/img/semServico.svg" alt="">
+                <div role="tablist" class="dots"></div>
             </div>
+
+        <% } else { %>
+
+            <div class="not-service-contain d-flex justify-content-end align-items-center">
+               <h1 class="mr-5">Que pena, <br/> não há nada aqui!</h1>
+            </div>
+        
         <% } %>
 
     </main>
