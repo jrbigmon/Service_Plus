@@ -33,12 +33,12 @@
                 </div>
 
                 <div class="form-floating p-1 col-md-8">
-                    <input type="text" class="form-control" name="cep" value="<%= cliente.cep %>">
+                    <input type="text" class="form-control" name="cep" id="cep" value="<%= cliente.cep %>">
                     <label for="CEP" class="form-label">CEP:</label>
                 </div>
 
                 <div class="form-floating p-1 col-md-8">
-                    <input type="text" class="form-control" value="<%= locals.usuario.endereco %> " disabled>
+                    <input type="text" class="form-control" id="endereco" value="" disabled>
                     <label for="endereco" class="form-label">Endereço:</label>
                 </div>
 
@@ -58,7 +58,8 @@
 
     </main>
     <%- include('../partials/footer')%>
-    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js/editPerfilCliente.js"></script>
 </body>
 
 </html>
