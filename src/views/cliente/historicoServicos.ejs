@@ -29,10 +29,10 @@
                 <label class="btn btn-outline-info" for="cancelado"> Cancelados </label>
                 
                 <label for="precoMin">Preço mínimo </label>
-                <input type="number" name="precoMin" min="0" step="1" id="precoMin">
+                <input type="number" name="precoMin" min="0" step="1" id="precoMin" value="0">
                 
                 <label for="precoMax">Preço máximo </label>
-                <input type="number" name="precoMax" max="10000" step="1" id="precoMax" class="mb-3">
+                <input type="number" name="precoMax" max="10000" step="1" id="precoMax" class="mb-3" value="250">
 
                 <input value="ASC" class="btn-check" type="radio" id="asc" name="ordem">
                 <label class="btn btn-outline-info" for="asc"> Ordem crescente </label>
@@ -109,6 +109,7 @@
     <script src="/js/dataServicoProf.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
     <script src="/js/gliderWhitoutDraggable.js"></script> 
+    <script src="/js/historicoServicoFilter.js"></script>
 </body>
 
 </html>
