@@ -9,16 +9,14 @@
           </span>
         </button>
     
-       <span>SERVICE<strong>PLUS</strong></span>
+       <span> <a href="/" style="color: #EFEFEF" class="text-decoration-none mr-1">SERVICE<strong>PLUS</strong></a></span>
       
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" style="color: #EFEFEF" href="/">Home</a>
-            </li>
             <li>
               <a class="nav-link" style="color: #EFEFEF" href="/sobre">Sobre nós</a>
             </li>
+
             <% if (locals.usuario !== undefined) { %>
 
               <% if (locals.usuario.tipoUsuario === "profissional") { %>
@@ -28,6 +26,7 @@
                 </li>
 
               <% } else { %> 
+
                 <li class="nav-item">
                   <a class="nav-link" style="color: #EFEFEF" href="/perfil/cliente/profissionais">Encontre um prestador</a>
                 </li>
@@ -35,13 +34,16 @@
                 <li class="nav-item">
                   <a class="nav-link" style="color: #EFEFEF" href="/perfil/cliente/historico">Histórico de Serviços</a>
                 </li>
+
               <% } %>  
               
-              <% } else { %> 
+            <% } else { %> 
+
                 <li class="nav-item">
                   <a class="nav-link" style="color: #EFEFEF" href="/perfil/cliente/profissionais">Encontre um prestador</a>
                 </li>
-              <% } %>  
+
+            <% } %>  
 
           </ul>
     
