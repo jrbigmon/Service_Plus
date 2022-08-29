@@ -46,41 +46,31 @@ const clienteController = {
 
     let clienteUpdated
 
-    const endereco = await cepRequest.getCep(cep)
-
     if (avatar) {
-      const avatarAntigo = cliente.avatar
+      const oldAvatar = cliente.avatar
 
-      const localFileAvatar = path.resolve('public', 'img', 'avatarPerfilCliente', avatarAntigo)
-      
-      if(avatarAntigo !== 'defaultAvatar.jpeg'){
+      if(oldAvatar !== 'defaultAvatar.jpeg'){
+        const localFileAvatar = path.resolve('public', 'img', 'avatarPerfilCliente', oldAvatar)
+        
         fs.unlink(localFileAvatar, (err) => {
-          err ? console.log(err) : console.log('Sucsses!')
+          err ? console.log(err) : console.log('success!')
         })
       }
 
       clienteUpdated = { avatar: avatar.filename, nome, sobrenome, cpf, cep, numero }
 
-      req.session.usuario = Object.assign({
-        id,
-        endereco,
-        tipoUsuario: req.session.usuario.tipoUsuario,
-        ...clienteUpdated
-      })
     } else {
       clienteUpdated = { nome, sobrenome, cpf, cep, numero }
-
-      req.session.usuario = Object.assign({
-        id,
-        avatar: cliente.avatar,
-        endereco,
-        tipoUsuario: req.session.usuario.tipoUsuario,
-        ...clienteUpdated
-      })
     }
 
     await Cliente.update(clienteUpdated, { where: { id } })
 
+    const clientAfterUpdate = await Cliente.findByPk(id, { raw: true })
+
+    delete clientAfterUpdate.senha
+
+    req.session.usuario = clientAfterUpdate
+    
     return res.redirect('/')
   },
 
