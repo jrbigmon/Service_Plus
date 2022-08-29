@@ -31,14 +31,15 @@
 
         </details>
 
-        <div class="glider-contain">
+        <% if(dadosServicos != 'undefined' && dadosServicos.length > 0){ %>
+            
+            <div class="glider-contain">
+            
+                <div class="glider">
 
-            <div class="glider">
-
-                <% if(dadosServicos != 'undefined' && dadosServicos.length > 0){ %>
-                <% dadosServicos.forEach(servico => { %>
+                    <% dadosServicos.forEach(servico => { %>
     
-                <div class="card m-3 " style="height: auto;">
+                    <div class="card m-3 " style="height: auto;">
                     <img src="/img/avatarPerfilProfissional/<%= servico.profissional.avatar %>" class="card-img-top d-flex align-self-center" style="width: 15rem; height: 15rem">
                     <h4 class="card-title d-flex align-self-center"><%= servico.profissional.nome %></h4>
                     <h4 class="card-title d-flex align-self-center"><%= servico.profissional.sobrenome %></h4>
@@ -66,22 +67,27 @@
                         <h5 class="text-center mt-2"><b>Descrição do cancelamento</b></h5>
                         <p class="text-center"> <%= servico.descricaoServico %> </p>
                     <% } %> 
-                </div>
-    
-                <% }) %>
-    
-                <% } if(dadosServicos.length < 1) { %>
-                    <div>
-                        <h5><strong>NÃO HÁ SERVIÇOS NESSA SITUAÇÃO!</strong></h5>
                     </div>
-                <% } %>
     
-            </div>
+                    <% }) %>
+    
+                </div>
+
             <button aria-label="Previous" class="col-md-120 glider-prev">«</button>
+
             <button aria-label="Next" class="glider-next">»</button>
+
             <div role="tablist" class="dots"></div>
         </div>
+
+        <% } if(dadosServicos.length < 1) { %>
+            <div class="d-flex justify-content-center align-items-center">
+               <img src="/img/semServico.svg" alt="">
+            </div>
+        <% } %>
+
     </main>
+    
     <%- include('../partials/footer')%>
 
     <script src="/js/dataServicoProf.js"></script>
