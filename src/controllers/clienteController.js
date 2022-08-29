@@ -1,5 +1,4 @@
 const { Cliente, Profissional, ClienteHasProfissional } = require('../database/models')
-const cepRequest = require('../requests/cepRequest')
 const path = require('path')
 const fs = require('fs')
 
@@ -70,7 +69,7 @@ const clienteController = {
     delete clientAfterUpdate.senha
 
     req.session.usuario = clientAfterUpdate
-    
+
     return res.redirect('/')
   },
 
@@ -81,6 +80,7 @@ const clienteController = {
 
     return res.redirect('/')
   },
+  
   historicoServicos: async (req, res) => {
     const {id} = req.session.usuario;
     const situacaoServico = req.body.statusServicoFromBody || 2
