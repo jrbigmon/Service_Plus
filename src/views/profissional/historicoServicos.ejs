@@ -37,13 +37,12 @@
                 <button type="submit" class="btn btn-outline-success">Buscar</button>
             </form>
         </details>
+
         <% if(dadosServicos.length > 0){ %>
 
             <div class="glider-contain">
-
-            <div class="glider cards d-flex justify-content-center">
+                <div class="glider cards d-flex justify-content-center">
                 <% dadosServicos.forEach(dadoServico => { %>
-
 
                 <div class="card m-3 p-1">
                     <img src="/img/avatarPerfilCliente/<%= dadoServico.cliente.avatar %>" class="d-flex align-self-center" style="width: 20rem; height: 20rem; border-radius: 15px;">
@@ -62,48 +61,52 @@
                         
                         <% } %>
 
-                    <% if (dadoServico.situacaoServicoId == 1){ %>
-                    
-                        <details class="d-flex justify-content-center">
-                            <summary><strong>ORÇAMENTAR</strong></summary>
-                            <form action="/servicos/<%= dadoServico.id %>/orcamentar?_method=PUT" method="POST">
-                                <label for=""> <strong>VALOR:</strong>
-                                    <input type="number" step="0.01" name="precoServico" rows="3" class="col-md-12">
-                                </label>
-                                <button class="btn btn-info col-md-4" type="submit">Enviar</button>
-                            </form>
-                        </details>
+                        <% if (dadoServico.situacaoServicoId == 1){ %>
+                        
+                            <details class="d-flex justify-content-center">
+                                <summary><strong>ORÇAMENTAR</strong></summary>
+                                <form action="/servicos/<%= dadoServico.id %>/orcamentar?_method=PUT" method="POST">
+                                    <label for=""> <strong>VALOR:</strong>
+                                        <input type="number" step="0.01" name="precoServico" rows="3" class="col-md-12">
+                                    </label>
+                                    <button class="btn btn-info col-md-4" type="submit">Enviar</button>
+                                </form>
+                            </details>
 
-                        <details>
-                            <summary><strong>RECUSAR SOLICITAÇÃO</strong></summary>
-                            <form action="/servicos/<%= dadoServico.id %>/cancelar?_method=PUT" method="POST">
-                                <label for="" class="col-md-12"><strong>MOTIVO:</strong></label>
-                                <textarea name="descricaoServico" class="col-md-8"></textarea>
-                                <button class="btn btn-danger col-md-4" type="submit">Enviar</button>
+                            <details>
+                                <summary><strong>RECUSAR SOLICITAÇÃO</strong></summary>
+                                <form action="/servicos/<%= dadoServico.id %>/cancelar?_method=PUT" method="POST">
+                                    <label for="" class="col-md-12"><strong>MOTIVO:</strong></label>
+                                    <textarea name="descricaoServico" class="col-md-8"></textarea>
+                                    <button class="btn btn-danger col-md-4" type="submit">Enviar</button>
+                                </form>
+                            </details>
+                        <% } %>
+                        <% if (dadoServico.situacaoServicoId == 3) { %>
+                            <form action="/servicos/<%= dadoServico.id %>/finalizar?_method=PUT" method="POST">
+                                <button class="btn btn-success" type="submit">Finalizado</button>
                             </form>
-                        </details>
-                    <% } %>
-                    <% if (dadoServico.situacaoServicoId == 3) { %>
-                        <form action="/servicos/<%= dadoServico.id %>/finalizar?_method=PUT" method="POST">
-                            <button class="btn btn-success" type="submit">Finalizado</button>
-                        </form>
-                    <% } %> 
+                        <% } %> 
+                    </div>
                 </div>
-            </div>
             <% }) %>
-        </div>
-                    <button aria-label="Previous" class="glider-prev">«</button>
-                    <button aria-label="Next" class="glider-next">»</button>
-                    <div role="tablist" class="dots"></div>
-    </div>
+                </div>
+
+                <button aria-label="Previous" class="glider-prev">«</button>
+                <button aria-label="Next" class="glider-next">»</button>
+                <div role="tablist" class="dots"></div>
+            </div>
 
         <% } else{ %>
-            <div class="h1-sem-estado">
+            <div class="d-flex justify-content-center align-items-center">
                <img src="/img/semServico.svg" alt="">
             </div>
         <% } %> 
+
     </main>
+
     <%- include('../partials/footer') %>
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/js/historicoServicoProf.js"></script> 
     <script src="/js/dataServicoProf.js"></script>
