@@ -9,7 +9,6 @@ body {
     padding: 0;
     margin: 0;
     background-color:#EFEFEF;
-    height: 100vh;
 }
 
 
@@ -57,4 +56,10 @@ details[open] summary{
     background-color: #EFEFEF;
     width: 100%;
     border-radius: 1rem;
+}
+
+.img-client {
+    width: 7rem; 
+    height: 7rem; 
+    border-radius: 50%;
 }

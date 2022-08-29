@@ -44,8 +44,8 @@
                 <div class="glider cards d-flex justify-content-center">
                 <% dadosServicos.forEach(dadoServico => { %>
 
-                <div class="card m-3 p-1">
-                    <img src="/img/avatarPerfilCliente/<%= dadoServico.cliente.avatar %>" class="d-flex align-self-center" style="width: 20rem; height: 20rem; border-radius: 15px;">
+                <div class="card ml-3 mr-3 mt-3 mb-1 p-1">
+                    <img src="/img/avatarPerfilCliente/<%= dadoServico.cliente.avatar %>" class="img-client align-self-center">
                     
                     <div class="card-body texy-center">
                         <h5 class="card-title d-flex justify-content-center align-self-center"><%= `${dadoServico.cliente.nome} ${dadoServico.cliente.sobrenome}` %> </h5>
