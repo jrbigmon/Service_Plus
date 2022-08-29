@@ -8,6 +8,8 @@ window.addEventListener('load', () => {
     const radioCrescente = document.querySelector('#asc')
     const radioDecrescente = document.querySelector('#desc')
     const checkboxesStatus = document.querySelectorAll('input[name=status]')
+    const inputPrecoMin = document.querySelector('input[name=precoMin]')
+    const inputPrecoMax = document.querySelector('input[name=precoMax]')
 
     checkboxesStatus.forEach(checkbox => {
         if(checkbox.value == status){
@@ -21,4 +23,7 @@ window.addEventListener('load', () => {
     if(order == 'DESC'){
         radioDecrescente.setAttribute('checked', 'checked')
     }
+
+    inputPrecoMin.value = precoMin
+    inputPrecoMax.value = precoMax
 })
