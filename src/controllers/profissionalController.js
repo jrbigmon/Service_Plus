@@ -72,7 +72,9 @@ const profissionalController = {
 
     delete professionalAfterUpdate.senha
 
-    req.session.usuario = professionalAfterUpdate
+    req.session.usuario = Object.assign(professionalAfterUpdate, {
+      tipoUsuario: 'profissional'
+    })
     
     return res.redirect('/')
   },

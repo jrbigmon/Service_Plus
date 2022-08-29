@@ -67,9 +67,11 @@ const clienteController = {
     const clientAfterUpdate = await Cliente.findByPk(id, { raw: true })
 
     delete clientAfterUpdate.senha
-
-    req.session.usuario = clientAfterUpdate
-
+    
+    req.session.usuario = Object.assign(clientAfterUpdate, {
+      tipoUsuario: 'cliente'
+    })
+    
     return res.redirect('/')
   },
 
