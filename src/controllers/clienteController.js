@@ -95,7 +95,7 @@ const clienteController = {
       where: {
         clienteId: id, 
         situacaoServicoId: parseInt(situacaoServico),
-        precoServico: { [Op.between]: [precoMin, precoMax] }
+        precoServico: { [Op.between] : [precoMin, precoMax] }
       }, 
       order: [['precoServico', order]],
       include: [
