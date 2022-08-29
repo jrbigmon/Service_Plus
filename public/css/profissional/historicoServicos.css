@@ -27,13 +27,6 @@ details[open] summary{
     margin: 2rem 0rem 2rem 0rem;
 }
 
-.cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-bottom: 2px;
-}
-
 .card {
     width: 20rem;
     height: 30rem;
