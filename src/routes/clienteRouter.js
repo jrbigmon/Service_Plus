@@ -3,8 +3,9 @@ const router = express.Router()
 const auth = require('../middlewares/auth')
 const clienteController = require('../controllers/clienteController')
 const storageAvatar = require('../middlewares/storageAvatar')
+const saveLastUrl = require('../middlewares/saveLastUrl')
 
-router.get('/perfil/cliente/profissionais', clienteController.showProfissionais)
+router.get('/perfil/cliente/profissionais', saveLastUrl, clienteController.showProfissionais)
 
 router.use(auth)
 

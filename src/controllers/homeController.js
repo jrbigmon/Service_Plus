@@ -38,7 +38,9 @@ const homeController = {
 
         req.session.usuario = cliente
 
-        return res.redirect(`/perfil/cliente/${cliente.id}/editar`)
+        const lastUrl = req.session.lastUrl
+        
+        return res.redirect(lastUrl)
       };
 
       return res.redirect('/login/?usuario=cliente')
