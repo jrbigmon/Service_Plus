@@ -10,6 +10,11 @@ body {
     background-color: #EEEE;
 }
 
+.main-home {
+    background-image: url('/img/backgroundSearchProfess.svg');
+    background-repeat: no-repeat;
+}
+
 .text-nome {
     font-weight: 600;
     color: #035397;

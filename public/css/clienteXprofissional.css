@@ -21,3 +21,8 @@ body {
     font-weight: 600;
     color: #E8630A;
 }
+
+.main-historic {
+    background-image: url('/img/historicServices.svg');
+    background-repeat: no-repeat;
+}
