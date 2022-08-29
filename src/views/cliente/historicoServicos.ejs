@@ -12,20 +12,20 @@
         <details class="details-container">
             <summary><strong>FILTRO</strong></summary>
             
-            <form action="/perfil/cliente/historico" class="form-checkbox ml-2 form-filter-historic" method="POST">
-                <input value="1" class="btn-check" type="radio" id="orcamentar" name="statusServicoFromBody">
+            <form action="/perfil/cliente/historico" class="form-checkbox ml-2 form-filter-historic" method="GET">
+                <input value="1" class="btn-check" type="radio" id="orcamentar" name="status">
                 <label class="btn btn-outline-info" for="orcamentar"> A Oçamentar </label>
                 
-                <input value="2" class="btn-check" type="radio" id="executar" name="statusServicoFromBody">
+                <input value="2" class="btn-check" type="radio" id="executar" name="status">
                 <label class="btn btn-outline-info" for="executar"> Aguardando seu aceite </label>
 
-                <input value="3" class="btn-check" type="radio" id="aceite" name="statusServicoFromBody">
+                <input value="3" class="btn-check" type="radio" id="aceite" name="status">
                 <label class="btn btn-outline-info" for="aceite"> A Executar </label>
 
-                <input value="4" class="btn-check" type="radio" id="finalizado" name="statusServicoFromBody">
+                <input value="4" class="btn-check" type="radio" id="finalizado" name="status">
                 <label class="btn btn-outline-info" for="finalizado"> Finalizados </label>
 
-                <input value="5" class="btn-check" type="radio" id="cancelado" name="statusServicoFromBody">
+                <input value="5" class="btn-check" type="radio" id="cancelado" name="status">
                 <label class="btn btn-outline-info" for="cancelado"> Cancelados </label>
 
                 <button type="submit" class="btn btn-outline-success">Buscar</button>

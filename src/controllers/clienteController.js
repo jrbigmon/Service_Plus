@@ -85,7 +85,7 @@ const clienteController = {
   
   historicoServicos: async (req, res) => {
     const {id} = req.session.usuario;
-    const situacaoServico = req.body.statusServicoFromBody || 2
+    const situacaoServico = req.query.status || 2
 
     const dadosServicos = await ClienteHasProfissional.findAll({
       where: {clienteId: id, situacaoServicoId: parseInt(situacaoServico)}, 

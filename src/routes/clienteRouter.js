@@ -10,7 +10,6 @@ router.get('/perfil/cliente/profissionais', saveLastUrl, clienteController.showP
 router.use(auth)
 
 router.get('/perfil/cliente/historico', clienteController.historicoServicos);
-router.post('/perfil/cliente/historico', clienteController.historicoServicos);
 
 router.get('/perfil/cliente/:id/editar', clienteController.showEdit)
 router.put('/perfil/cliente/:id/editar', storageAvatar('avatarPerfilCliente').single('avatar'), clienteController.edit)
