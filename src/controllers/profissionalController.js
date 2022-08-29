@@ -58,10 +58,10 @@ const profissionalController = {
       
       if(oldAvatar !== 'defaultAvatar.jpeg'){
         fs.unlink(localizacaoRelativa, (error) => {
-          error ? console.log(error) : console.log('Sucsess!')
+          error ? console.log(error) : console.log('success!')
         })
       }
-      
+
     } else {
       profissionalEdit = { nome, sobrenome, cpf, telefone, cep, descricao }
     }
