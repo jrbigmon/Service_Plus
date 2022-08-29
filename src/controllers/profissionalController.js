@@ -53,10 +53,10 @@ const profissionalController = {
       profissionalEdit = { nome, sobrenome, cpf, telefone, cep, avatar: avatar.filename, descricao }
 
       const oldAvatar = profissional.avatar
-
-      const localizacaoRelativa = path.resolve('public', 'img', 'avatarPerfilProfissional', oldAvatar)
       
       if(oldAvatar !== 'defaultAvatar.jpeg'){
+        const localizacaoRelativa = path.resolve('public', 'img', 'avatarPerfilProfissional', oldAvatar)
+        
         fs.unlink(localizacaoRelativa, (error) => {
           error ? console.log(error) : console.log('success!')
         })
