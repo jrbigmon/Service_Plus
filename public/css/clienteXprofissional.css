@@ -21,10 +21,3 @@ body {
     font-weight: 600;
     color: #E8630A;
 }
-
-.h1-sem-estado{
-    display: flex;
-    align-items: center;
-    height: 61.2vh;
-    justify-content: center;
-}
