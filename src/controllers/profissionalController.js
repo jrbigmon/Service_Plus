@@ -68,6 +68,12 @@ const profissionalController = {
 
     await Profissional.update(profissionalEdit, { where: { id } })
 
+    const professionalAfterUpdate = await Profissional.findByPk(id, { raw: true })
+
+    delete professionalAfterUpdate.senha
+
+    req.session.usuario = professionalAfterUpdate
+    
     return res.redirect('/')
   },
   
