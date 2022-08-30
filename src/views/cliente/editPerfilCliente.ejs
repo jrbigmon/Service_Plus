@@ -15,7 +15,7 @@
                    
                 <div class="avatar form-floating p-2">
                     <input type="file" name="avatar" accept=".jpg, .png">
-                    <label for="avatar" class=>Carregue sua imagem</label>
+                    <label for="avatar" class="text-center">Foto</label>
                 </div>
 
                 <div class="form-floating p-1">
@@ -49,10 +49,10 @@
                 </div>
                 <div class="col-md-12 mt-2 text-center mb-2">
                     
-                <button type="submit" class="btn btn-info col-sm-12 col-md-3 mb-2">Finalizar</button>
+                <button type="submit" class="btn btn-info col-sm-8 col-md-4 mb-2">Finalizar</button>
 
                 <form action="/perfil/cliente/<%= cliente.id %>/deletar?_method=DELETE" method="POST">
-                    <button type="submit" class="text-center btn btn-danger col-sm-6 col-md-3 mb-2"> Deletar conta</button>
+                    <button type="submit" class="text-center btn btn-danger col-sm-8 col-md-4 mb-2"> Deletar conta</button>
                 </form>
                 </div>
             </form>
