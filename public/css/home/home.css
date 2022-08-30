@@ -1,70 +1,79 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap%27');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
-body {
-    background-color: #EAF6F6
-}
-
-.main-home{
+*{
+    box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    width: 100%;
+    
+}
+body {
+    padding: 0;
+    margin: 0;
+    background-color:#EFEFEF;
     height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: auto;
 }
 
-.home {
-    margin: auto;
-    display: flex;
-    width: 90%;
-    height: 90vh;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
+.form-control {
+    background-color: #EEEEEE;
 }
 
-.home a{
-    text-decoration: none;
+.container-fluid h1 {
+    color: #F66B0E;
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+.container-fluid p {
+    color: #205375;
+    font-weight: 800;
+    font-size: 1rem;
 }
 
-.home section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 35vh;
-    width: 35vh;
-    box-shadow: 0 0 0.7rem #035397;
-    border-radius: 4rem;
-    background-color: white;
-}
-
-.home section div img{
-    height: 100%;
+.container-fluid{
     width: 100%;
+}
+
+.form-control-checkbox{
+    border: none;
+}
+
+.checkbox div label{
+    margin-right: 0.5rem;
+}
+
+.img-prestador img {
+    margin: 2rem;
+    border-radius: 2rem;
+}
+
+.card-carousel{
+    display: flex;
+    width: 20rem;
+    height: 25rem;
     justify-content: center;
     align-items: center;
+    margin: 1rem;
 }
 
-.home span {
-    margin-top: 1rem;
-    align-items: center;
+
+
+.card-body h5 {
+    color: #F66B0E;
+    font-weight: 800;
 }
 
-@media (max-width: 1440px) {
-    html {
-        font-size: 90%
+@media (min-width: 320px) and (max-width: 767px) {
+    .img-prestador {
+        display: none
     }
-}
-
-@media (max-width: 768px) {
-    .home {
-        flex-direction: column;
+    .container-fluid h1 {
+        font-size: 1rem;
+        margin-top: 3rem;
     }
-}
-
-@media (max-width:480px) {
-
+    .body-home {
+        background-image: url("/img/prestador-imagem.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+    .form-control-checkbox {
+        background: none;
+    }
 }

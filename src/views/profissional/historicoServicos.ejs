@@ -2,70 +2,135 @@
 <html lang="en">
 <%- include('../partials/head') %>
 
-<link rel="stylesheet" href="/css/profissional/historicoServicos.css">
+<link rel="stylesheet" href="/css/servico/historicoServicos.css">
+<link rel="stylesheet" href="/css/profissional/listaProfissionais.css">
 
 <body>
 
     <%- include('../partials/header')%>
 
-    <main>
-        <nav>
-            <form action="/perfil/profissional/historico" method="POST">
-                <label for="orcamentar"> A Orçamentar
-                    <input value="1" type="radio" id="orcamentar" name="statusServicoFromBody">    
-                </label>
+    <main class="main-historic">
+        <nav class="sidebar-filter d-flex flex-column align-items-center">
 
-                <label for="executar"> Executados
-                    <input value="2" type="radio" id="executar" name="statusServicoFromBody">
-                </label>
+            <section class="sidebar-slid">
+                <h5 class="text-center m-2"><b>FILTRO</b></h5>
 
-                <label for="finalizado"> Finalizados
-                    <input value="3" type="radio" id="finalizado" name="statusServicoFromBody">
-                </label>
-                <button type="submit">Buscar</button>
-            </form>
-        </nav>
-        <h1 class="title"> Lista de Serviços aguardando orçamento </h1>
-        <% dadosServicos.forEach(dadoServico => { %>
+            <form class="form-checkbox" action="/perfil/cliente/profissionais" method="GET">
+                <div>
 
-            <section class="cards">
-                
-                <div class="card" style="width: 18rem;">
-                    <img src="/img/avatarPerfilCliente/<%= dadoServico.cliente.avatar %> "
-                    class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"><%= `${dadoServico.cliente.nome} ${dadoServico.cliente.sobrenome}` %></h5>
-                        <p class="card-text"><%= dadoServico.descricaoServico %></p>
+                    <div>
+                        <p class="text-center"><strong>Ordem:</strong></p>
+                        <input name="order" value="ASC" type="radio" class="btn-check" id="crescente"
+                            autocomplete="off">
+                        <label class="btn btn-outline-info" for="crescente">Crescente</label>
+
+                        <input name="order" value="DESC" type="radio" class="btn-check" id="decrescente"
+                            autocomplete="off">
+                        <label class="btn btn-outline-info" for="decrescente">Decrescente</label>
                     </div>
-                <div class="card-body">
-                    <details>
-                        <summary>Orçamentar</summary>
-                        <form action="/servicos/<%= dadoServico.id %>/orcamentar?_method=PUT" method="POST">
-                            <label for=""> Insira o valor previsto para o serviço
-                                <input type="number" step="any" name="precoServico">
-                            </label>
-                            <button type="submit">Enviar Orçamento</button>
-                        </form>
-                    </details>
-                    
-                    <details>
-                        <summary>Cancelar</summary>
-                        <form action="/servicos/<%= dadoServico.id %>/cancelar?_method=PUT" method="POST">
-                            <label for=""> Insira o valor previsto para o serviço
-                                <textarea name="descricaoServico">
-                                </textarea>
-                            </label>
-                            <button type="submit">Enviar Orçamento</button>
-                        </form>
-                    </details>
+
+                    <div class="d-flex flex-column">
+                        <strong class="text-center">Categoria:</strong>
+                        <div class="d-flex align-items-center">
+                            <input name="area" value="1" type="checkbox" class="mb-1 mr-2" id="eletricista"
+                                autocomplete="off">
+                            <label for="eletricista">Eletricista</label>
+                        </div>
+
+                        <div class="d-flex align-items-center">
+                            <input name="area" value="2" type="checkbox" class="mb-1 mr-2" id="encanador"
+                                autocomplete="off">
+                            <label for="encanador">Encanador</label>
+                        </div>
+
+                        <div class="d-flex align-items-center">
+                            <input name="area" value="3" type="checkbox" class="mb-1 mr-2" id="pintor"
+                                autocomplete="off">
+                            <label for="pintor">Pintor</label>
+
+                        </div>
+                    </div>
+
                 </div>
+
+                <div class="d-flex justify-content-center mt-3">
+                    <button type="submit" class="btn btn-outline-success">Buscar</button>
+                </div>
+            </form>
+            </section>
+
+        </nav>
+
+        <% if(dadosServicos != 'undefined' && dadosServicos.length > 0){ %>
+                <div class="">
+
+                    <% dadosServicos.forEach(dadoServico => { %>
+
+                        <div class="card ml-3 mr-3 mt-3 mb-1 p-1">
+                            <img src="/img/avatarPerfilCliente/<%= dadoServico.cliente.avatar %>" class="img-client align-self-center">
+                            
+                            <div class="card-body texy-center">
+                                <h5 class="card-title d-flex justify-content-center align-self-center"><%= `${dadoServico.cliente.nome} ${dadoServico.cliente.sobrenome}` %> </h5>
+                                <h5 class="card-subtitle date-br text-h4 d-flex justify-content-center align-self-center"><%= dadoServico.dataServico %> </h5>
+
+                                <p class="card-background d-flex justify-content-center align-self-center mt-2">Desc: <%= dadoServico.descricaoServico %></p>
+                                <p class="card-title"> R$ <%= dadoServico.precoServico %> </p>
+
+                                <% if(dadoServico.situacaoServicoId !== 5){ %>
+
+                                <p class="card-subtitle cepsToApi mb-2"><%= dadoServico.cliente.cep %></p>
+                                <p class="card-subtitle mb-2">NÚMERO: <%= dadoServico.cliente.numero %> </p>
+                                
+                                <% } %>
+
+                                <% if (dadoServico.situacaoServicoId == 1){ %>
+                                
+                                    <details class="d-flex justify-content-center">
+                                        <summary><strong>ORÇAMENTAR</strong></summary>
+                                        <form action="/servicos/<%= dadoServico.id %>/orcamentar?_method=PUT" method="POST">
+                                            <label for=""> <strong>VALOR:</strong>
+                                                <input type="number" step="0.01" name="precoServico" rows="3" class="col-md-12">
+                                            </label>
+                                            <button class="btn btn-info col-md-4" type="submit">Enviar</button>
+                                        </form>
+                                    </details>
+
+                                    <details>
+                                        <summary><strong>RECUSAR SOLICITAÇÃO</strong></summary>
+                                        <form action="/servicos/<%= dadoServico.id %>/cancelar?_method=PUT" method="POST">
+                                            <label for="" class="col-md-12"><strong>MOTIVO:</strong></label>
+                                            <textarea name="descricaoServico" class="col-md-8"></textarea>
+                                            <button class="btn btn-danger col-md-4" type="submit">Enviar</button>
+                                        </form>
+                                    </details>
+                                <% } %>
+                                <% if (dadoServico.situacaoServicoId == 3) { %>
+                                    <form action="/servicos/<%= dadoServico.id %>/finalizar?_method=PUT" method="POST">
+                                        <button class="btn btn-success" type="submit">Finalizado</button>
+                                    </form>
+                                <% } %> 
+                            </div>
+                        </div>
+
+                    <% }) %>
+
+                </div>
+
+        <% } else{ %>
+
+            <div class="not-service-contain d-flex justify-content-end align-items-center">
+                <h1 class="mr-5">Que pena, <br/> não há nada aqui!</h1>
             </div>
             
-        </section>
-        
-        <% }) %> 
+        <% } %> 
+
     </main>
 
+    <%- include('../partials/footer') %>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js/historicoServicoProf.js"></script> 
+    <script src="/js/dataServicoProf.js"></script>
 </body>
 
 </html>

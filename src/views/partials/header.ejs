@@ -1,50 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="stylesheet" href="/css/home/header.css">
+    <link rel="stylesheet" href="/css/partials/header.css">
 
 <header>
     <nav class="navbar navbar-expand-lg mr-5">
         <button class="menu-burguer navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="menu-burguer-icon navbar-toggler-icon" >
-            <form class="form-inline my-2 my-lg-0">
-              <a href="/login/?usuario=cliente">
-                  <span class="btn btn-outline-light" type="submit">Área do cliente</span>
-               </a>
-            </form>
-            <form class="form-inline my-2 my-lg-0">
-              <a href="/login/?usuario=profissional">
-                  <span class="btn btn-outline-light" type="submit">Área do prestador</span>
-               </a>
-            </form>
+          <span class="menu-burguer-icon navbar-toggler-icon">
           </span>
         </button>
     
-        <a class="btn-home" href="/"><span>SERVICE<strong>PLUS</strong></span></a>
+       <span> <a href="/" style="color: #EFEFEF" class="text-decoration-none mr-1">SERVICE<strong>PLUS</strong></a></span>
       
         <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-            <li class="nav-item">
+            <li>
               <a class="nav-link" style="color: #EFEFEF" href="/sobre">Sobre nós</a>
             </li>
+
             <% if (locals.usuario !== undefined) { %>
 
               <% if (locals.usuario.tipoUsuario === "profissional") { %>
 
                 <li class="nav-item">
-                  <a class="nav-link" style="color: #EFEFEF" href="/perfil/profissional/historico">Historico de Servicos</a>
+                  <a class="nav-link" style="color: #EFEFEF" href="/perfil/profissional/historico">Historico de Serviços</a>
                 </li>
 
               <% } else { %> 
+
                 <li class="nav-item">
                   <a class="nav-link" style="color: #EFEFEF" href="/perfil/cliente/profissionais">Encontre um prestador</a>
                 </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" style="color: #EFEFEF" href="/perfil/cliente/historico">Histórico de Serviços</a>
+                </li>
+
               <% } %>  
               
-              <% } else { %> 
+            <% } else { %> 
+
                 <li class="nav-item">
                   <a class="nav-link" style="color: #EFEFEF" href="/perfil/cliente/profissionais">Encontre um prestador</a>
                 </li>
-              <% } %>  
+
+            <% } %>  
 
           </ul>
     

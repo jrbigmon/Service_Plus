@@ -1,48 +1,76 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
-body {
+*{
+    box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
-    background-color: #EAF6F6;
-    font-size: 1rem;
+    padding: 0;
+    margin: 0;
 }
 
+body {
+    background-color:#EFEFEF;
+}
 
-.card-body h4 {
+.properties-professional {
+    width: 70%;
+}
+.text-nome {
     font-weight: 600;
     color: #035397;
 }
 
-.card-body h6 {
+.text {
     font-weight: 600;
     color: #E8630A;
 }
 
 .resumo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 0 7px #035397;
     border-radius: 2rem;
     background-color: white;
-}
-
-.imagem {
-    width: 40%;
-    max-width: 40%;
-
+    padding: 10px;
+    margin: 1rem 0 1rem 0;
 }
 
 .imagem img {
+    width: 25%;
+    max-width: 25%;
     border-radius: 10rem;
 }
 
-summary {
-    font-size: 1rem;
-    color: white;
-    background-color: #035397;
-    list-style-type: '';
-    margin: auto;
+.text-area {
+    padding: 10px;
+    box-shadow: 0 0 3px #035397;
+    width: 100%;
+    border-radius: 15px;
 }
 
-details[open] summary{
-    list-style-type: '';
+.description {
+    padding: 10px;
+    border: 1px solid #035397;
+    text-align: justify;
+    border-radius: 15px;
+}
+
+.card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form-budget {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 378px;
+    max-width: 378px;
+    text-align: center;
+}
+#dataServico {
+    width: 80%;
 }

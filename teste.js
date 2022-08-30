@@ -1,21 +1,20 @@
-// let dia = new Date().getDate().toString();
-// dia.length <= 1 ? dia = `0${dia}` : dia;
+const moment = require('moment')
+const { ClienteHasProfissional } = require('./src/database/models')
 
-const { localsName } = require('ejs')
+const getDate = async () => {
+  let servico = await ClienteHasProfissional.findByPk(3)
+  
+  let dataServico = servico.dataServico
+  
+  console.log(dataServico)
 
-// let mes = (new Date().getMonth() + 1).toString();
-// mes.length <= 1 ? mes = `0${mes}` : mes;
+  let dataAtual = moment().format('YYYYMMDD')
 
-// let ano = new Date().getFullYear().toString();
+  let dataServicoFormatada = moment(dataServico, 'YYYY-MM-DD').format('YYYYMMDD')
+  
+  console.log(dataServicoFormatada - dataAtual)
 
-// dataMinima = `${ano}-${mes}-${dia}`;
-// dataMaxima = `${ano}-${mes}-30`;
-
-// console.log(dataMinima, dataMaxima);
-// console.log(dia.length)
-
-const meuObjeto = false
-
-if (meuObjeto) {
-  console.log('Exsite essa propriedade')
+  return 0
 }
+getDate()
+

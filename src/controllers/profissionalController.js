@@ -22,7 +22,6 @@ const profissionalController = {
         }
       ]
     })
-
     return res.render('./profissional/historicoServicos', {
       title: 'histórico de serviços',
       dadosServicos
@@ -54,19 +53,29 @@ const profissionalController = {
       profissionalEdit = { nome, sobrenome, cpf, telefone, cep, avatar: avatar.filename, descricao }
 
       const oldAvatar = profissional.avatar
-      console.log(oldAvatar)
+      
+      if(oldAvatar !== 'defaultAvatar.jpeg'){
+        const localizacaoRelativa = path.resolve('public', 'img', 'avatarPerfilProfissional', oldAvatar)
+        
+        fs.unlink(localizacaoRelativa, (error) => {
+          error ? console.log(error) : console.log('success!')
+        })
+      }
 
-      const localizacaoRelativa = path.resolve('public', 'img', 'avatarPerfilProfissional', oldAvatar)
-
-      fs.unlink(localizacaoRelativa, (error) => {
-        error ? console.log(error) : console.log('Sucsess!')
-      })
     } else {
       profissionalEdit = { nome, sobrenome, cpf, telefone, cep, descricao }
     }
 
     await Profissional.update(profissionalEdit, { where: { id } })
 
+    const professionalAfterUpdate = await Profissional.findByPk(id, { raw: true })
+
+    delete professionalAfterUpdate.senha
+
+    req.session.usuario = Object.assign(professionalAfterUpdate, {
+      tipoUsuario: 'profissional'
+    })
+    
     return res.redirect('/')
   },
   

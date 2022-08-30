@@ -26,7 +26,7 @@ module.exports = {
         allowNull: false
       },
       data_servico: {
-        type: Sequelize.DataTypes.DATE,
+        type: Sequelize.DataTypes.DATEONLY,
         allowNull: false
       },
       preco_servico: {

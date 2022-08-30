@@ -5,20 +5,39 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+.main-home {
+    background-image: url('/img/imagemLogin.svg');
+    background-size: 17%;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    margin-right: 50px;
+    margin-bottom: 25px;
+}
+
+.register {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
 .meu-form {
+    font-size: 0.9rem;
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 0 7px;
-    border-radius: 35px;
+    box-shadow: 0 0 5px #035397;
+    border-radius: 30px;
     background-color: white;
 }
 
 .meu-form h4 {
+    font-size: 1.3rem;
     font-weight: 600;
     color: #E8630A;
 }
 
 .meu-form h5 {
+    font-size: 1.2rem;
     font-weight: 600;
     color: #E8630A;
 }

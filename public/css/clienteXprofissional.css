@@ -2,16 +2,15 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: #EAF6F6;
-
+    background-color: #EFEFEF;
 }
 
 .meu-form {
     background-color: white;
-    border-radius: 10px;
     box-shadow: 0 0 7px #035397;
     border-radius: 35px;
     background-color: white;
+    height: auto;
 }
 
 .meu-form h4 {
@@ -22,4 +21,23 @@ body {
 .meu-form h6 {
     font-weight: 600;
     color: #E8630A;
+}
+
+.main-historic {
+    background-image: url('/img/historicServices.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.not-service-contain {
+    height: 100vh;
+}
+
+input[type='file'] {
+    opacity:0;  
+}
+
+.avatar {
+    background-color: #035397;
+    width: fit-content;
 }

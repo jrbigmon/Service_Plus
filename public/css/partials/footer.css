@@ -5,8 +5,7 @@
 }
 
 .footer-container {
-    position: relative;
-    bottom: 0;
+    width: 100%;
     font-family: 'Montserrat', sans-serif;
     background-color: #112B3C;
 }

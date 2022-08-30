@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head') %>
+
+<link rel="stylesheet" href="/css/servico/historicoServicos.css">
+
+<body>
+    <%- include('../partials/header')%>
+
+    <main class="main-historic">
+        <details class="details-container">
+            <summary><strong>FILTRO</strong></summary>
+            
+            <form action="/perfil/cliente/historico" class="form-checkbox ml-2 form-filter-historic" method="GET">
+                <input value="1" class="btn-check" type="radio" id="orcamentar" name="status">
+                <label class="btn btn-outline-info" for="orcamentar"> A Oçamentar </label>
+                
+                <input value="2" class="btn-check" type="radio" id="executar" name="status">
+                <label class="btn btn-outline-info" for="executar"> Aguardando seu aceite </label>
+
+                <input value="3" class="btn-check" type="radio" id="aceite" name="status">
+                <label class="btn btn-outline-info" for="aceite"> A Executar </label>
+
+                <input value="4" class="btn-check" type="radio" id="finalizado" name="status">
+                <label class="btn btn-outline-info" for="finalizado"> Finalizados </label>
+
+                <input value="5" class="btn-check" type="radio" id="cancelado" name="status">
+                <label class="btn btn-outline-info" for="cancelado"> Cancelados </label>
+                
+                <label for="precoMin">Preço mínimo </label>
+                <input type="number" name="precoMin" min="0" step="1" id="precoMin" value="0">
+                
+                <label for="precoMax">Preço máximo </label>
+                <input type="number" name="precoMax" max="10000" step="1" id="precoMax" class="mb-3" value="250">
+                
+                <label for="data">A partir de: </label>
+                <input type="date" name="data" class="mb-3" id="data">
+
+                <input value="ASC" class="btn-check" type="radio" id="asc" name="ordem">
+                <label class="btn btn-outline-info" for="asc"> Ordem crescente </label>
+                
+                <input value="DESC" class="btn-check" type="radio" id="desc" name="ordem">
+                <label class="btn btn-outline-info" for="desc"> Ordem decrescente </label>
+
+                <button type="submit" class="btn btn-outline-success mt-3">Buscar</button>
+            </form>
+        </details>
+
+        <% if(dadosServicos != 'undefined' && dadosServicos.length > 0){ %>
+            
+            <div class="mb-3">
+            
+                <div class="d-flex flex-row flex-wrap">
+
+                    <% dadosServicos.forEach(servico => { %>
+    
+                        <div class="card m-3 " style="height: auto;">
+                        <img src="/img/avatarPerfilProfissional/<%= servico.profissional.avatar %>" class="card-img-top d-flex align-self-center" style="width: 15rem; height: 15rem">
+                        <h4 class="card-title d-flex align-self-center"><%= servico.profissional.nome %></h4>
+                        <h4 class="card-title d-flex align-self-center"><%= servico.profissional.sobrenome %></h4>
+                        <h4 class="card-title d-flex align-self-center"><%= servico.profissional.descricao %> </h4>
+                        <h4 class="card-subtitle date-br text-h4 d-flex align-self-center"><%= servico.dataServico %> </h4>
+                        <h6 class="card-background mt-2 d-flex align-items-center justify-content-center align-self-center"><strong><%= servico.situacaoServico.estado %></strong></h6>
+                        <% if (servico.situacaoServicoId == 2){ %>
+                            <h4 class="text-h4 d-flex align-self-center">R$ <%= servico.precoServico %> </h4>
+                            <form action="/servicos/<%= servico.id %>/aceitar?_method=PUT" method="POST" class="mt-3 mb-3 d-flex justify-content-center">
+                                <button class="btn btn-success col-10" type="submit">Aceitar</button>
+                            </form>
+                        <% } %>
+                        <% if (servico.situacaoServicoId !== 5 && servico.situacaoServicoId !== 4){ %>
+                            <details>
+                                <summary><strong>CANCELAR</strong></summary>
+                                <form action="/servicos/<%= servico.id %>/cancelar?_method=PUT" class="d-flex align-items-center flex-column" method="POST">
+                                    <div class="form-floating p-1 col-md-8">
+                                        <input type="text" name="descricaoServico" class="form-control" id="descricaoServico">
+                                        <label for="descricaoServico" class="form-label">Motivo do cancelamento</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-danger m-2 col-md-4">Cancelar</button>
+                                </form>
+                            </details>
+                        <% } if(servico.situacaoServicoId == 5){ %>
+                            <h5 class="text-center mt-2"><b>Descrição do cancelamento</b></h5>
+                            <p class="text-center"> <%= servico.descricaoServico %> </p>
+                            <p class="text-center">Valor: <%= servico.precoServico %> </p>
+                        <% } %> 
+                        </div>
+    
+                    <% }) %>
+    
+                </div>
+
+            </div>
+
+        <% } else { %>
+
+            <div class="not-service-contain d-flex justify-content-end align-items-center">
+               <h1 class="mr-5">Que pena, <br/> não há nada aqui!</h1>
+            </div>
+        
+        <% } %>
+
+    </main>
+    
+    <%- include('../partials/footer')%>
+
+    <script src="/js/dataServicoProf.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
+    <script src="/js/historicoServicoFilter.js"></script>
+</body>
+
+</html>

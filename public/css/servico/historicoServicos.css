@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+*{
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color:#EFEFEF;
+    overflow-x: hidden;
+}
+
+summary {
+    list-style-type: '+';
+    margin-left: 2rem;
+    width: 12rem;
+}
+
+details[open] summary{
+    list-style-type: '-';
+}
+
+details[open] .form-filter-historic {
+    position: relative;
+    top: 10px;
+    left: 10px;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+}
+
+.details-container:not([open]) { 
+    height:10px;
+}
+
+.title {
+    font-size: 2rem;
+    text-align: center;
+    margin: 2rem 0rem 2rem 0rem;
+}
+
+.card {
+    width: 20rem;
+    height: 30rem;
+    max-width: 20rem;
+    box-shadow: 0 0 3px #035397;
+    border-radius: 20px;
+
+}
+
+.card-title {
+    font-weight: 600;
+    color: #E8630A;
+}
+
+.card-subtitle {
+    font-weight: 600;
+    color: #035397;
+}
+
+.card-background {
+    background-color: #EFEFEF;
+    width: 100%;
+    border-radius: 1rem;
+}
+
+.img-client {
+    width: 7rem; 
+    height: 7rem; 
+    border-radius: 50%;
+}
+
+.main-historic {
+    display: flex;
+    background-image: url('/img/historicServices.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.not-service-contain {
+    height: 100vh;
+    width: 100%;
+}
