@@ -3,7 +3,6 @@
 <%- include('../partials/head') %>
 
 <link rel="stylesheet" href="/css/servico/historicoServicos.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
 
 <body>
     <%- include('../partials/header')%>
@@ -46,9 +45,9 @@
 
         <% if(dadosServicos != 'undefined' && dadosServicos.length > 0){ %>
             
-            <div class="glider-contain">
+            <div class="mb-3">
             
-                <div class="glider">
+                <div class="d-flex flex-row flex-wrap">
 
                     <% dadosServicos.forEach(servico => { %>
     
@@ -87,11 +86,6 @@
     
                 </div>
 
-                <button aria-label="Previous" class="col-md-120 glider-prev">«</button>
-
-                <button aria-label="Next" class="glider-next">»</button>
-
-                <div role="tablist" class="dots"></div>
             </div>
 
         <% } else { %>
@@ -108,7 +102,6 @@
 
     <script src="/js/dataServicoProf.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
-    <script src="/js/gliderWhitoutDraggable.js"></script> 
     <script src="/js/historicoServicoFilter.js"></script>
 </body>
 
