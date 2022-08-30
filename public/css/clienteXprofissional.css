@@ -6,11 +6,6 @@ body {
 }
 
 .meu-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     background-color: white;
     box-shadow: 0 0 7px #035397;
     border-radius: 35px;
@@ -35,19 +30,7 @@ body {
 .not-service-contain {
     height: 100vh;
 }
-.avatar {
-    color: #E8630A;
-    font-weight: 600;
-    background-color: #82a0bb;
-    border-radius: 100px;
-    width: 20%;
-    height: 15%;
-}
 
-.avatar label {
-    text-align: center;
-}
 input[type='file'] {
-    opacity:0
-       
+    opacity:0    
   }
