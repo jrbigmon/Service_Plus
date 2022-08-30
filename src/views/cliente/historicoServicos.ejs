@@ -3,7 +3,6 @@
 <%- include('../partials/head') %>
 
 <link rel="stylesheet" href="/css/servico/historicoServicos.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.css">
 
 <body>
     <%- include('../partials/header')%>
@@ -29,10 +28,10 @@
                 <label class="btn btn-outline-info" for="cancelado"> Cancelados </label>
                 
                 <label for="precoMin">Preço mínimo </label>
-                <input type="number" name="precoMin" min="0" step="1" id="precoMin">
+                <input type="number" name="precoMin" min="0" step="1" id="precoMin" value="0">
                 
                 <label for="precoMax">Preço máximo </label>
-                <input type="number" name="precoMax" max="10000" step="1" id="precoMax" class="mb-3">
+                <input type="number" name="precoMax" max="10000" step="1" id="precoMax" class="mb-3" value="250">
 
                 <input value="ASC" class="btn-check" type="radio" id="asc" name="ordem">
                 <label class="btn btn-outline-info" for="asc"> Ordem crescente </label>
@@ -46,9 +45,9 @@
 
         <% if(dadosServicos != 'undefined' && dadosServicos.length > 0){ %>
             
-            <div class="glider-contain">
+            <div class="mb-3">
             
-                <div class="glider">
+                <div class="d-flex flex-row flex-wrap">
 
                     <% dadosServicos.forEach(servico => { %>
     
@@ -87,11 +86,6 @@
     
                 </div>
 
-                <button aria-label="Previous" class="col-md-120 glider-prev">«</button>
-
-                <button aria-label="Next" class="glider-next">»</button>
-
-                <div role="tablist" class="dots"></div>
             </div>
 
         <% } else { %>
@@ -108,7 +102,7 @@
 
     <script src="/js/dataServicoProf.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
-    <script src="/js/gliderWhitoutDraggable.js"></script> 
+    <script src="/js/historicoServicoFilter.js"></script>
 </body>
 
 </html>

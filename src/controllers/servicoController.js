@@ -44,7 +44,6 @@ const servicoController = {
     const servicoSolicitado = await ClienteHasProfissional.findByPk(id)
     if(!servicoSolicitado || servicoSolicitado.situacaoServicoId !== 1) return res.redirect('/')
     const servicoOcamentado = {
-      ...servicoSolicitado,
       precoServico: parseFloat(precoServico),
       situacaoServicoId: 2
     }
@@ -57,7 +56,6 @@ const servicoController = {
     const servicoOrcamentado = await ClienteHasProfissional.findByPk(id)
     if(!servicoOrcamentado || servicoOrcamentado.situacaoServicoId !== 2) return res.redirect('/')
     const servicoUpdated = {
-      ...servicoOrcamentado,
       situacaoServicoId: 3
     }
     await ClienteHasProfissional.update(servicoUpdated, { where: { id } })
@@ -69,7 +67,6 @@ const servicoController = {
     const servicoRealizado = await ClienteHasProfissional.findByPk(id)
     if (!servicoRealizado || servicoRealizado.situacaoServicoId !== 3) return res.redirect('/')
     const servicoUpdated = {
-      ...servicoRealizado,
       situacaoServicoId: 4
     }
     await ClienteHasProfissional.update(servicoUpdated, { where: { id } })
@@ -82,7 +79,6 @@ const servicoController = {
     const servicoOrcamentado = await ClienteHasProfissional.findByPk(id)
     if(!servicoOrcamentado) return res.redirect('/')
     const servicoUpdated = {
-      ...servicoOrcamentado,
       descricaoServico,
       situacaoServicoId: 5
     }
