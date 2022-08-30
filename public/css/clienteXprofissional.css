@@ -19,6 +19,7 @@ body {
     box-shadow: 0 0 7px #035397;
     border-radius: 35px;
     background-color: white;
+    height: 110vh;
 }
 
 .meu-form h4 {
@@ -31,11 +32,35 @@ body {
     color: #E8630A;
 }
 
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#f0f1f1, #66849a);
+    color: #E8630A;
+    font-weight: 600;
+    text-align: center;
+    width: 20%;
+    height: 15%;
+    border-radius: 100px;
+}
+
+.avatar label {
+    margin-left: 15px;
+    margin-top: 30px;
+}
+
+.buttons {
+    margin-left: 250px;
+    margin-bottom: 5px;
+}
+
 .main-historic {
     background-image: url('/img/historicServices.svg');
     background-repeat: no-repeat;
     background-position: center;
 }
+
 .not-service-contain {
     height: 100vh;
 }
