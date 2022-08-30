@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
 body {
-    background-color: #EEEEEE;
+    background-color: #EEEE;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .main-home {
-    font-family: 'Montserrat', sans-serif;
+    background-image: url('/img/imagemLogin.svg');
+    background-size: 17%;
+    background-repeat: no-repeat;
+    background-position: 75%;
 }
 
 .login {
@@ -13,9 +17,8 @@ body {
     width: 100%;
     height: 80vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    margin-left: 30rem;
 }
 
 
@@ -26,8 +29,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 7px;
-    border-radius: 35px;
+    box-shadow: 0 0 5px #035397;
+    border-radius: 30px;
     background-color: white;
 }
 
@@ -37,10 +40,7 @@ body {
 }
 
 .formulario input {
-    border: none;
-    border-bottom: solid 0.1px;
     padding-left: 1rem;
-    padding-right: 1rem;
 }
 
 .formulario a {

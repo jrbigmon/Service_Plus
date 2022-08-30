@@ -5,53 +5,54 @@
 
 <body>
     <%- include('../partials/header')%>
-    <main class="m-5 d-flex justify-content-center">
+    <main class="m-5 d-flex justify-content-center align-items-center">
 
-        <form class="row g-3 meu-form p-2 col-lg-10 col-md-10 col-sm-12 col-12 justify-content-center"
+        <form class="meu-form p-2 col-md-5"
             action="/perfil/profissional/<%= profissional.id %>/editar?_method=PUT" method="POST" enctype="multipart/form-data">
             <h4 class="text-center">PERFIL DO PRESTADOR</h4>
             <h6 class="text-center">Informações sobre: <%= profissional.email %></h6>
 
-            <div class="form-floating p-1 col-md-8">
+            <div class="avatar form-floating p-2">
                 <input type="file" name="avatar" accept=".jpg, .png">
+                <label for="avatar"></label>
             </div>
 
-            <div class="form-floating p-1 col-md-8">
+            <div class="form-floating p-2">
                 <input type="text" name="nome" class="form-control" value="<%= profissional.nome %>">
                 <label for="nome" class="form-label">Nome</label>
             </div>
 
-            <div class="form-floating p-1 col-md-8">
+            <div class="form-floating p-2">
                 <input type="text" name="sobrenome" class="form-control" value="<%= profissional.sobrenome %>">
                 <label for="nome" class="form-label">Sobrenome</label>
             </div>
 
-            <div class="form-floating p-1 col-md-8">
+            <div class="form-floating p-2">
                 <input type="number" name="cpf" class="form-control" value="<%= profissional.cpf %>">
                 <label for="cpf" class="form-label">CPF:</label>
             </div>
 
-            <div class="form-floating p-1 col-md-8">
+            <div class="form-floating p-2">
                 <input type="text" class="form-control" name="telefone" value="<%= profissional.telefone %>">
                 <label for="CEP" class="form-label">Telefone:</label>
             </div>
 
-            <div class="form-floating p-1 col-md-8">
+            <div class="form-floating p-2">
                     <input type="text" class="form-control" name="cep" value="<%= profissional.cep %>">
                     <label for="CEP" class="form-label">CEP:</label>
             </div>
 
-                <div class="form-floating p-1 col-md-8">
-                    <textarea class="form-control" id="descricao" name="descricao" rows="500"><%= profissional.descricao %></textarea>
-                    <label for="descricao" class="form-label">Um pouco sobre você para que as pessoas possam ver:</label>
+                <div class="form-floating p-2">
+                    <textarea class="form-control" id="descricao" name="descricao" rows="10" cols="40" maxlength="500"><%= profissional.descricao %></textarea>
+                    <label for="descricao" class="form-label">Sobre você:</label>
                 </div>
 
-                <div class="col-md-12 mt-2 text-center mb-2">
+                <div class="form-floating">
                     
-                    <button type="submit" class="btn btn-info col-sm-12 col-md-3 mb-2">Finalizar</button>
+                    <button type="submit" class="btn btn-info">Finalizar</button>
 
                 <form action="/perfil/profissional/<%= profissional.id %>/deletar?_method=DELETE" method="POST">
-                    <button type="submit" class="text-center btn btn-danger col-sm-12 col-md-3 mb-2"> Deletar conta</button>
+                    <button type="submit" class="btn btn-danger"> Deletar conta</button>
                 </form>
                 </div>
         </form>
