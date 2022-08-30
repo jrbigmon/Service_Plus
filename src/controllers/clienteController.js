@@ -97,9 +97,9 @@ const clienteController = {
         clienteId: id, 
         situacaoServicoId: parseInt(situacaoServico),
         precoServico: { [Op.between] : [precoMin, precoMax] },
-        // dataServico: { [Op.gt] : data }
+        dataServico: { [Op.gt] : data }
       }, 
-      order: [['precoServico', order]],
+      order: [['dataServico', order]],
       include: [
         {
           association: 'profissional',
