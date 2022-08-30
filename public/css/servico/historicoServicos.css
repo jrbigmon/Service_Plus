@@ -10,6 +10,7 @@ body {
     margin: 0;
     background-color:#EFEFEF;
     overflow-x: hidden;
+    min-height: 100%
 }
 
 summary {
@@ -42,15 +43,20 @@ details[open] .form-filter-historic {
     margin: 2rem 0rem 2rem 0rem;
 }
 
-.card {
-    width: 20rem;
-    height: 30rem;
-    max-width: 20rem;
+.cards-prof {
+    background-color: white;
+    width: 15rem;
+    height: auto;
+    margin: 1rem 0.8rem 1rem 0.8rem;
     box-shadow: 0 0 3px #035397;
-    border-radius: 20px;
-
+    border-radius: 40px;
+    padding: 0.5rem;
 }
 
+.card-img-top {
+    width: 8rem;
+    height: 8rem;
+}
 .card-title {
     font-weight: 600;
     color: #E8630A;
@@ -75,9 +81,7 @@ details[open] .form-filter-historic {
 
 .main-historic {
     display: flex;
-    background-image: url('/img/historicServices.svg');
-    background-repeat: no-repeat;
-    background-position: center;
+    height: 100vh;
 }
 
 .not-service-contain {

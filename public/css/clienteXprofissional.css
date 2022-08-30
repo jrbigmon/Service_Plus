@@ -5,12 +5,20 @@ body {
     background-color: #EFEFEF;
 }
 
+.main-home {
+    background-image: url('/img/imagemLogin.svg');
+    background-size: 17%;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    margin-right: 50px;
+    margin-bottom: 25px;
+}
+
 .meu-form {
     background-color: white;
     box-shadow: 0 0 7px #035397;
     border-radius: 35px;
     background-color: white;
-    height: auto;
 }
 
 .meu-form h4 {
@@ -28,16 +36,10 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
-
 .not-service-contain {
     height: 100vh;
 }
 
 input[type='file'] {
-    opacity:0;  
-}
-
-.avatar {
-    background-color: #035397;
-    width: fit-content;
-}
+    opacity:0    
+  }

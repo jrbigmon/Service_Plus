@@ -48,21 +48,21 @@
 
         <% if(dadosServicos != 'undefined' && dadosServicos.length > 0){ %>
             
-            <div class="mb-3">
+            <div class="cards mb-3">
             
                 <div class="d-flex flex-row flex-wrap">
 
                     <% dadosServicos.forEach(servico => { %>
     
-                        <div class="card m-3 " style="height: auto;">
-                        <img src="/img/avatarPerfilProfissional/<%= servico.profissional.avatar %>" class="card-img-top d-flex align-self-center" style="width: 15rem; height: 15rem">
-                        <h4 class="card-title d-flex align-self-center"><%= servico.profissional.nome %></h4>
-                        <h4 class="card-title d-flex align-self-center"><%= servico.profissional.sobrenome %></h4>
-                        <h4 class="card-title d-flex align-self-center"><%= servico.profissional.descricao %> </h4>
-                        <h4 class="card-subtitle date-br text-h4 d-flex align-self-center"><%= servico.dataServico %> </h4>
+                        <div class="cards-prof d-flex flex-column align-items-center" style="height: auto;">
+                        <img src="/img/avatarPerfilProfissional/<%= servico.profissional.avatar %>" class="card-img-top">
+                        <h5 class="card-title text-center"><%= servico.profissional.nome %></h5>
+                        <h5 class="card-title text-center"><%= servico.profissional.sobrenome %></h5>
+                        <h5 class="card-title text-center"><%= servico.profissional.descricao %> </h5>
+                        <h6 class="card-subtitle date-br text-center"><%= servico.dataServico %> </h6>
                         <h6 class="card-background mt-2 d-flex align-items-center justify-content-center align-self-center"><strong><%= servico.situacaoServico.estado %></strong></h6>
                         <% if (servico.situacaoServicoId == 2){ %>
-                            <h4 class="text-h4 d-flex align-self-center">R$ <%= servico.precoServico %> </h4>
+                            <h6 class="text-h4 d-flex align-self-center">R$ <%= servico.precoServico %> </h6>
                             <form action="/servicos/<%= servico.id %>/aceitar?_method=PUT" method="POST" class="mt-3 mb-3 d-flex justify-content-center">
                                 <button class="btn btn-success col-10" type="submit">Aceitar</button>
                             </form>
@@ -79,9 +79,9 @@
                                 </form>
                             </details>
                         <% } if(servico.situacaoServicoId == 5){ %>
-                            <h5 class="text-center mt-2"><b>Descrição do cancelamento</b></h5>
-                            <p class="text-center"> <%= servico.descricaoServico %> </p>
-                            <p class="text-center">Valor: <%= servico.precoServico %> </p>
+                            <h6 class="text-center mt-2"><b>Descrição do cancelamento</b></h6>
+                            <h6 class="text-center"> <%= servico.descricaoServico %> </>
+                            <h6 class="text-center">Valor: <%= servico.precoServico %> </h6>
                         <% } %> 
                         </div>
     
@@ -94,7 +94,7 @@
         <% } else { %>
 
             <div class="not-service-contain d-flex justify-content-end align-items-center">
-               <h1 class="mr-5">Que pena, <br/> não há nada aqui!</h1>
+               <h3 class="mr-5">Que pena, <br/> não há nada aqui!</h3>
             </div>
         
         <% } %>
@@ -104,7 +104,6 @@
     <%- include('../partials/footer')%>
 
     <script src="/js/dataServicoProf.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/glider-js@1/glider.min.js"></script>
     <script src="/js/historicoServicoFilter.js"></script>
 </body>
 

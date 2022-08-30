@@ -8,6 +8,9 @@
     width: 100%;
     font-family: 'Montserrat', sans-serif;
     background-color: #112B3C;
+    position: relative;
+    bottom: 0;
+    padding: 0;
 }
 
 .text-center a {
