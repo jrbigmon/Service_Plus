@@ -90,12 +90,14 @@ const clienteController = {
     const precoMin = req.query.precoMin || '0'
     const precoMax = req.query.precoMax || '1000'
     const order = req.query.ordem || 'ASC'
-
+    const data = req.query.data || ''
+    
     const dadosServicos = await ClienteHasProfissional.findAll({
       where: {
         clienteId: id, 
         situacaoServicoId: parseInt(situacaoServico),
-        precoServico: { [Op.between] : [precoMin, precoMax] }
+        precoServico: { [Op.between] : [precoMin, precoMax] },
+        dataServico: { [Op.gt] : data }
       }, 
       order: [['precoServico', order]],
       include: [
