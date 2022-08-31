@@ -30,7 +30,7 @@ const clienteController = {
           profissionalComLocalidade.push(profissional)
         }
       }
-      // return res.json(profissionalComLocalidade)
+      
       return res.render('./cliente/listaDeProf', {
         title: 'Lista de Profissionais',
         profissionais: profissionalComLocalidade,
