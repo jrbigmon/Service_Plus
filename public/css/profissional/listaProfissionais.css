@@ -36,7 +36,6 @@ body {
 }
 .sidebar-filter {    
     width: 20%;
-    height: auto;
     background-color: white;
     opacity: 60%;
     box-shadow: 0 0 5px #035397;

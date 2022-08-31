@@ -1,66 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('../partials/head') %>
-<link rel="stylesheet" href="/css/clienteXprofissional.css">
+    <link rel="stylesheet" href="/css/clienteXprofissional.css">
 
-<body>
-    <%- include('../partials/header')%>
+    <body>
+        <%- include('../partials/header')%>
 
-    <main class="main-home m-5 d-flex justify-content-center">
+            <main class="main-home m-5 d-flex justify-content-center">
 
-            <form class="row g-3 meu-form col-lg-5 col-sm-12 col-12 justify-content-center align-items center" 
-            action="/perfil/cliente/<%= cliente.id %>/editar?_method=PUT" method="POST" enctype="multipart/form-data">
-                <h4 class="text-center">PERFIL DO CLIENTE</h4>
-                <h6 class="text-center">Informações sobre: <%= cliente.email %> </h6>
-                   
-                <div class="avatar form-floating p-2">
-                    <input type="file" name="avatar" accept=".jpg, .png">
-                    <label for="avatar" class="text-center">Foto</label>
-                </div>
+                <form class="row g-3 meu-form col-lg-5 col-sm-12 col-12 justify-content-center align-items-center"
+                    action="/perfil/cliente/<%= cliente.id %>/editar?_method=PUT" method="POST"
+                    enctype="multipart/form-data">
+                    <h4 class="text-center">PERFIL DO CLIENTE</h4>
+                    <h6 class="text-center">Informações sobre: <%= cliente.email %>
+                    </h6>
 
-                <div class="form-floating p-1">
-                    <input type="text" name="nome" class="form-control" value="<%= cliente.nome  %>">
-                    <label for="nome" class="form-label">Nome</label>
-                </div>
+                    <div class="avatar form-floating p-2">
+                        <input type="file" name="avatar" accept=".jpg, .png">
+                        <label for="avatar" class="text-center">FOTO</label>
+                    </div>
 
-                <div class="form-floating p-1">
-                    <input type="text" name="sobrenome" class="form-control" value="<%= cliente.sobrenome  %>">
-                    <label for="nome" class="form-label">Sobrenome</label>
-                </div>
+                    <div class="form-floating p-1">
+                        <input type="text" name="nome" class="form-control" value="<%= cliente.nome  %>">
+                        <label for="nome" class="form-label">Nome</label>
+                    </div>
 
-                <div class="form-floating p-1">
-                    <input type="number" name="cpf" class="form-control" value="<%= cliente.cpf %>">
-                    <label for="cpf" class="form-label">CPF:</label>
-                </div>
+                    <div class="form-floating p-1">
+                        <input type="text" name="sobrenome" class="form-control" value="<%= cliente.sobrenome  %>">
+                        <label for="nome" class="form-label">Sobrenome</label>
+                    </div>
 
-                <div class="form-floating p-1">
-                    <input type="text" class="form-control" name="cep" id="cep" value="<%= cliente.cep %>">
-                    <label for="CEP" class="form-label">CEP:</label>
-                </div>
+                    <div class="form-floating p-1">
+                        <input type="number" name="cpf" class="form-control" value="<%= cliente.cpf %>">
+                        <label for="cpf" class="form-label">CPF:</label>
+                    </div>
 
-                <div class="form-floating p-1">
-                    <input type="text" class="form-control" id="endereco" value="" disabled>
-                    <label for="endereco" class="form-label">Endereço:</label>
-                </div>
+                    <div class="form-floating p-1">
+                        <input type="text" class="form-control" name="cep" id="cep" value="<%= cliente.cep %>">
+                        <label for="CEP" class="form-label">CEP:</label>
+                    </div>
 
-                <div class="form-floating p-1">
-                    <input type="text" class="form-control" name="numero" id="numero" value="<%= cliente.numero %> ">
-                    <label for="numero" class="form-label">Número:</label>
-                </div>
-                <div class="col-md-12 mt-2 text-center mb-2">
-                    
-                <button type="submit" class="btn btn-info col-sm-8 col-md-4 mb-2">Finalizar</button>
+                    <div class="form-floating p-1">
+                        <input type="text" class="form-control" id="endereco" value="" disabled>
+                        <label for="endereco" class="form-label">Endereço:</label>
+                    </div>
 
-                <form action="/perfil/cliente/<%= cliente.id %>/deletar?_method=DELETE" method="POST">
-                    <button type="submit" class="text-center btn btn-danger col-sm-8 col-md-4 mb-2"> Deletar conta</button>
+                    <div class="form-floating p-1">
+                        <input type="text" class="form-control" name="numero" id="numero"
+                            value="<%= cliente.numero %> ">
+                        <label for="numero" class="form-label">Número:</label>
+                    </div>
+
+                    <div class="form-floating buttons">
+                        <button type="submit" class="btn btn-info col col-md-3">Finalizar</button>
+
+                        <form action="/perfil/cliente/<%= cliente.id %>/deletar?_method=DELETE" method="POST">
+                            <button type="submit" class="text-center btn btn-danger"> Deletar conta</button>
+                        </form>
+                    </div>
                 </form>
-                </div>
-            </form>
-
-    </main>
-    <%- include('../partials/footer')%>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="/js/editPerfilCliente.js"></script>
-</body>
+                </main>
+                <%- include('../partials/footer')%>
+                    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+                    <script src="/js/editPerfilCliente.js"></script>
+    </body>
 
 </html>

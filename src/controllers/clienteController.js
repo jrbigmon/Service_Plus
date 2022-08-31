@@ -2,23 +2,46 @@ const { Cliente, Profissional, ClienteHasProfissional } = require('../database/m
 const path = require('path')
 const fs = require('fs')
 const { Op } = require('sequelize')
+const cepRequest = require('../requests/cepRequest')
 
 const clienteController = {
   showProfissionais: async (req, res) => {
-    let { area, order } = req.query
+    let { area, order, localidade: cepCliente } = req.query
     
     order = order || 'ASC'
     area = area || ['1', '2', '3'] 
     
-    const profissionais = await Profissional.findAll({
+    const profissionaisSemLocalidade = await Profissional.findAll({
       where: { areaId: area },
+      attributes: ['avatar', 'nome', 'sobrenome', 'cep', 'areaId'],
       order: [['nome', order]],
-      include: 'area'
+      include: 'area',
     })
+    
+    if(cepCliente){
+      const localidadeCliente = await cepRequest.getLocalidade(cepCliente)
 
+      let profissionalComLocalidade = []
+
+      for(let profissional of profissionaisSemLocalidade){
+        const localidadeProfissional = await cepRequest.getLocalidade(profissional.cep)
+        
+        if(localidadeProfissional == localidadeCliente){
+          profissionalComLocalidade.push(profissional)
+        }
+      }
+      // return res.json(profissionalComLocalidade)
+      return res.render('./cliente/listaDeProf', {
+        title: 'Lista de Profissionais',
+        profissionais: profissionalComLocalidade,
+        area,
+        localidade: localidadeCliente
+      })
+    }
+    
     return res.render('./cliente/listaDeProf', {
       title: 'Lista de Profissionais',
-      profissionais,
+      profissionais: profissionaisSemLocalidade,
       area
     })
   },
