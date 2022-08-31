@@ -31,25 +31,36 @@
                             <div class="d-flex flex-column">
                                 <strong class="text-center">Categoria:</strong>
                                 <div class="d-flex align-items-center">
-                                    <input name="area" value="1" type="checkbox" class="mb-1 mr-2" id="eletricista"
+                                    <input name="area" value="1" type="checkbox" class="mb-2 mr-2" id="eletricista"
                                         autocomplete="off">
                                     <label for="eletricista">Eletricista</label>
                                 </div>
 
                                 <div class="d-flex align-items-center">
-                                    <input name="area" value="2" type="checkbox" class="mb-1 mr-2" id="encanador"
+                                    <input name="area" value="2" type="checkbox" class="mb-2 mr-2" id="encanador"
                                         autocomplete="off">
                                     <label for="encanador">Encanador</label>
                                 </div>
 
                                 <div class="d-flex align-items-center">
-                                    <input name="area" value="3" type="checkbox" class="mb-1 mr-2" id="pintor"
+                                    <input name="area" value="3" type="checkbox" class="mb-2 mr-2" id="pintor"
                                         autocomplete="off">
                                     <label for="pintor">Pintor</label>
-
                                 </div>
                             </div>
-
+                            <% if (locals.usuario !== undefined) { %>
+                                <div>
+                                    <p class="text-center"><strong>Localidade:</strong></p>
+                                    <div class="d-flex align-items-center">
+                                        <input name="localidade" value="<%=locals.usuario.cep%>" type="checkbox" class="mb-2 mr-2" id="localidade"
+                                            autocomplete="off">
+                                        <label for="localidade">Próximo de mim</label>
+                                    </div>
+                                    <% if(typeof localidade !== "undefined") { %>
+                                        <p class="mf-2"> <%= localidade %> </p>
+                                    <% } %> 
+                                </div>
+                            <% } %>
                         </div>
 
                         <div class="d-flex justify-content-center mt-3">
@@ -75,7 +86,7 @@
                                     <%= profissional.sobrenome %>
                                 </h5>
                                 <h6 class="text">
-                                    <%= `${profissional.area.nome}` %>
+                                    <%= profissional.area.nome %>
                                 </h6>
                                 
                                 <a href="/servicos/<%= profissional.id %>/solicitar"

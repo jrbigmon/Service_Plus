@@ -13,7 +13,17 @@ const cepRequest = {
       err.message = new Error('CEP inexistente!')
       console.log(err.message)
     }
+  },
+  getLocalidade: async (cep) => {
+    try {
+      const response = await viaCepApi.get(`${cep}/json`)
+      return response.data.localidade
+    } catch(err) {
+      err.message = new Error('CEP inexistente!')
+      console.log(err.message)
+    }
   }
+
 }
 
 module.exports = cepRequest
