@@ -73,9 +73,9 @@
                                 <form action="/servicos/<%= servico.id %>/cancelar?_method=PUT" class="d-flex align-items-center flex-column" method="POST">
                                     <div class="form-floating p-1 col-md-8">
                                         <input type="text" name="descricaoServico" class="form-control" id="descricaoServico">
-                                        <label for="descricaoServico" class="form-label">Motivo do cancelamento</label>
+                                        <label for="descricaoServico" class="form-label">Motivo</label>
                                     </div>
-                                    <button type="submit" class="btn btn-danger m-2 col-md-4">Cancelar</button>
+                                    <button type="submit" class="btn btn-danger m-2">Cancelar</button>
                                 </form>
                             </details>
                         <% } if(servico.situacaoServicoId == 5){ %>

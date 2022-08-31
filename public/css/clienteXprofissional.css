@@ -59,6 +59,7 @@ body {
     background-image: url('/img/historicServices.svg');
     background-repeat: no-repeat;
     background-position: center;
+    background-size: contain;
 }
 
 .not-service-contain {

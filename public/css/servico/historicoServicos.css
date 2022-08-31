@@ -22,11 +22,12 @@ summary {
 details[open] summary{
     list-style-type: '-';
 }
+.details-container[open] {
+    height: max-content;
+    margin-bottom: 1px;
+}
 
-details[open] .form-filter-historic {
-    position: relative;
-    top: 10px;
-    left: 10px;
+.details-container[open] .form-filter-historic {
     z-index: 50;
     display: flex;
     flex-direction: column;
@@ -82,6 +83,8 @@ details[open] .form-filter-historic {
 .main-historic {
     display: flex;
     height: 100vh;
+    height: auto;
+    margin-bottom: 1px;
 }
 
 .not-service-contain {
