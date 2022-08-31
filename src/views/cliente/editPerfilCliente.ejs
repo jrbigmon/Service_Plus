@@ -8,7 +8,7 @@
 
             <main class="main-home m-5 d-flex justify-content-center">
 
-                <form class="row g-3 meu-form col-lg-5 col-sm-12 col-12 justify-content-center align-items center"
+                <form class="row g-3 meu-form col-lg-5 col-sm-12 col-12 justify-content-center align-items-center"
                     action="/perfil/cliente/<%= cliente.id %>/editar?_method=PUT" method="POST"
                     enctype="multipart/form-data">
                     <h4 class="text-center">PERFIL DO CLIENTE</h4>
@@ -55,7 +55,7 @@
                         <button type="submit" class="btn btn-info col col-md-3">Finalizar</button>
 
                         <form action="/perfil/cliente/<%= cliente.id %>/deletar?_method=DELETE" method="POST">
-                            <button type="submit" class="text-center btn btn-danger col col-md-3"> Deletar conta</button>
+                            <button type="submit" class="text-center btn btn-danger"> Deletar conta</button>
                         </form>
                     </div>
                 </form>

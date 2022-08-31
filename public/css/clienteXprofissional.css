@@ -19,7 +19,8 @@ body {
     box-shadow: 0 0 7px #035397;
     border-radius: 35px;
     background-color: white;
-    height: 110vh;
+    height: auto;
+    height: max-content;
 }
 
 .meu-form h4 {
