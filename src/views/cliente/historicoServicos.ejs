@@ -56,34 +56,51 @@
                     <% dadosServicos.forEach(servico => { %>
     
                         <div class="cards-prof d-flex flex-column align-items-center" style="height: auto;">
-                        <img src="/img/avatarPerfilProfissional/<%= servico.profissional.avatar %>" class="card-img-top">
-                        <h5 class="card-title text-center"><%= servico.profissional.nome %></h5>
-                        <h5 class="card-title text-center"><%= servico.profissional.sobrenome %></h5>
-                        <h5 class="card-title text-center"><%= servico.profissional.descricao %> </h5>
-                        <h6 class="card-subtitle date-br text-center"><%= servico.dataServico %> </h6>
-                        <h6 class="card-background mt-2 d-flex align-items-center justify-content-center align-self-center"><strong><%= servico.situacaoServico.estado %></strong></h6>
-                        <% if (servico.situacaoServicoId == 2){ %>
-                            <h6 class="text-h4 d-flex align-self-center">R$ <%= servico.precoServico %> </h6>
-                            <form action="/servicos/<%= servico.id %>/aceitar?_method=PUT" method="POST" class="mt-3 mb-3 d-flex justify-content-center">
-                                <button class="btn btn-success col-10" type="submit">Aceitar</button>
-                            </form>
-                        <% } %>
-                        <% if (servico.situacaoServicoId !== 5 && servico.situacaoServicoId !== 4){ %>
-                            <details>
-                                <summary><strong>CANCELAR</strong></summary>
-                                <form action="/servicos/<%= servico.id %>/cancelar?_method=PUT" class="d-flex align-items-center flex-column" method="POST">
-                                    <div class="form-floating p-1 col-md-8">
-                                        <input type="text" name="descricaoServico" class="form-control" id="descricaoServico">
-                                        <label for="descricaoServico" class="form-label">Motivo</label>
-                                    </div>
-                                    <button type="submit" class="btn btn-danger m-2">Cancelar</button>
+
+                            <img src="/img/avatarPerfilProfissional/<%= servico.profissional.avatar %>" class="card-img-top">
+
+                            <h5 class="card-title text-center"><%= servico.profissional.nome %> <%= servico.profissional.sobrenome %></h5>
+                            
+                            <h5 class="card-title text-center"><%= servico.profissional.descricao %> </h5>
+                            
+                            <h6 class="card-subtitle date-br text-center"><%= servico.dataServico %> </h6>
+                            
+                            <h6 class="card-background mt-2 text-center"><strong><%= servico.situacaoServico.estado %></strong></h6>
+                            
+                            <% if (servico.situacaoServicoId == 2){ %>
+
+                                <h6 class="text-h4 text-center mt-2">R$ <%= servico.precoServico %> </h6>
+
+                                <form action="/servicos/<%= servico.id %>/aceitar?_method=PUT" method="POST" class="mt-3 mb-3 d-flex justify-content-center">
+                                    <button class="btn btn-success" type="submit">Aceitar</button>
                                 </form>
-                            </details>
-                        <% } if(servico.situacaoServicoId == 5){ %>
-                            <h6 class="text-center mt-2"><b>Descrição do cancelamento</b></h6>
-                            <h6 class="text-center"> <%= servico.descricaoServico %> </h6>
-                            <h6 class="text-center">Valor: <%= servico.precoServico %> </h6>
-                        <% } %> 
+                            
+                            <% } %>
+                            
+                            <% if (servico.situacaoServicoId !== 5 && servico.situacaoServicoId !== 4){ %>
+                                
+                                <details>
+                                    <summary><strong>CANCELAR</strong></summary>
+
+                                    <form action="/servicos/<%= servico.id %>/cancelar?_method=PUT" class="d-flex align-items-center flex-column" method="POST">
+                                        <div class="form-floating p-1 col-md-8">
+                                            <input type="text" name="descricaoServico" class="form-control" id="descricaoServico">
+                                            <label for="descricaoServico" class="form-label">Motivo</label>
+                                        </div>
+                                        
+                                        <button type="submit" class="btn btn-danger m-2">Cancelar</button>
+                                    </form>
+                                </details>
+                            
+                            <% } %>
+
+                            <% if(servico.situacaoServicoId == 5){ %>
+                                <h6 class="text-center mt-2"><b>Descrição do cancelamento</b></h6>
+                                
+                                <h6 class="text-center"> <%= servico.descricaoServico %> </h6>
+                                
+                                <h6 class="text-center">Valor: <%= servico.precoServico %> </h6>
+                            <% } %> 
                         </div>
                         
                     <% }) %>

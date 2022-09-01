@@ -55,8 +55,9 @@ details[open] summary{
 }
 
 .card-img-top {
-    width: 8rem;
-    height: 8rem;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
 }
 .card-title {
     font-weight: 600;
@@ -70,9 +71,9 @@ details[open] summary{
 
 .card-background {
     background-color: #EFEFEF;
-    width: 100%;
-    border-radius: 0.8rem;
-    padding: 4px;
+    width: max-content;
+    border-radius: 0.5rem;
+    padding: 4px 1rem 4px 1rem;
 }
 
 .img-client {
