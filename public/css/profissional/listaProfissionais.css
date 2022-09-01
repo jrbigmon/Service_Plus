@@ -61,7 +61,8 @@ body {
 }
 
 .card-img-top {
-    width: 10rem;
-    height: 10rem;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
 }
 
