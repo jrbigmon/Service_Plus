@@ -47,7 +47,8 @@ details[open] summary{
 .cards-prof {
     background-color: white;
     width: 15rem;
-    height: auto;
+    height: max-content;
+    max-height: max-content;
     margin: 1rem 0.8rem 1rem 0.8rem;
     box-shadow: 0 0 3px #035397;
     border-radius: 40px;
@@ -110,5 +111,4 @@ details[open] summary{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
 }
