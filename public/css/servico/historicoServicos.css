@@ -85,6 +85,10 @@ details[open] summary{
     height: 100vh;
     height: auto;
     margin-bottom: 1px;
+    background-image: url('/img/historicServices.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 }
 
 .not-service-contain {

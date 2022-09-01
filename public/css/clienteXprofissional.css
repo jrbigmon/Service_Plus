@@ -56,17 +56,6 @@ body {
     margin-bottom: 5px;
 }
 
-.main-historic {
-    background-image: url('/img/historicServices.svg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-}
-
-.not-service-contain {
-    height: 100vh;
-}
-
 input[type='file'] {
     opacity:0    
   }
