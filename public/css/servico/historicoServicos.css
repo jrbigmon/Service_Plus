@@ -71,7 +71,8 @@ details[open] summary{
 .card-background {
     background-color: #EFEFEF;
     width: 100%;
-    border-radius: 1rem;
+    border-radius: 0.8rem;
+    padding: 4px;
 }
 
 .img-client {
@@ -101,4 +102,11 @@ details[open] summary{
     display: flex;
     flex-direction: column;
     border-radius: 1rem;
+}
+
+.cards { 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
 }
