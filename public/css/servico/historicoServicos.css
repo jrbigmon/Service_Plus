@@ -72,6 +72,7 @@ details[open] summary{
 .card-background {
     background-color: #EFEFEF;
     width: max-content;
+    max-width: 100%;
     border-radius: 0.5rem;
     padding: 4px 1rem 4px 1rem;
 }
