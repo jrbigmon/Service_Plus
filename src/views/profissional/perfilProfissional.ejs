@@ -12,9 +12,10 @@
             <h4 class="text-center">PERFIL DO PRESTADOR</h4>
             <h6 class="text-center">Informações sobre: <%= profissional.email %></h6>
 
-            <div class="avatar form-floating p-2">
-                <input type="file" name="avatar" accept=".jpg, .png">
-                <label for="avatar" class="text-center">FOTO</label>
+            <div class="avatar">
+                <img src="/img/avatarPerfilProfissional/<%= profissional.avatar %>" class="avatarImg">
+                <label for="avatar">🔂</label>
+                <input type="file" name="avatar" accept=".jpg, .png" hidden id="avatar">
             </div>
 
             <div class="form-floating p-2">
