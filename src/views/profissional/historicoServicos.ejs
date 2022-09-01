@@ -63,7 +63,7 @@
         </nav>
 
         <% if(dadosServicos != 'undefined' && dadosServicos.length > 0){ %>
-                <div class="">
+                <div class="cards">
 
                     <% dadosServicos.forEach(dadoServico => { %>
 
@@ -71,11 +71,13 @@
                             <img src="/img/avatarPerfilCliente/<%= dadoServico.cliente.avatar %>" class="img-client align-self-center">
                             
                             <div class="card-body texy-center">
-                                <h5 class="card-title d-flex justify-content-center align-self-center"><%= `${dadoServico.cliente.nome} ${dadoServico.cliente.sobrenome}` %> </h5>
+                                <h5 class="card-title text-center d-flex justify-content-center align-self-center"><%= `${dadoServico.cliente.nome} ${dadoServico.cliente.sobrenome}` %> </h5>
                                 <h5 class="card-subtitle date-br text-h4 d-flex justify-content-center align-self-center"><%= dadoServico.dataServico %> </h5>
 
                                 <p class="card-background d-flex justify-content-center align-self-center mt-2">Desc: <%= dadoServico.descricaoServico %></p>
+                                <% if(dadoServico.precoServico !== 0) { %>
                                 <p class="card-title"> R$ <%= dadoServico.precoServico %> </p>
+                                <% } %> 
 
                                 <% if(dadoServico.situacaoServicoId !== 5){ %>
 
@@ -86,7 +88,7 @@
 
                                 <% if (dadoServico.situacaoServicoId == 1){ %>
                                 
-                                    <details class="d-flex justify-content-center">
+                                    <details class="d-flex justify-content-center mb-2">
                                         <summary><strong>ORÇAMENTAR</strong></summary>
                                         <form action="/servicos/<%= dadoServico.id %>/orcamentar?_method=PUT" method="POST">
                                             <label for=""> <strong>VALOR:</strong>
@@ -97,7 +99,7 @@
                                     </details>
 
                                     <details>
-                                        <summary><strong>RECUSAR SOLICITAÇÃO</strong></summary>
+                                        <summary><strong>RECUSAR</strong></summary>
                                         <form action="/servicos/<%= dadoServico.id %>/cancelar?_method=PUT" method="POST">
                                             <label for="" class="col-md-12"><strong>MOTIVO:</strong></label>
                                             <textarea name="descricaoServico" class="col-md-8"></textarea>

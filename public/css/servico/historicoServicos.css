@@ -95,3 +95,10 @@ details[open] summary{
     height: 100vh;
     width: 100%;
 }
+
+.card {
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+}
