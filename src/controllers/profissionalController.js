@@ -91,7 +91,7 @@ const profissionalController = {
   delete: async (req, res) => {
     const { id } = req.params
     
-    await Profissional.update({ deleted_at: new Date() }, { where: { id } })
+    await Profissional.update({ deletedAt: new Date() }, { where: { id } })
     
     req.session.destroy()
     

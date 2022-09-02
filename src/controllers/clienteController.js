@@ -102,7 +102,7 @@ const clienteController = {
   delete: async (req, res) => {
     const { id } = req.params
 
-    await Cliente.update({ deleted_at: new Date() }, { where: { id } })
+    await Cliente.update({ deletedAt: new Date() }, { where: { id } })
     
     req.session.destroy()
     
