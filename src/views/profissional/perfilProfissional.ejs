@@ -47,16 +47,15 @@
                     <textarea class="form-control" id="descricao" name="descricao" rows="10" cols="40" maxlength="500"><%= profissional.descricao %></textarea>
                     <label for="descricao" class="form-label">Sobre você:</label>
                 </div>
-
-                <div class="form-floating buttons">
+                <div class="buttons">
+                    <div>
                         <button type="submit" class="btn btn-info">Finalizar</button>
-
-                        <form action="/perfil/cliente/<%= profissional.id %>/deletar?_method=DELETE" method="POST">
-                            <button type="submit" class="text-center btn btn-danger"> Deletar conta</button>
-                        </form>
-                </div>
-        </form>
-
+                    </div>
+                </form>
+                <form action="/perfil/profissional/<%= profissional.id %>/deletar?_method=DELETE" method="POST">
+                    <button type="submit" class="text-center btn btn-danger"> Deletar conta</button>
+                </form>
+            </div>
     </main>
     <%- include('../partials/footer')%>
 </body>
