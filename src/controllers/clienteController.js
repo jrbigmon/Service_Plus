@@ -12,7 +12,7 @@ const clienteController = {
     area = area || ['1', '2', '3'] 
     
     const profissionaisSemLocalidade = await Profissional.findAll({
-      where: { areaId: area },
+      where: { areaId: area, deletedAt: { [Op.is]: null } },
       attributes: ['id', 'avatar', 'nome', 'sobrenome', 'cep', 'areaId'],
       order: [['nome', order]],
       include: 'area',
