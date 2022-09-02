@@ -96,14 +96,22 @@ const clienteController = {
       tipoUsuario: 'cliente'
     })
     
-    return res.redirect('/')
+    return res.redirect('/perfil/cliente/profissionais')
   },
 
   delete: async (req, res) => {
     const { id } = req.params
 
+    const cliente = await Cliente.findByPk(id)
+    
+    if(!cliente) return res.redirect('/')
+    
     await Cliente.destroy({ where: { id } })
-
+    
+    req.session.destroy()
+    
+    delete res.locals.usuario
+    
     return res.redirect('/')
   },
   
