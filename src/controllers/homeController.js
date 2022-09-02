@@ -26,7 +26,7 @@ const homeController = {
     if (queryUsuario === 'cliente') {
       const cliente = await Cliente.findOne({ where: { email }, raw: true })
 
-      if (cliente && bcrypt.compareSync(senha, cliente.senha)) {
+      if (cliente && bcrypt.compareSync(senha, cliente.senha) && !cliente.deletedAt) {
         const endereco = await cepRequest.getCep(cliente.cep)
 
         delete cliente.senha
@@ -50,8 +50,8 @@ const homeController = {
 
     if (queryUsuario === 'profissional') {
       const profissional = await Profissional.findOne({ where: { email }, raw: true })
-
-      if (profissional && bcrypt.compareSync(senha, profissional.senha)) {
+    
+      if (profissional && bcrypt.compareSync(senha, profissional.senha) && !profissional.deletedAt) {
         const endereco = await cepRequest.getCep(profissional.cep)
 
         Object.assign(profissional, {
