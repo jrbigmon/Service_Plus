@@ -11,6 +11,6 @@ router.get('/perfil/profissional/historico', profissionalController.history)
 router.get('/perfil/profissional/:id/editar', profissionalController.showProfile)
 router.put('/perfil/profissional/:id/editar', storageAvatar('avatarPerfilProfissional').single('avatar'), profissionalController.editProfile)
 
-router.delete('/perfil/profissional/:id/delete', profissionalController.deleteProfile)
+router.delete('/perfil/profissional/:id/deletar', profissionalController.delete)
 
 module.exports = router
