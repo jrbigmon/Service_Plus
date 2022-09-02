@@ -88,11 +88,15 @@ const profissionalController = {
     return res.redirect('/')
   },
   
-  deleteProfile: async (req, res) => {
+  delete: async (req, res) => {
     const { id } = req.params
-
-    await Profissional.destroy({ where: { id } })
-
+    
+    await Profissional.update({ deleted_at: new Date() }, { where: { id } })
+    
+    req.session.destroy()
+    
+    delete res.locals.usuario
+    
     return res.redirect('/')
   }
 

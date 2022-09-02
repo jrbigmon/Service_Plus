@@ -102,11 +102,7 @@ const clienteController = {
   delete: async (req, res) => {
     const { id } = req.params
 
-    const cliente = await Cliente.findByPk(id)
-    
-    if(!cliente) return res.redirect('/')
-    
-    await Cliente.destroy({ where: { id } })
+    await Cliente.update({ deleted_at: new Date() }, { where: { id } })
     
     req.session.destroy()
     
