@@ -23,7 +23,7 @@ const servicoController = {
     if (tipoUsuario !== 'cliente') {
       return res.redirect('/perfil/profissional/historico')
     }
-    console.log(dataServico)
+
     const solicitacao = {
       clienteId: parseInt(idCliente),
       profissionalId: parseInt(idProfissional),
@@ -67,7 +67,8 @@ const servicoController = {
     const servicoRealizado = await ClienteHasProfissional.findByPk(id)
     if (!servicoRealizado || servicoRealizado.situacaoServicoId !== 3) return res.redirect('/')
     const servicoUpdated = {
-      situacaoServicoId: 4
+      situacaoServicoId: 4,
+      dataServico: new Date()
     }
     await ClienteHasProfissional.update(servicoUpdated, { where: { id } })
     return res.redirect('/')
