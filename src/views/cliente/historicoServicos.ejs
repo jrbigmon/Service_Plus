@@ -67,10 +67,14 @@
                             
                             <h6 class="card-background mt-2 text-center"><strong><%= servico.situacaoServico.estado %></strong></h6>
                             
-                            <% if (servico.situacaoServicoId == 2){ %>
-
+                            <% if(servico.situacaoServicoId !== 5) { %>
                                 <h6 class="text-h4 text-center mt-2">R$ <%= servico.precoServico %> </h6>
-
+                            
+                                <h6 class="text-h4 text-center mt-2"><%= servico.descricaoServico %> </h6>
+                            <% } %> 
+                            
+                            <% if (servico.situacaoServicoId == 2){ %>
+                            
                                 <form action="/servicos/<%= servico.id %>/aceitar?_method=PUT" method="POST" class="mt-3 mb-3 d-flex justify-content-center">
                                     <button class="btn btn-success" type="submit">Aceitar</button>
                                 </form>
