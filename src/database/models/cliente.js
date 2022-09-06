@@ -31,6 +31,12 @@ module.exports = (sequelize, DataType) => {
       type: DataType.STRING,
       defaultValue: 'defaultAvatar.jpeg',
       allowNull: true
+    },
+
+    deletedAt: {
+      type: DataType.DATE,
+      allowNull: true,
+      field: 'deleted_at'
     }
   },
   {

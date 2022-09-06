@@ -37,10 +37,14 @@ body {
     margin: 1rem 0 1rem 0;
 }
 
-.imagem img {
-    width: 25%;
-    max-width: 25%;
-    border-radius: 10rem;
+.imagem {
+    height: auto;
+}
+
+.avatarImg {
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
 }
 
 .text-area {

@@ -1,16 +1,25 @@
 const { Profissional, ClienteHasProfissional } = require('../database/models')
 const fs = require('fs')
 const path = require('path')
+const { Op }= require('sequelize')
 
 const profissionalController = {
   history: async (req, res) => {
-    const { statusServicoFromBody } = req.body
     const { id } = req.session.usuario;
-
-    let statusServico = statusServicoFromBody || 1
-
+    const situacaoServico = req.query.status || 1
+    const precoMin = req.query.precoMin || '0'
+    const precoMax = req.query.precoMax || '1000'
+    const order = req.query.ordem || 'ASC'
+    const data = req.query.data || ''
+    
     const dadosServicos = await ClienteHasProfissional.findAll({
-      where: { profissionalId: id, situacaoServicoId: statusServico },
+      where: {
+        profissionalId: id, 
+        situacaoServicoId: parseInt(situacaoServico),
+        precoServico: { [Op.between] : [precoMin, precoMax] },
+        dataServico: { [Op.gt] : data }
+      }, 
+      order: [['dataServico', order]],
       include: [
         {
           association: 'situacaoServico',
@@ -79,11 +88,15 @@ const profissionalController = {
     return res.redirect('/')
   },
   
-  deleteProfile: async (req, res) => {
+  delete: async (req, res) => {
     const { id } = req.params
-
-    await Profissional.destroy({ where: { id } })
-
+    
+    await Profissional.update({ deletedAt: new Date() }, { where: { id } })
+    
+    req.session.destroy()
+    
+    delete res.locals.usuario
+    
     return res.redirect('/')
   }
 

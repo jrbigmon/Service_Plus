@@ -12,8 +12,8 @@ const clienteController = {
     area = area || ['1', '2', '3'] 
     
     const profissionaisSemLocalidade = await Profissional.findAll({
-      where: { areaId: area },
-      attributes: ['avatar', 'nome', 'sobrenome', 'cep', 'areaId'],
+      where: { areaId: area, deletedAt: { [Op.is]: null } },
+      attributes: ['id', 'avatar', 'nome', 'sobrenome', 'cep', 'areaId'],
       order: [['nome', order]],
       include: 'area',
     })
@@ -96,14 +96,18 @@ const clienteController = {
       tipoUsuario: 'cliente'
     })
     
-    return res.redirect('/')
+    return res.redirect('/perfil/cliente/profissionais')
   },
 
   delete: async (req, res) => {
     const { id } = req.params
 
-    await Cliente.destroy({ where: { id } })
-
+    await Cliente.update({ deletedAt: new Date() }, { where: { id } })
+    
+    req.session.destroy()
+    
+    delete res.locals.usuario
+    
     return res.redirect('/')
   },
   

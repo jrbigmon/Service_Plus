@@ -12,9 +12,10 @@
             <h4 class="text-center">PERFIL DO PRESTADOR</h4>
             <h6 class="text-center">Informações sobre: <%= profissional.email %></h6>
 
-            <div class="avatar form-floating p-2">
-                <input type="file" name="avatar" accept=".jpg, .png">
-                <label for="avatar" class="text-center">FOTO</label>
+            <div class="avatar">
+                <img src="/img/avatarPerfilProfissional/<%= profissional.avatar %>" class="avatarImg">
+                <label for="avatar">🔂</label>
+                <input type="file" name="avatar" accept=".jpg, .png" hidden id="avatar">
             </div>
 
             <div class="form-floating p-2">
@@ -46,16 +47,15 @@
                     <textarea class="form-control" id="descricao" name="descricao" rows="10" cols="40" maxlength="500"><%= profissional.descricao %></textarea>
                     <label for="descricao" class="form-label">Sobre você:</label>
                 </div>
-
-                <div class="form-floating buttons">
+                <div class="buttons">
+                    <div>
                         <button type="submit" class="btn btn-info">Finalizar</button>
-
-                        <form action="/perfil/cliente/<%= profissional.id %>/deletar?_method=DELETE" method="POST">
-                            <button type="submit" class="text-center btn btn-danger"> Deletar conta</button>
-                        </form>
-                </div>
-        </form>
-
+                    </div>
+                </form>
+                <form action="/perfil/profissional/<%= profissional.id %>/deletar?_method=DELETE" method="POST">
+                    <button type="submit" class="text-center btn btn-danger"> Deletar conta</button>
+                </form>
+            </div>
     </main>
     <%- include('../partials/footer')%>
 </body>

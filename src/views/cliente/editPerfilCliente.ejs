@@ -7,17 +7,18 @@
         <%- include('../partials/header')%>
 
             <main class="main-home m-5 d-flex justify-content-center">
-
-                <form class="row g-3 meu-form col-lg-5 col-sm-12 col-12 justify-content-center align-items-center"
-                    action="/perfil/cliente/<%= cliente.id %>/editar?_method=PUT" method="POST"
-                    enctype="multipart/form-data">
+                <div  class="row g-3 meu-form col-lg-5 col-sm-12 col-12 justify-content-center align-items-center">
+                    
+               
+                <form action="/perfil/cliente/<%= cliente.id %>/editar?_method=PUT" method="POST" enctype="multipart/form-data">
                     <h4 class="text-center">PERFIL DO CLIENTE</h4>
                     <h6 class="text-center">Informações sobre: <%= cliente.email %>
                     </h6>
 
-                    <div class="avatar form-floating p-2">
-                        <input type="file" name="avatar" accept=".jpg, .png">
-                        <label for="avatar" class="text-center">FOTO</label>
+                    <div class="avatar">
+                        <img src="/img/avatarPerfilCliente/<%= cliente.avatar %>" class="avatarImg">
+                        <label for="avatar">🔂</label>
+                        <input type="file" name="avatar" accept=".jpg, .png" hidden id="avatar">
                     </div>
 
                     <div class="form-floating p-1">
@@ -51,14 +52,17 @@
                         <label for="numero" class="form-label">Número:</label>
                     </div>
 
-                    <div class="form-floating buttons">
-                        <button type="submit" class="btn btn-info col col-md-3">Finalizar</button>
-
-                        <form action="/perfil/cliente/<%= cliente.id %>/deletar?_method=DELETE" method="POST">
-                            <button type="submit" class="text-center btn btn-danger"> Deletar conta</button>
-                        </form>
+                    <div class="buttons">
+                    <div>
+                        <button type="submit" class="btn btn-info">Finalizar</button>
                     </div>
                 </form>
+                <form action="/perfil/cliente/<%= cliente.id %>/deletar?_method=DELETE" method="POST">
+                    <button type="submit" class="text-center btn btn-danger"> Deletar conta</button>
+                </form>
+                
+                </div>
+            </div>
                 </main>
                 <%- include('../partials/footer')%>
                     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

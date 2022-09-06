@@ -40,6 +40,12 @@ module.exports = (sequelize, DataType) => {
     descricao: {
       type: DataType.STRING,
       allowNull: true
+    },
+
+    deletedAt: {
+      type: DataType.DATE,
+      allowNull: true,
+      field: 'deleted_at'
     }
   },
   {
