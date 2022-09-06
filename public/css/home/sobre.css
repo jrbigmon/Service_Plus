@@ -5,23 +5,29 @@
     font-family: 'Montserrat', sans-serif;
     
 }
+
 body {
     padding: 0;
     margin: 0;
     background-color:#EFEFEF;
     height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .main-home {
     width: 100%;
-    height: 80vh;
+    height: 61vh;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    margin: 10px;
+    justify-content: flex-end;
+    background-image: url('/img/about.svg');
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size:contain;
+    margin: 1rem 0px 1rem 0px;
 }
 
 h1 {
@@ -29,4 +35,8 @@ h1 {
     font-size: 1rem;
     font-weight: 400;
     color: #E8630A;
+}
+.about-container {
+    width: 400px;
+    margin-right: 100px;
 }
