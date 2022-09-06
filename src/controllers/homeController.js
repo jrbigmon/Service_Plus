@@ -108,6 +108,7 @@ const homeController = {
           cpf,
           areaId
         })
+        return res.redirect('/login/?usuario=profissional')
       } else {
         await Cliente.create({
           nome,
@@ -120,9 +121,8 @@ const homeController = {
           senha: bcrypt.hashSync(senha, 10),
           cpf
         })
+        return res.redirect('/login/?usuario=cliente')
       }
-
-      return res.redirect('/')
     }
 
     return res.render('./home/cadastro', {
