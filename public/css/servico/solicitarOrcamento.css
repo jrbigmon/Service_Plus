@@ -50,13 +50,13 @@ body {
 .text-area {
     padding: 10px;
     box-shadow: 0 0 3px #035397;
-    width: 100%;
+    width: 350px;
     border-radius: 15px;
 }
 
 .description {
     padding: 10px;
-    border: 1px solid #035397;
+    border-bottom: 1px solid #035397;
     text-align: justify;
     border-radius: 15px;
 }
