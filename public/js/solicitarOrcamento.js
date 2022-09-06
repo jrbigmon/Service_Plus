@@ -24,16 +24,16 @@ window.addEventListener('load', async () => {
     dataServico.min = dataMinima
   })
 
-  const formulario = document.querySelector('form')
+  const formulario = document.querySelector('.form-budget')
   const inputs = document.querySelectorAll('input[name="dataServico"], textarea[name="descricaoServico"]')
-
+  
   formulario.addEventListener('submit', (event) => {
     const errors = []
-
+    
     for (const input of inputs) {
       const inputValue = input.value.trim()
-
-      if (inputValue.length < 1) {
+      
+      if (inputValue === '') {
         errors.push(input.name)
 
         input.style.border = '1px solid red'
@@ -46,7 +46,7 @@ window.addEventListener('load', async () => {
         icon: 'warning',
         title: 'Oops...',
         text: 'Possuem campos Vazios!',
-        footer: '<a href="">Why do I have this issue?</a>'
+        // footer: '<a href="">Why do I have this issue?</a>'
       })
 
       event.preventDefault()
