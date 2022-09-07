@@ -11,6 +11,7 @@ const clienteRouter = require('./src/routes/clienteRouter')
 const servicoRouter = require('./src/routes/servicoRouter')
 const isLoggedIn = require('./src/middlewares/isLoggedIn')
 const changeStatusServiceAuto = require('./src/middlewares/changeStatusServiceAuto')
+const professionalRouterApi = require('./src/routes/routerApi/professionalRouterApi')
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -28,6 +29,7 @@ app.use(session({
   saveUninitialized: false
 }))
 
+app.use(professionalRouterApi)
 app.use(changeStatusServiceAuto)
 app.use(isLoggedIn)
 app.use(homeRouter)
