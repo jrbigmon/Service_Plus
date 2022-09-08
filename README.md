@@ -9,13 +9,26 @@
 
 ## Como iniciar o projeto
 ### Instale as dependencias do projeto
-![Instalar dependencias](./public/img/imgReadme/npm-install.png)
-### Incie o servidor na porta 3306
-![Iniciar servidor do banco de dados](./public/img/imgReadme/connect-database-server.PNG)
-### Crie o Banco de dados
-![Instalar dependencias](./public/img/imgReadme/create-database.png)
-### Crie as tabelas com o sequelize
-![Instalar dependencias](./public/img/imgReadme/create-table-with-migrations.png)
-### Insira os valores da regra de negócio do projeto, juntamente com usuarios e profissionais de teste
-![Instalar dependencias](./public/img/imgReadme/insert-values-to-test-and-foreignkeys-constrains.png)
+Install all the dependecies:
+````bash
+npm install
+````
+💡 Inicie seu servidor MySQL (XAMPP recomendado) na porta 3306 
+
+Crie o banco de dados com `sequelize`
+````bash
+npx sequelize db:create
+````
+Crie as tabelas do banco de dados com sequelize
+````bash
+npx sequelize db:migrate
+````
+Rode todas as seeders para inserir os valores iniciais do banco de dados
+````bash
+npx sequelize db:seed:all
+````
+Após realizar todos os processos anteriores, faça
+````bash
+npm start
+````
    
