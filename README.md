@@ -16,5 +16,5 @@
 ### Crie as tabelas com o sequelize
 ![Instalar dependencias](./public/img/imgReadme/create-table-with-migrations.png)
 ### Insira os valores da regra de negócio do projeto, juntamente com usuarios e profissionais de teste
-![Instalar dependencias](./public/img/imgReadme/insert-values-to-test-and-foreignKeys-constrains.png)
+![Instalar dependencias](./public/img/imgReadme/insert-values-to-test-and-foreignkeys-constrains.png)
    
