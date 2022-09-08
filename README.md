@@ -9,7 +9,7 @@
 
 ## Como iniciar o projeto
 ### Instale as dependencias do projeto
-![Instalar dependencias](./public/img/imgReadme/npm-istall.png)
+![Instalar dependencias](./public/img/imgReadme/npm-install.png)
 ### Incie o servidor na porta 3306
 ![Iniciar servidor do banco de dados](./public/img/imgReadme/connect-database-server.PNG)
 ### Crie o Banco de dados
