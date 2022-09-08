@@ -7,5 +7,5 @@ Agradecemos pelo bug de cada dia, que nos inspira a continuarmos a nossa missão
 Utilize esse projeto com moderação... pois como já dizio o tio Ben: "With great power comes great responsibility"
 
 ## Como iniciar o projeto
-![alt text](./img/imgReadme/connect-database-server.PNG)
+![Iniciar servidor do banco de dados](./public/img/imgReadme/connect-database-server.PNG)
    
