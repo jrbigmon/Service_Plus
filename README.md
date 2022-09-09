@@ -35,6 +35,13 @@ Após realizar todos os processos anteriores, faça
 ````bash
 npm start
 ````
+## Tecnologias Utilizadas
+### Back-end
+- Javascript, Node.js e Express
+### Front-end
+- EJS, HTML5, CSS, Bootstrap e Javascript
+### Banco de dados
+- MySQL e Sequelize(ORM)
 
 ## Um pouco mais sobre o projeto
 ### Pagina inicial
