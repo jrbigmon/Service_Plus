@@ -7,7 +7,7 @@
 - Agradecemos pelo bug de cada dia, que nos inspira a continuarmos em nossa missão. 
 
 ## Como iniciar o projeto
-### Instale as dependencias do projeto
+
 Instale todas as dependências:
 ````bash
 npm install
