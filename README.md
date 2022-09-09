@@ -62,3 +62,15 @@ npm start
 
 ### Sobre nós
 ![alt text](./public/img/imgReadme/about-page.PNG)
+
+## Agradecimentos
+Agradecemos a Digital House e aos professores que colaboraram com nossa evolução e conhecimento. 
+
+Inicialmente esse projeto era para ser um e-commercer, mas decidimos nos desafiar e fazer algo além do proposto pelo curso. 
+
+Chegamos nesse projeto final para essa estrutura monolítica, mas já temos proposta futuras para a “refatoração” e utilizar novas tecnologias para a criação de um projeto mais maduro, segue o github: https://github.com/jrbigmon/ServicePlusApi  
+
+A vida é baseada em constantes evoluções, tropeços e erros. No mundo da programação, isso se repede com mais frequência do que imaginamos, mas nós, programadores em ascensão, sabemos que a resiliência é a chave para o sucesso. 
+
+- “Insanidade é: fazer a mesma coisa várias vezes e esperar resultados diferentes” 
+Albert Einstein 
