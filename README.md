@@ -18,7 +18,7 @@ Crie o banco de dados com `sequelize`
 ````bash
 npx sequelize db:create
 ````
-Crie as tabelas do banco de dados com sequelize
+Crie as tabelas do banco de dados com `sequelize`
 ````bash
 npx sequelize db:migrate
 ````
@@ -30,4 +30,36 @@ Após realizar todos os processos anteriores, faça
 ````bash
 npm start
 ````
-   
+
+## Um pouco mais sobre o projeto
+### Pagina inicial
+![alt text](./public/img/imgReadme/home-page.PNG)
+
+### Lista de profissionais
+![alt text](./public/img/imgReadme/search-professionals-page.PNG)
+![alt text](./public/img/imgReadme/search-professionals-with-filter-page.PNG)
+
+### Solicitar orçamento
+![alt text](./public/img/imgReadme/budget-page.PNG)
+
+### Tela de login
+![alt text](./public/img/imgReadme/login-page.PNG)
+
+### Tela de cadastro 
+![alt text](./public//img/imgReadme/register-page.PNG)
+
+### Tela de perfil do cliente 
+![alt text](./public//img/imgReadme/profile-client-page.PNG)
+
+### Tela de perfil do profissional
+![alt text](./public/img/imgReadme/profile-professional-page.PNG)
+
+### Tela de histórico de serviços do cliente
+![alt text](./public/img/imgReadme/history-services-client-page.PNG)
+![alt text](./public/img/imgReadme/history-services-with-filter-client-page.PNG)
+
+### Tela de histórico de serviços do profissional
+![alt text](./public/img/imgReadme/history-services-professional-page.PNG)
+
+### Tela Sobre nós
+![alt text](./public/img/imgReadme/about-page.PNG)
