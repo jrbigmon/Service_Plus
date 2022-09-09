@@ -9,7 +9,7 @@
 
 ## Como iniciar o projeto
 ### Instale as dependencias do projeto
-Install all the dependecies:
+Instale todas as dependências:
 ````bash
 npm install
 ````
