@@ -37,7 +37,6 @@ npm start
 
 ### Lista de profissionais
 ![alt text](./public/img/imgReadme/search-professionals-page.PNG)
-![alt text](./public/img/imgReadme/search-professionals-with-filter-page.PNG)
 
 ### Solicitar orçamento
 ![alt text](./public/img/imgReadme/budget-page.PNG)
