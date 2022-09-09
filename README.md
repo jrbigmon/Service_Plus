@@ -42,24 +42,24 @@ npm start
 ### Solicitar orçamento
 ![alt text](./public/img/imgReadme/budget-page.PNG)
 
-### Tela de login
+### Login
 ![alt text](./public/img/imgReadme/login-page.PNG)
 
-### Tela de cadastro 
+### Cadastro 
 ![alt text](./public//img/imgReadme/register-page.PNG)
 
-### Tela de perfil do cliente 
+### Perfil do cliente 
 ![alt text](./public//img/imgReadme/profile-client-page.PNG)
 
-### Tela de perfil do profissional
+### Perfil do profissional
 ![alt text](./public/img/imgReadme/profile-professional-page.PNG)
 
-### Tela de histórico de serviços do cliente
+### Histórico de serviços do cliente
 ![alt text](./public/img/imgReadme/history-services-client-page.PNG)
 ![alt text](./public/img/imgReadme/history-services-with-filter-client-page.PNG)
 
-### Tela de histórico de serviços do profissional
+### Histórico de serviços do profissional
 ![alt text](./public/img/imgReadme/history-services-professional-page.PNG)
 
-### Tela Sobre nós
+### Sobre nós
 ![alt text](./public/img/imgReadme/about-page.PNG)
