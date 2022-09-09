@@ -54,7 +54,7 @@ body {
 .cards-prof {
     background-color: white;
     width: 15rem;
-    height: auto;
+    height: max-content;
     margin: 1rem 0.8rem 1rem 0.8rem;
     box-shadow: 0 0 3px #035397;
     border-radius: 40px;
