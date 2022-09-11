@@ -36,7 +36,6 @@ body {
 }
 .sidebar-filter {    
     width: 20%;
-    height: 150vh;
     background-color: white;
     opacity: 60%;
     box-shadow: 0 0 5px #035397;
@@ -49,18 +48,18 @@ body {
 .section-principal {
     width: 80%;
     height: auto;
+    min-height: 100vh;
     margin-bottom: 2rem;
 }
 .cards-prof {
     background-color: white;
     width: 15rem;
-    height: auto;
+    height: max-content;
     margin: 1rem 0.8rem 1rem 0.8rem;
     box-shadow: 0 0 3px #035397;
     border-radius: 40px;
     padding: 0.5rem;
 }
-
 .card-img-top {
     width: 7rem;
     height: 7rem;
