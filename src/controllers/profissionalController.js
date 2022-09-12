@@ -40,6 +40,10 @@ const profissionalController = {
   showProfile: async (req, res) => {
     const { id } = req.params
 
+    if (id != req.session.usuario.id) {
+      return res.redirect('/')
+    }
+
     const profissional = await Profissional.findByPk(id)
 
     return res.render('./profissional/perfilProfissional', { title: 'Perfil do profissional', profissional })
