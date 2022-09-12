@@ -89,7 +89,7 @@ const profissionalController = {
       tipoUsuario: 'profissional'
     })
     
-    return res.redirect('/')
+    return res.redirect('/perfil/profissional/historico')
   },
   
   delete: async (req, res) => {
